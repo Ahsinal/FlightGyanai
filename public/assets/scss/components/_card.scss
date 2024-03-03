@@ -1,0 +1,283 @@
+@mixin card($radius: 0.25rem) {
+  background-color: $white;
+  border-radius: $radius;
+  padding: 1.5rem;
+  height: 100%;
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+}
+
+// .card {
+//   &-default {
+//     @include card();
+//   }
+
+//   &-edge {
+//     &-rounded {
+//       @include card(0.5rem);
+//     }
+
+//     &-pointed {
+//       @include card(unset);
+//     }
+//   }
+// }
+
+
+
+.card {
+  cursor: pointer;
+
+
+  &-banner {
+    width: 6rem;
+    min-height: 3rem;
+    height: auto;
+    cursor: pointer;
+    background-color: rgba(138, 137, 137, 0.8);
+  }
+
+  &-destination {
+    overflow: hidden;
+
+    img {
+      transition: 0.4s all ease-in-out;
+    }
+
+    .overlay {
+      background: linear-gradient(0deg, rgba(75, 75, 75, 0.7), rgba(52, 52, 52, 0.6));
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+
+    .overlay {
+      width: 100%;
+      // z-index: 2;
+      bottom: 0;
+    }
+  }
+
+  &-package {
+    background-color: #F8F8F9;
+    border: 1px solid rgb(221, 219, 219);
+    position: relative;
+    // min-height: 450px;
+
+    img {
+      transition: 0.4s all ease-in-out;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+
+      a {
+        background-color: transparent !important;
+        color: $secondary !important;
+        border: 1px solid $secondary !important;
+      }
+    }
+
+    .price {
+      width: 4.5rem;
+      height: 4.5rem;
+      background-color: white;
+      border-radius: 50%;
+      margin-top: -2.5rem;
+      right: 0;
+      top: 40%;
+      position: absolute;
+    }
+
+    .content {
+      min-height: 130px !important;
+    }
+
+  }
+
+  &-services {
+    border: 1px solid #9fccf9;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.01);
+    }
+
+
+    .icon-wrapper {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #d9ebfb;
+      flex: 0 0 auto;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+  }
+
+  &-explore {
+    overflow: hidden;
+    background-color: rgb(251, 250, 250);
+    border: 1px solid rgb(209, 207, 207);
+    position: relative;
+
+    img {
+      transition: 0.4s all ease-in-out;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+        filter: blur(0.4);
+      }
+
+    }
+
+    .price {
+      background-color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .small-card {
+      // background-color: rgba($color:#d9ebfb, $alpha: 0.8);
+      background-color: $primary;
+      color: white;
+    }
+  }
+
+  &-blog {
+    // border: 1px solid rgb(209, 207, 207);
+
+
+    img {
+      transition: 0.4s all ease-in-out;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+        filter: blur(0.4);
+      }
+    }
+  }
+
+  &-testimonial {
+    width: 100%;
+
+    .testimonial-img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+
+  &-teams {
+    border: 1px solid rgb(209, 207, 207);
+    // position: relative;
+
+    .teams-content {
+      // position: absolute;
+      // // top: 100%;
+      // // left: 0;
+      // width: 100%;
+      // height: 400px !important;
+      background-color: white;
+      // margin-top: -3rem;
+      // border-top: 1px solid rgb(209, 207, 207);
+      border-radius: 16px;
+      height: auto;
+
+      .social-icons {
+        cursor: pointer;
+        width: 2.5rem;
+        height: 2.5rem;
+
+        &:hover {
+          background-color: $secondary;
+
+          a {
+            color: white !important;
+          }
+        }
+      }
+    }
+  }
+
+  &-side {
+    .image {
+      width: 70px;
+      height: 60px;
+    }
+
+    .package-info {
+      cursor: pointer;
+      border-bottom: 1px solid #BAB9B9;
+      width: 100%;
+
+      &:hover {
+        color: $secondary !important;
+      }
+    }
+  }
+
+  &-serv {
+    position: relative;
+    .icon{
+      height: 80px;
+      width: 80px;
+      border: 1px solid black;
+      border-radius: 50%;
+      img{
+        width: 50%;
+        height: 50%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    // &::before,
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   background-size: cover;
+    //   background-position: center;
+    // }
+
+    // &::before {
+    //   background-image: url('https://img.freepik.com/free-photo/young-woman-hiker-taking-photo-with-smartphone-mountains-peak-winter_335224-427.jpg?size=626&ext=jpg&uid=R74330178&ga=GA1.1.2047347518.1707369163&semt=sph');
+    //   z-index: -1;
+    //   /* Place behind other content */
+    // }
+
+    // &::after {
+    //   /* Optionally, you can apply a semi-transparent overlay */
+    //   background-color: rgba(0, 0, 0, 0.5);
+    //   /* Adjust opacity as needed */
+    // }
+  }
+
+
+}

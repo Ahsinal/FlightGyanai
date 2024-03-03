@@ -1,0 +1,67 @@
+.navbar-nav {
+  a {
+    &:hover {
+      color: $secondary !important;
+    }
+  }
+
+  .dropdown {
+    a {
+      color: white !important;
+    }
+
+    .dropdown-menu {
+      a {
+        color: black !important;
+
+        &:hover {
+          color: $secondary !important;
+        }
+      }
+    }
+  }
+
+  .button {
+    a {
+      &:hover {
+        background-color: red !important;
+        color: white !important;
+      }
+    }
+  }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+  animation: fadeInDown 0.5s ease-in-out 0s 1 normal none running;
+  transition: 0.5s;
+
+  .navbar-nav {
+    background-color: white !important;
+
+    a {
+      color: rgb(46, 46, 46) !important;
+
+      &:hover {
+        color: $secondary !important;
+      }
+    }
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      -webkit-transform: translate3d(0, -100%, 0);
+      opacity: 0;
+      transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+      -webkit-transform: translateZ(0);
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+}
