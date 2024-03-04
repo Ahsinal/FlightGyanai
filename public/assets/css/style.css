@@ -35931,29 +35931,23 @@ header .sticky .navbar-nav a:hover {
   color: #c1272f !important;
 }
 
-.landing-banner {
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  top: 0;
+.landing-banner .swiper {
+  /* Ensure Swiper slides take the full width */
 }
-.landing-banner img {
+.landing-banner .swiper .swiper-slide {
   width: 100%;
-  display: block;
 }
-.landing-banner .content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+.landing-banner .swiper add .swiper-button-prev,
+.landing-banner .swiper .swiper-button-next {
+  background-color: rgba(170, 170, 170, 0.6);
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+.landing-banner .swiper .swiper-button-prev:after,
+.landing-banner .swiper .swiper-button-next:after {
+  font-size: 1.65rem;
   color: white;
-  z-index: 1;
-  width: 100%;
-}
-.landing-banner h1, .landing-banner .h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
 }
 
 .swiper-pagination-center .swiper-pagination {
@@ -36060,164 +36054,12 @@ header .sticky .navbar-nav a:hover {
   cursor: pointer;
 }
 .card-banner {
-  width: 6rem;
-  min-height: 3rem;
-  height: auto;
-  cursor: pointer;
-  background-color: rgba(138, 137, 137, 0.8);
+  height: 80vh;
 }
-.card-destination {
-  overflow: hidden;
-}
-.card-destination img {
-  transition: 0.4s all ease-in-out;
-}
-.card-destination .overlay {
-  background: linear-gradient(0deg, rgba(75, 75, 75, 0.7), rgba(52, 52, 52, 0.6));
-}
-.card-destination:hover img {
-  transform: scale(1.1);
-}
-.card-destination .overlay {
-  width: 100%;
-  bottom: 0;
-}
-.card-package {
-  background-color: #F8F8F9;
-  border: 1px solid rgb(221, 219, 219);
-  position: relative;
-}
-.card-package img {
-  transition: 0.4s all ease-in-out;
-}
-.card-package:hover img {
-  transform: scale(1.1);
-}
-.card-package:hover a {
-  background-color: transparent !important;
-  color: #c1272f !important;
-  border: 1px solid #c1272f !important;
-}
-.card-package .price {
-  width: 4.5rem;
-  height: 4.5rem;
-  background-color: white;
-  border-radius: 50%;
-  margin-top: -2.5rem;
-  right: 0;
-  top: 40%;
-  position: absolute;
-}
-.card-package .content {
-  min-height: 130px !important;
-}
-.card-services {
-  border: 1px solid #9fccf9;
-  transition: transform 0.3s ease;
-}
-.card-services:hover {
-  transform: scale(1.01);
-}
-.card-services .icon-wrapper {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #d9ebfb;
-  flex: 0 0 auto;
-}
-.card-services .content {
-  flex: 1;
-}
-.card-explore {
-  overflow: hidden;
-  background-color: rgb(251, 250, 250);
-  border: 1px solid rgb(209, 207, 207);
-  position: relative;
-}
-.card-explore img {
-  transition: 0.4s all ease-in-out;
-}
-.card-explore:hover img {
-  transform: scale(1.1);
-  filter: blur(0.4);
-}
-.card-explore .price {
-  background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.card-explore .small-card {
-  background-color: #269215;
-  color: white;
-}
-.card-blog img {
-  transition: 0.4s all ease-in-out;
-}
-.card-blog:hover img {
-  transform: scale(1.1);
-  filter: blur(0.4);
-}
-.card-testimonial {
-  width: 100%;
-}
-.card-testimonial .testimonial-img {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.card-testimonial .testimonial-img img {
+.card-banner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-}
-.card-teams {
-  border: 1px solid rgb(209, 207, 207);
-}
-.card-teams .teams-content {
-  background-color: white;
-  border-radius: 16px;
-  height: auto;
-}
-.card-teams .teams-content .social-icons {
-  cursor: pointer;
-  width: 2.5rem;
-  height: 2.5rem;
-}
-.card-teams .teams-content .social-icons:hover {
-  background-color: #c1272f;
-}
-.card-teams .teams-content .social-icons:hover a {
-  color: white !important;
-}
-.card-side .image {
-  width: 70px;
-  height: 60px;
-}
-.card-side .package-info {
-  cursor: pointer;
-  border-bottom: 1px solid #BAB9B9;
-  width: 100%;
-}
-.card-side .package-info:hover {
-  color: #c1272f !important;
-}
-.card-serv {
-  position: relative;
-}
-.card-serv .icon {
-  height: 80px;
-  width: 80px;
-  border: 1px solid black;
-  border-radius: 50%;
-}
-.card-serv .icon img {
-  width: 50%;
-  height: 50%;
-  object-fit: cover;
-  object-position: center;
 }
 
 ul {

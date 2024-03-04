@@ -1,28 +1,23 @@
 .landing-banner {
-    position: relative;
-    overflow: hidden;
-    height: 100%;
-    top: 0;
+    .swiper {
 
-    img {
-        width: 100%;
-        // height: auto;
-        display: block;
-    }
+        /* Ensure Swiper slides take the full width */
+        .swiper-slide {
+            width: 100%;
+        }
 
-    .content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
-        z-index: 1;
-        width: 100%;
-    }
+        .swiper-button-prev,
+        .swiper-button-next {
+            background-color: rgba(#aaaaaa, 0.6);
+            border-radius: 50%;
+            height: 2.5rem;
+            width: 2.5rem;
+        }
 
-    h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
+        .swiper-button-prev:after,
+        .swiper-button-next:after {
+            font-size: 1.65rem;
+            color: white;
+        }
     }
 }
