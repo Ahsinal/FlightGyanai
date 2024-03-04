@@ -124,14 +124,14 @@ const Header = () => {
                   About US
                 </Nav.Link>
                 <Nav.Link href="/contact" as={Link}>
-                  Contact US
+                  Services
                 </Nav.Link>
               </Nav>
               <Link
                 href="/login"
                 className="btn-xs btn-primary text-white rounded-8 py-12 px-24  d-none d-xl-block"
               >
-                Sign In
+                Contact Us
               </Link>
             </Navbar.Collapse>
           </Container>
