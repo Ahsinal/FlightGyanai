@@ -35881,21 +35881,23 @@ x-small,
   border-radius: 0.5rem;
 }
 
-.navbar-nav a:hover {
+header {
+  border-bottom: 3px solid #84ec79;
+}
+header .navbar-nav a:hover {
   color: #c1272f !important;
 }
-.navbar-nav .dropdown .dropdown-menu a {
+header .navbar-nav .dropdown .dropdown-menu a {
   color: black !important;
 }
-.navbar-nav .dropdown .dropdown-menu a:hover {
+header .navbar-nav .dropdown .dropdown-menu a:hover {
   color: #c1272f !important;
 }
-.navbar-nav .button a:hover {
+header .navbar-nav .button a:hover {
   background-color: red !important;
   color: white !important;
 }
-
-.sticky {
+header .sticky {
   position: fixed;
   top: 0;
   background-color: white;
@@ -35903,13 +35905,13 @@ x-small,
   animation: fadeInDown 0.5s ease-in-out 0s 1 normal none running;
   transition: 0.5s;
 }
-.sticky .navbar-nav {
+header .sticky .navbar-nav {
   background-color: white !important;
 }
-.sticky .navbar-nav a {
+header .sticky .navbar-nav a {
   color: rgb(46, 46, 46) !important;
 }
-.sticky .navbar-nav a:hover {
+header .sticky .navbar-nav a:hover {
   color: #c1272f !important;
 }
 @keyframes fadeInDown {
