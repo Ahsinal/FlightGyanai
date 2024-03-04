@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { bannerData } from "@/data/Data";
 import { FaPlaneDeparture } from "react-icons/fa";
+import { FaBusinessTime } from "react-icons/fa6";
 import { IoHappyOutline } from "react-icons/io5";
 const LandingBanner = () => {
   return (
@@ -62,11 +63,11 @@ const LandingBanner = () => {
               </div>
               <div className="card-col flex-center-center  gap-16 pe-24">
                 <div className="text-secondary h1">
-                  <IoHappyOutline />
+                  <FaBusinessTime />
                 </div>
                 <div className="content">
-                  <h4 className="text-cGray800">100 K +</h4>
-                  <p className="small text-cGray600"> Happy Passengers</p>
+                  <h4 className="text-cGray800">10 +</h4>
+                  <p className="small text-cGray600"> Years Experience</p>
                 </div>
               </div>
               <div className="card-col flex-center-center  gap-16 pe-24">
