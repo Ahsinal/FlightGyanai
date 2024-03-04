@@ -35951,6 +35951,13 @@ header .navbar-nav .button a:hover {
   color: white;
 }
 
+.landing-package .arrow {
+  cursor: pointer;
+}
+.landing-package .arrow:hover {
+  r: #c1272f;
+}
+
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;
@@ -36067,6 +36074,35 @@ header .navbar-nav .button a:hover {
 }
 .card-banner .card-col {
   border-right: 1px solid rgb(167, 166, 169);
+}
+.card-package {
+  background-color: #F8F8F9;
+  border: 1px solid rgb(221, 219, 219);
+  position: relative;
+}
+.card-package img {
+  transition: 0.4s all ease-in-out;
+}
+.card-package:hover img {
+  transform: scale(1.1);
+}
+.card-package:hover a {
+  background-color: transparent !important;
+  color: #c1272f !important;
+  border: 1px solid #c1272f !important;
+}
+.card-package .price {
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: white;
+  border-radius: 50%;
+  margin-top: -2;
+  right: 0;
+  top: 40%;
+  position: absolute;
+}
+.card-package .content {
+  min-height: 50px !important;
 }
 
 ul {

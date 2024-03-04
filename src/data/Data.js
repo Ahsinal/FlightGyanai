@@ -34,3 +34,64 @@ export const ourServices = {
         },
     ]
 }
+
+export const cardData = {
+    data: [
+        {
+            img: "https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Flavours of Europe",
+            location: "Thailand",
+            rating: "5",
+            price: "123",
+        },
+        {
+            img: "https://img.freepik.com/free-photo/arab-people-with-camel-caravan_1004-19.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=ais",
+            title: "Srilanka,Singapore and Maldives",
+            location: "Dubai",
+            rating: "4",
+            price: "223",
+        },
+        {
+            img: "https://img.freepik.com/free-photo/cityscape-singapore_335224-688.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Burzasirr",
+            location: "Singapore",
+            rating: "3",
+            price: "123",
+        },
+        {
+            img: "https://img.freepik.com/free-photo/temple-gates-lempuyang-luhur-temple-bali-indonesia_335224-367.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Krabi,Phuget and Bangkok",
+            location: "Indonesia",
+            rating: "1",
+            price: "123",
+        },
+        {
+            img: "https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Bangkok and Malysia and Indo",
+            location: "Thailand",
+            rating: "5",
+            price: "123",
+        },
+        {
+            img: "https://img.freepik.com/free-photo/arab-people-with-camel-caravan_1004-19.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=ais",
+            title: "Srilanka,Singapore and Maldives",
+            location: "Dubai",
+            rating: "4",
+            price: "123",
+        },
+        {
+            img: "https://img.freepik.com/free-photo/cityscape-singapore_335224-688.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Burzasirr",
+            location: "Singapore",
+            rating: "3",
+            price: "123",
+        },
+        {
+            img: "https://img.freepik.com/free-photo/temple-gates-lempuyang-luhur-temple-bali-indonesia_335224-367.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Krabi,Phuget and Bangkok",
+            location: "Indonesia",
+            rating: "1",
+            price: "123",
+        },
+    ],
+};

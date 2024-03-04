@@ -29,7 +29,6 @@
 .card {
   cursor: pointer;
 
-
   &-swiper {
     height: 80vh;
 
@@ -47,5 +46,46 @@
       border-right: 1px solid rgb(167, 166, 169);
     }
   }
+
+
+  &-package {
+    background-color: #F8F8F9;
+    border: 1px solid rgb(221, 219, 219);
+    position: relative;
+
+    img {
+      transition: 0.4s all ease-in-out;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+
+      a {
+        background-color: transparent !important;
+        color: $secondary !important;
+        border: 1px solid $secondary !important;
+      }
+    }
+
+    .price {
+      width: 4.5rem;
+      height: 4.5rem;
+      background-color: white;
+      border-radius: 50%;
+      margin-top: -2%;
+      right: 0;
+      top: 40%;
+      position: absolute;
+    }
+
+    .content {
+      // min-height: 130px !important;
+      min-height: 50px !important;
+    }
+
+  }
+
 
 }

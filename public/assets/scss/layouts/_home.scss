@@ -22,4 +22,12 @@
     }
 }
 
-  
+.landing-package {
+    .arrow {
+        cursor: pointer;
+
+        &:hover {
+            color: $secondary;
+        }
+    }
+}
