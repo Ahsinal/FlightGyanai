@@ -36053,13 +36053,19 @@ header .sticky .navbar-nav a:hover {
 .card {
   cursor: pointer;
 }
-.card-banner {
+.card-swiper {
   height: 80vh;
 }
-.card-banner img {
+.card-swiper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.card-banner {
+  z-index: 10;
+}
+.card-banner .card-col {
+  border-right: 1px solid rgb(167, 166, 169);
 }
 
 ul {
