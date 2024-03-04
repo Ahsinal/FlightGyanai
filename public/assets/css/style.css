@@ -35937,7 +35937,7 @@ header .sticky .navbar-nav a:hover {
 .landing-banner .swiper .swiper-slide {
   width: 100%;
 }
-.landing-banner .swiper add .swiper-button-prev,
+.landing-banner .swiper .swiper-button-prev,
 .landing-banner .swiper .swiper-button-next {
   background-color: rgba(170, 170, 170, 0.6);
   border-radius: 50%;

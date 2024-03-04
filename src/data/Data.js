@@ -11,3 +11,26 @@ export const bannerData = {
         },
     ]
 }
+
+export const ourServices = {
+    data: [
+        {
+            service: " Personalized Service"
+        },
+        {
+            service: " Best Price"
+        },
+        {
+            service: "Trusted Company"
+        },
+        {
+            service: " 24x7 Support"
+        },
+        {
+            service: "Trusted Company"
+        },
+        {
+            service: " 24x7 Support"
+        },
+    ]
+}
