@@ -29,7 +29,7 @@ const Header = () => {
   };
   return (
     <>
-      <header className={`  ${windowChange ? "sticky" : ""}`}>
+      <header className={`w-100  ${windowChange ? "sticky" : ""}`}>
         <Navbar expand="lg" className="shadow-1">
           <Container className=" d-flex justify-content-between">
             <Navbar.Brand href="/" as={Link}>
