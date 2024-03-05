@@ -29,20 +29,18 @@ const PackageCard = (props) => {
       </div> */}
 
       <div className="card-package position-relative d-flex flex-column  py-16">
-        <div className="img-wrapper rounded-12 mx-auto overflow-hidden">
-          <div className="img">
-            <img src={props.img} alt="image" />
-          </div>
+        <div className="img-wrapper img rounded-12 mx-auto overflow-hidden">
+          <img src={props.img} alt="image" />
         </div>
         <div className="content d-flex flex-column shadow-1 px-16 pb-40 rounded-12 ">
           <div className="flex-between align-items-center mb-12">
             <p className="gap-4 text-warning">{stars}</p>
-            <div className="price btn-pill btn-secondary px-12 py-4 xx-small">
+            <p className="price btn-pill btn-secondary text-white px-12 py-4 xx-small">
               Rs 100,000
-            </div>
+            </p>
           </div>
           <h6 className="mb-8">{props.title}</h6>
-          <p className="mb-16 clamp-2">
+          <p className="mb-16 clamp-2 fw-light">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit consectetur
             adipisicing elit. Quis, cupiditate.
           </p>

@@ -29,7 +29,7 @@ const Packages = () => {
     <Container className="pb-40">
       <div className=" flex-between align-items-center mb-32">
         <h3 className="bitter text-cGray900">
-          Popular<span className="ms-8 text-secondary">Packages</span>
+          Popular Packages<span className="ms-8 text-secondary"></span>
         </h3>
         <div className="d-flex gap-16 h2  text-primary ">
           <FaArrowAltCircleLeft onClick={goPrev} className="arrow" />
