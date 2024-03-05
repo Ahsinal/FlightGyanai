@@ -28,18 +28,7 @@ const PackageCard = (props) => {
         </Link>
       </div> */}
 
-      {/* <div className="card-destination position-relative overflow-hidden rounded-16">
-        <div className="img-portrait flex-center">
-          <img alt="destination" src={props.img} />
-        </div>
-        <div className="overlay text-white pb-32 pt-8 flex-center-center flex-column position-absolute">
-          <p className="fw-bold small">{props.title}</p>
-          <p className="fw-bold h6">{props.location}</p>
-        </div>
-        <Link href="/packages" className="stretched-link"></Link>
-      </div> */}
-
-      <div className="card-review position-relative d-flex flex-column  py-16">
+      <div className="card-package position-relative d-flex flex-column  py-16">
         <div className="img-wrapper rounded-12 mx-auto overflow-hidden">
           <img src={props.img} alt="image" />
         </div>
@@ -51,7 +40,10 @@ const PackageCard = (props) => {
             </div>
           </div>
           <h6 className="mb-8">{props.title}</h6>
-          <p className="mb-16 clamp-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit consectetur adipisicing elit. Quis, cupiditate.</p>
+          <p className="mb-16 clamp-2">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit consectetur
+            adipisicing elit. Quis, cupiditate.
+          </p>
           <Link
             href="/package"
             className="btn btn-xs btn-outline-primary rounded-8 w-100 mx-auto  stretched-link  text-center"
