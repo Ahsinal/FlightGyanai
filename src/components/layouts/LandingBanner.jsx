@@ -44,38 +44,38 @@ const LandingBanner = () => {
               className="card-banner flex-between mx-auto py-16  px-32 shadow   rounded-12 mt-0 bg-white "
             >
               <div className="card-col flex-center-center  gap-16 pe-24">
-                <div className="text-secondary h1">
+                <div className="text-secondary h2">
                   <FaPlaneDeparture />
                 </div>
                 <div className="content">
-                  <h4 className="text-cGray800">100 K +</h4>
+                  <h6 className="text-cGray800">100 K +</h6>
                   <p className="small text-cGray600"> Total Flights</p>
                 </div>
               </div>
               <div className="card-col flex-center-center  gap-16 pe-24">
-                <div className="text-secondary h1">
+                <div className="text-secondary h2">
                   <IoHappyOutline />
                 </div>
                 <div className="content">
-                  <h4 className="text-cGray800">100 K +</h4>
+                  <h6 className="text-cGray800">100 K +</h6>
                   <p className="small text-cGray600"> Happy Passengers</p>
                 </div>
               </div>
               <div className="card-col flex-center-center  gap-16 pe-24">
-                <div className="text-secondary h1">
+                <div className="text-secondary h2">
                   <FaBusinessTime />
                 </div>
                 <div className="content">
-                  <h4 className="text-cGray800">10 +</h4>
+                  <h6 className="text-cGray800">10 +</h6>
                   <p className="small text-cGray600"> Years Experience</p>
                 </div>
               </div>
               <div className="card-col flex-center-center  gap-16 pe-24">
-                <div className="text-secondary h1">
+                <div className="text-secondary h2">
                   <IoHappyOutline />
                 </div>
                 <div className="content">
-                  <h4 className="text-cGray800">100 K +</h4>
+                  <h6 className="text-cGray800">100 K +</h6>
                   <p className="small text-cGray600"> Happy Passengers</p>
                 </div>
               </div>

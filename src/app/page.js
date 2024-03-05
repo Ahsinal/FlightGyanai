@@ -1,3 +1,4 @@
+import Card from "@/components/cards/Card";
 import LandingAbout from "@/components/layouts/LandingAbout";
 import LandingBanner from "@/components/layouts/LandingBanner";
 import LandingPackage from "@/components/layouts/LandingPackage";

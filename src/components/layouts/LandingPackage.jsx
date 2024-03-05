@@ -40,7 +40,7 @@ const Packages = () => {
         spaceBetween={20}
         loop={true}
         ref={swiperRef}
-        // autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 3000 }}
         modules={[Autoplay]}
         breakpoints={{
           640: {
@@ -53,7 +53,7 @@ const Packages = () => {
           },
           1024: {
             slidesPerView: 4,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
         }}
         className="mySwiper"
