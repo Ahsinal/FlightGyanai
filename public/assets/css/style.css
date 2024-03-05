@@ -36130,34 +36130,34 @@ header .navbar-nav .button a:hover {
 .card-banner .card-col {
   border-right: 1px solid rgb(167, 166, 169);
 }
-.card- {
+.card-package {
   cursor: pointer;
 }
-.card-:hover img {
+.card-package:hover img {
   transform: scale(1.1);
 }
-.card-:hover a {
+.card-package:hover a {
   background-color: transparent !important;
   color: #c1272f !important;
   border: 1px solid #c1272f !important;
 }
-.card- .img-wrapper {
+.card-package .img-wrapper {
   width: 90%;
   height: 100%;
   margin-bottom: -45%;
   z-index: 3;
 }
-.card- .img-wrapper img {
+.card-package .img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: 0.4s all ease-in-out;
 }
-.card- .content {
+.card-package .content {
   background-color: #f7f9fb;
-  padding-top: 180px;
+  padding-top: 50%;
 }
-.card- .content p {
+.card-package .content p {
   font-size: 1rem !important;
   line-height: 1.5rem;
   font-weight: 300;

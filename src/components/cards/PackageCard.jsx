@@ -30,7 +30,9 @@ const PackageCard = (props) => {
 
       <div className="card-package position-relative d-flex flex-column  py-16">
         <div className="img-wrapper rounded-12 mx-auto overflow-hidden">
-          <img src={props.img} alt="image" />
+          <div className="img">
+            <img src={props.img} alt="image" />
+          </div>
         </div>
         <div className="content d-flex flex-column shadow-1 px-16 pb-40 rounded-12 ">
           <div className="flex-between align-items-center mb-12">
