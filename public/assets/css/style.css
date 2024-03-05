@@ -36130,34 +36130,38 @@ header .navbar-nav .button a:hover {
 .card-banner .card-col {
   border-right: 1px solid rgb(167, 166, 169);
 }
-.card-package {
-  background-color: #F8F8F9;
-  border: 1px solid rgb(221, 219, 219);
-  position: relative;
+.card-review {
+  cursor: pointer;
 }
-.card-package img {
-  transition: 0.4s all ease-in-out;
-}
-.card-package:hover img {
+.card-review:hover img {
   transform: scale(1.1);
 }
-.card-package:hover a {
+.card-review:hover a {
   background-color: transparent !important;
   color: #c1272f !important;
   border: 1px solid #c1272f !important;
 }
-.card-package .price {
-  width: 4.5rem;
-  height: 4.5rem;
-  background-color: white;
-  border-radius: 50%;
-  margin-top: -2%;
-  right: 0;
-  top: 40%;
-  position: absolute;
+.card-review .img-wrapper {
+  width: 90%;
+  height: 100%;
+  margin-bottom: -45%;
+  z-index: 3;
 }
-.card-package .content {
-  min-height: 50px !important;
+.card-review .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s all ease-in-out;
+}
+.card-review .content {
+  background-color: #f7f9fb;
+  padding-top: 180px;
+}
+.card-review .content p {
+  font-size: 1rem !important;
+  line-height: 1.5rem;
+  font-weight: 300;
+  color: #303538;
 }
 .card-destination {
   overflow: hidden;

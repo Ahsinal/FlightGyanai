@@ -52,8 +52,8 @@ const Packages = () => {
             spaceBetween: 10,
           },
           1024: {
-            slidesPerView: 4,
-            spaceBetween: 10,
+            slidesPerView: 3,
+            spaceBetween: 20,
           },
         }}
         className="mySwiper"
