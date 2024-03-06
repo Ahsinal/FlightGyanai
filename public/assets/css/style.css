@@ -36180,6 +36180,9 @@ header .navbar-nav .button a:hover {
 .card-package-all:hover {
   transform: scale(1.02);
 }
+.card-package-all .title {
+  min-height: 3rem;
+}
 
 ul {
   list-style: none;
