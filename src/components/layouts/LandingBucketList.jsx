@@ -84,7 +84,7 @@ const LandingBucketList = () => {
           );
         })}
       </div>
-      <Row className="">
+      <Row>
         <Swiper
           spaceBetween={10}
           loop={true}
@@ -108,7 +108,7 @@ const LandingBucketList = () => {
         >
           {data.map((d, i) => {
             return (
-              <SwiperSlide key={i} className="p-12">
+              <SwiperSlide key={i} className="p-12 ">
                 <PackageCard
                   img={d.img}
                   title={d.title}
@@ -121,7 +121,7 @@ const LandingBucketList = () => {
             );
           })}
         </Swiper>
-        <div className="flex-center gap-16 text-secondary h4">
+        <div className="flex-center gap-16 text-secondary h4 mt-8">
           <FaLongArrowAltLeft className="arrow" onClick={goPrev} />
           <FaLongArrowAltRight className="arrow" onClick={goNext} />
         </div>
