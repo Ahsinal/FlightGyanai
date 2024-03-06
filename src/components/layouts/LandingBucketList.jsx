@@ -3,14 +3,13 @@ import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { familyData, honeymoonData, cooperateData } from "@/data/Data";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
+import PackageCard from "../cards/PackageCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import PackageCard from "../cards/PackageCard";
-import PopularPackageCard from "../cards/PopularPackageCard";
 SwiperCore.use([Navigation]);
 const LandingBucketList = () => {
   const [selected, setSelected] = useState("family");
@@ -86,29 +85,27 @@ const LandingBucketList = () => {
       </div>
       <Row>
         <Swiper
-          spaceBetween={10}
           loop={true}
           ref={swiperRef}
-          modules={[Autoplay]}
           breakpoints={{
             640: {
               slidesPerView: 1,
               spaceBetween: 10,
             },
             768: {
-              slidesPerView: 3,
-              spaceBetween: 10,
+              slidesPerView: 4,
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 4,
-              spaceBetween: 5,
+              spaceBetween: 10,
             },
           }}
-          className="mySwiper"
+          className="mySwiper p-12"
         >
           {data.map((d, i) => {
             return (
-              <SwiperSlide key={i} className="p-12 ">
+              <SwiperSlide key={i}>
                 <PackageCard
                   img={d.img}
                   title={d.title}

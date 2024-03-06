@@ -196,3 +196,49 @@ export const cooperateData = {
         },
     ],
 };
+export const blogData = {
+    data: [
+        {
+            img: "https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Flavours of Europe",
+            desc: "If you’re travelling between Peninsular Malaysia and East Malaysia (sometimes known as Malaysian Borneo, made up of the states of Sabah and Sarawak) you will need to carry your passport. You will pass through immigration control when entering and exiting East Malaysia from and to Peninsular Malaysia, and must obtain an entry and exit stamp."
+        },
+        {
+            img: "https://img.freepik.com/free-photo/arab-people-with-camel-caravan_1004-19.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=ais",
+            title: "Srilanka,Singapore and Maldives",
+            desc: "If you’re travelling between Peninsular Malaysia and East Malaysia (sometimes known as Malaysian Borneo, made up of the states of Sabah and Sarawak) you will need to carry your passport. You will pass through immigration control when entering and exiting East Malaysia from and to Peninsular Malaysia, and must obtain an entry and exit stamp."
+        },
+        {
+            img: "https://img.freepik.com/free-photo/cityscape-singapore_335224-688.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Burzasirr",
+            desc: "If you’re travelling between Peninsular Malaysia and East Malaysia (sometimes known as Malaysian Borneo, made up of the states of Sabah and Sarawak) you will need to carry your passport. You will pass through immigration control when entering and exiting East Malaysia from and to Peninsular Malaysia, and must obtain an entry and exit stamp."
+        },
+        {
+            img: "https://img.freepik.com/free-photo/temple-gates-lempuyang-luhur-temple-bali-indonesia_335224-367.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Krabi,Phuget and Bangkok",
+            desc: "If you’re travelling between Peninsular Malaysia and East Malaysia (sometimes known as Malaysian Borneo, made up of the states of Sabah and Sarawak) you will need to carry your passport. You will pass through immigration control when entering and exiting East Malaysia from and to Peninsular Malaysia, and must obtain an entry and exit stamp."
+        },
+        {
+            img: "https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Bangkok and Malysia and Indo",
+            location: "Thailand",
+            rating: "5",
+            price: "123",
+        },
+        {
+            img: "https://img.freepik.com/free-photo/arab-people-with-camel-caravan_1004-19.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=ais",
+            title: "Srilanka,Singapore and Maldives",
+            desc: "If you’re travelling between Peninsular Malaysia and East Malaysia (sometimes known as Malaysian Borneo, made up of the states of Sabah and Sarawak) you will need to carry your passport. You will pass through immigration control when entering and exiting East Malaysia from and to Peninsular Malaysia, and must obtain an entry and exit stamp."
+        },
+        {
+            img: "https://img.freepik.com/free-photo/cityscape-singapore_335224-688.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Burzasirr",
+            desc: "If you’re travelling between Peninsular Malaysia and East Malaysia (sometimes known as Malaysian Borneo, made up of the states of Sabah and Sarawak) you will need to carry your passport. You will pass through immigration control when entering and exiting East Malaysia from and to Peninsular Malaysia, and must obtain an entry and exit stamp."
+        },
+        {
+            img: "https://img.freepik.com/free-photo/temple-gates-lempuyang-luhur-temple-bali-indonesia_335224-367.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            title: "Krabi,Phuget and Bangkok",
+            desc: "If you’re travelling between Peninsular Malaysia and East Malaysia (sometimes known as Malaysian Borneo, made up of the states of Sabah and Sarawak) you will need to carry your passport. You will pass through immigration control when entering and exiting East Malaysia from and to Peninsular Malaysia, and must obtain an entry and exit stamp."
+        },
+    ],
+}
