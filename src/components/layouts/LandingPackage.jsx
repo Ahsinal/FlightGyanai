@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { Container } from "react-bootstrap";
-import PackageCard from "../cards/PackageCard";
+import PackageCard from "../cards/PopularPackageCard";
 import { cardData } from "@/data/Data";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";

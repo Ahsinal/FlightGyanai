@@ -36013,6 +36013,10 @@ header .navbar-nav .button a:hover {
   transition-delay: 0.2s;
 }
 
+.landing-bucket-list .arrow {
+  cursor: pointer;
+}
+
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;
@@ -36130,43 +36134,51 @@ header .navbar-nav .button a:hover {
 .card-banner .card-col {
   border-right: 1px solid rgb(167, 166, 169);
 }
-.card-package {
+.card-package-popular {
   cursor: pointer;
 }
-.card-package:hover img {
+.card-package-popular:hover img {
   transform: scale(1.1);
 }
-.card-package:hover a {
+.card-package-popular:hover a {
   background-color: transparent !important;
   color: #c1272f !important;
   border: 1px solid #c1272f !important;
 }
-.card-package .img-wrapper {
+.card-package-popular .img-wrapper {
   width: 90%;
   height: 100%;
   margin-bottom: -45%;
   z-index: 3;
 }
-.card-package .img-wrapper img {
+.card-package-popular .img-wrapper img {
   transition: 0.4s all ease-in-out;
 }
-.card-package .content {
+.card-package-popular .content {
   background-color: #f8f9fa;
   padding-top: 50%;
 }
-.card-package .content p {
+.card-package-popular .content p {
   font-size: 1rem !important;
 }
 .card-side-bucketlist {
   cursor: pointer;
+  border: 1px solid rgb(241, 240, 240);
 }
 .card-side-bucketlist:hover {
   background-color: #c1272f !important;
   color: white !important;
 }
-.card-side-bucketlist .active {
+.card-side-bucketlist.active {
   background-color: #c1272f !important;
   color: white !important;
+}
+.card-package-all {
+  cursor: pointer;
+  transition: all ease-in-out 0.5s;
+}
+.card-package-all:hover {
+  transform: scale(1.02);
 }
 
 ul {

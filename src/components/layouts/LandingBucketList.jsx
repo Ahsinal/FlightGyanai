@@ -2,13 +2,15 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { familyData, honeymoonData, cooperateData } from "@/data/Data";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import PackageCard from "../cards/PackageCard";
+import PopularPackageCard from "../cards/PopularPackageCard";
 SwiperCore.use([Navigation]);
 const LandingBucketList = () => {
   const [selected, setSelected] = useState("family");
@@ -64,54 +66,65 @@ const LandingBucketList = () => {
   };
   return (
     <Container>
-      <h3 className="bitter text-cGray800 mb-32">Browse All Packages</h3>
-      <Row className="gx-48">
-        <Col lg={3} sm={12}>
-          {list.map((d, i) => {
+      <h3 className="bitter text-cGray800 mb-32 text-center">
+        Browse All Packages
+      </h3>
+      <div className="flex-center gap-8">
+        {list.map((d, i) => {
+          return (
+            <div
+              className={`card-side-bucketlist rounded-8 py-8 px-12 mb-32 fw-normal text-center text-cGray800 ${
+                selected === d.id ? "active" : ""
+              }`}
+              key={i}
+              onClick={() => setSelected(d.id)}
+            >
+              <p> {d.title}</p>
+            </div>
+          );
+        })}
+      </div>
+      <Row className="">
+        <Swiper
+          spaceBetween={10}
+          loop={true}
+          ref={swiperRef}
+          modules={[Autoplay]}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 5,
+            },
+          }}
+          className="mySwiper"
+        >
+          {data.map((d, i) => {
             return (
-              <div
-                className={`rounded-4 p-12 mb-12 card-side-bucketlist bg-primary text-white h6 fw-normal text-center shadow ${
-                  selected === d.id ? "active" : ""
-                }`}
-                key={i}
-                onClick={() => setSelected(d.id)}
-              >
-                {d.title}
-              </div>
+              <SwiperSlide key={i} className="p-12">
+                <PackageCard
+                  img={d.img}
+                  title={d.title}
+                  location={d.location}
+                  price={d.price}
+                  days={d.days}
+                  rating={d.rating}
+                />
+              </SwiperSlide>
             );
           })}
-        </Col>
-        <Col lg={9} sm={12} >
-          <Swiper
-            spaceBetween={10}
-            loop={true}
-            ref={swiperRef}
-            modules={[Autoplay]}
-            breakpoints={{
-              640: {
-                slidesPerView: 1,
-                spaceBetween: 10,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 10,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-            }}
-            className="mySwiper"
-          >
-            {data.map((d, i) => {
-              return (
-                <SwiperSlide key={i}>
-                  <div>{d.title}</div>
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-        </Col>
+        </Swiper>
+        <div className="flex-center gap-16 text-secondary h4">
+          <FaLongArrowAltLeft className="arrow" onClick={goPrev} />
+          <FaLongArrowAltRight className="arrow" onClick={goNext} />
+        </div>
       </Row>
     </Container>
   );

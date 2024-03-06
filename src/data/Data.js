@@ -104,6 +104,7 @@ export const familyData = {
             location: "Thailand",
             rating: "5",
             price: "123",
+            days: '5'
         },
         {
             img: "https://img.freepik.com/free-photo/arab-people-with-camel-caravan_1004-19.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=ais",
@@ -111,6 +112,7 @@ export const familyData = {
             location: "Dubai",
             rating: "4",
             price: "223",
+            days: '5',
         },
         {
             img: "https://img.freepik.com/free-photo/cityscape-singapore_335224-688.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
@@ -118,6 +120,7 @@ export const familyData = {
             location: "Burzassir",
             rating: "3",
             price: "123",
+            days: '5',
         },
         {
             img: "https://img.freepik.com/free-photo/temple-gates-lempuyang-luhur-temple-bali-indonesia_335224-367.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
@@ -125,6 +128,7 @@ export const familyData = {
             location: "Indonesia",
             rating: "1",
             price: "123",
+            days: '7-8'
         },
     ],
 };
