@@ -242,3 +242,48 @@ export const blogData = {
         },
     ],
 }
+export const testimonialData = {
+    data: [
+        {
+            img: "https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            name: "Anna Zukerberg",
+            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempo incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrice risus commodo viverra maecenas accumsan lacus vel facilisis.",
+            designation: "CEO",
+            org: "LVF Technology",
+            rating: "5",
+        },
+        {
+            img: "https://img.freepik.com/free-photo/arab-people-with-camel-caravan_1004-19.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=ais",
+            name: "Elon Musk",
+            rating: "4",
+            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempo incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrice risus commodo viverra maecenas accumsan lacus vel facilisis.",
+            designation: "CEO",
+            org: "LVF Technology",
+
+        },
+        {
+            img: "https://img.freepik.com/free-photo/cityscape-singapore_335224-688.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            name: "Xyz Sharma",
+            rating: "3",
+            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempo incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrice risus commodo viverra maecenas accumsan lacus vel facilisis.",
+            designation: "CEO",
+            org: "LVF Technology",
+        },
+        {
+            img: "https://img.freepik.com/free-photo/temple-gates-lempuyang-luhur-temple-bali-indonesia_335224-367.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            name: "New Client",
+            rating: "1",
+            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempo incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrice risus commodo viverra maecenas accumsan lacus vel facilisis.",
+            designation: "CEO",
+            org: "LVF Technology",
+        },
+        {
+            img: "https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
+            name: "Old Client",
+            rating: "5",
+            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempo incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrice risus commodo viverra maecenas accumsan lacus vel facilisis.",
+            designation: "CEO",
+            org: "LVF Technology",
+        },
+    ],
+};

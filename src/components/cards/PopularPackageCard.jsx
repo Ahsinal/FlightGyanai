@@ -32,17 +32,20 @@ const PopularPackageCard = (props) => {
         <div className="img-wrapper img rounded-12 mx-auto overflow-hidden">
           <img src={props.img} alt="image" />
         </div>
-        <div className="content d-flex flex-column shadow-1 px-16 pb-40 rounded-12 ">
+        <div className="content d-flex flex-column bg-white shadow-4 px-16 pb-40 rounded-12 ">
           <div className="flex-between align-items-center mb-12">
-            <p className="gap-4 text-warning">{stars}</p>
-            <p className="price btn-pill btn-secondary text-white px-12 py-4 xx-small">
+            <div className="d-flex gap-4 align-items-center small text-yellow500">
+              {stars}
+            </div>
+            <p className="price bg-secondary text-white px-12 rounded-12 py-4 fw-normal xx-small">
               Rs 100,000
             </p>
           </div>
           <h6 className="mb-8">{props.title}</h6>
-          <p className="mb-16 clamp-2 fw-light">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit consectetur
-            adipisicing elit. Quis, cupiditate.
+          <p className="mb-16 clamp-3 fw-light">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+            deleniti eius at suscipit unde ipsam ad non fugiat ullam, tempore
+            incidunt iste eum, aut ea.
           </p>
           <Link
             href="/package"

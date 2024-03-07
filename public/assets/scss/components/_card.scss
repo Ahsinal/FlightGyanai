@@ -176,4 +176,26 @@
       transform: scale(1.01);
     }
   }
+
+  &-testimonial {
+    cursor: pointer;
+    transition: 0.4s all ease-in-out;
+
+    &:hover {
+      transform: scale(1.01);
+    }
+
+    .image {
+      overflow: hidden;
+      border-radius: 50%;
+      width: 8rem;
+      height: 8rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
 }

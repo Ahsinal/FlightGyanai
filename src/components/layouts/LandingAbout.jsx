@@ -17,7 +17,7 @@ const LandingAbout = () => {
           </Col>
           <Col lg={7} sm={12}>
             <h3 className="mb-12 bitter text-cGray800">About US</h3>
-            <p className="mb-12 fw-normal">
+            <p className="mb-12 fw-normal text-cGray600">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
               tempora quidem quia eum ducimus itaque non facilis, repellendus
               sint fugit! Lorem ipsum dolor sit amet, consectetur adipisicing
