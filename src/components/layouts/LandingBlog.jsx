@@ -27,7 +27,7 @@ const LandingBlog = () => {
   };
   return (
     <Container>
-      <h3 className="mb-12 text-cGray800 ">Explore Our Latest Blogs</h3>
+      <h3 className="mb text-cGray800 bitter">Explore Our Latest Blogs</h3>
       <Row className="d-flex align-items-center gx-40">
         {blogData?.data.slice(0, 1).map((d, i) => {
           return (

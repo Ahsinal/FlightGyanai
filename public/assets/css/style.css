@@ -36026,6 +36026,21 @@ header .navbar-nav .button a:hover {
   background-size: contain;
 }
 
+.landing-testimonial {
+  position: relative;
+}
+.landing-testimonial .testimonial-shape-1 {
+  position: absolute;
+  bottom: 50%;
+}
+
+.bg-testimonial {
+  background-color: #EBE6DE;
+  width: 100%;
+  height: 300px;
+  margin-top: -20%;
+}
+
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;

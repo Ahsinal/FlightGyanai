@@ -4,6 +4,7 @@ import LandingBanner from "@/components/layouts/LandingBanner";
 import LandingBlog from "@/components/layouts/LandingBlog";
 import LandingBucketList from "@/components/layouts/LandingBucketList";
 import LandingPackage from "@/components/layouts/LandingPackage";
+import LandingTestimonial from "@/components/layouts/LandingTestimonial";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 export default function Home() {
@@ -24,6 +25,10 @@ export default function Home() {
       <section className="landing-blog py-40">
         <LandingBlog />
       </section>
+      <section className="landing-testimonial py-40">
+        <LandingTestimonial />
+      </section>
+      <section className="bg-testimonial"></section>
     </>
   );
 }
