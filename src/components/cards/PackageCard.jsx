@@ -29,7 +29,7 @@ const PackageCard = (props) => {
         <div className="title">
           <h6>{props.title}</h6>
         </div>
-        <p className=" fw-light mt-12 clamp-2">
+        <p className=" fw-light mt-4 clamp-2">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
           corrupti, in totam quod facilis quibusdam ratione alias, nesciunt
           dolores quasi tempora fugit saepe ea magnam nam praesentium placeat!

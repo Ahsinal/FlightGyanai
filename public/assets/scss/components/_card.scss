@@ -153,4 +153,27 @@
       min-height: 3rem;
     }
   }
+
+  &-blog-lg {
+    cursor: pointer;
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+
+    img {
+      transition: 0.4s all ease-in-out;
+    }
+  }
+
+  &-blog-sm {
+    cursor: pointer;
+    transition: 0.4s all ease-in-out;
+
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
 }

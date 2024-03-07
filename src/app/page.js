@@ -21,7 +21,7 @@ export default function Home() {
       <section className="landing-bucket-list py-40">
         <LandingBucketList />
       </section>
-      <section className="">
+      <section className="landing-blog py-40">
         <LandingBlog />
       </section>
     </>

@@ -100,7 +100,7 @@ export const familyData = {
     data: [
         {
             img: "https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph",
-            title: "package 1 data 1 long title",
+            title: "package 1 data 1 long title here is",
             location: "Thailand",
             rating: "5",
             price: "123",

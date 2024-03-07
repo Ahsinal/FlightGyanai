@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import BlogCard from "../cards/BlogCard";
+import { BlogCardlg, BlogCardsm } from "../cards/BlogCard";
 import { blogData } from "@/data/Data";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 SwiperCore.use([Navigation]);
@@ -26,10 +26,31 @@ const LandingBlog = () => {
     }
   };
   return (
-    <Container fluid className="position-relative">
-      <h3 className="bitter text-cGray900">Latest Updates</h3>
-      <div className="d-flex gap-16 h2">
-        <FaArrowAltCircleLeft onClick={goPrev} className="text-primary100 position-absolute top-0" />
+    <Container>
+      <h3 className="mb-12 text-cGray800 ">Explore Our Latest Blogs</h3>
+      <Row className="d-flex align-items-center gx-40">
+        {blogData?.data.slice(0, 1).map((d, i) => {
+          return (
+            <Col lg={6} sm={12} className="rounded-12 p-12 " key={i}>
+              <BlogCardlg />
+            </Col>
+          );
+        })}
+        <Col lg={6} sm={12} className=" p-12">
+          {blogData?.data.slice(1, 5).map((d, i) => {
+            return (
+              <div className="w-100 p-12" key={i}>
+                <BlogCardsm />
+              </div>
+            );
+          })}
+        </Col>
+      </Row>
+      {/* <div className="d-flex gap-16 h2">
+        <FaArrowAltCircleLeft
+          onClick={goPrev}
+          className="text-primary100 position-absolute top-0"
+        />
         <FaArrowAltCircleRight onClick={goNext} className="text-primary100 " />
       </div>
       <Swiper
@@ -65,7 +86,7 @@ const LandingBlog = () => {
             </SwiperSlide>
           );
         })}
-      </Swiper>
+      </Swiper> */}
     </Container>
   );
 };

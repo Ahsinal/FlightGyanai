@@ -101,3 +101,13 @@
         cursor: pointer;
     }
 }
+
+.landing-blog {
+    background-color: #FBFBFE;
+
+    .blog-background {
+        background-image: url("../../image/himalayanbg.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}

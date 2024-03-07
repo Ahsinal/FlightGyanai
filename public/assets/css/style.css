@@ -36017,6 +36017,15 @@ header .navbar-nav .button a:hover {
   cursor: pointer;
 }
 
+.landing-blog {
+  background-color: #FBFBFE;
+}
+.landing-blog .blog-background {
+  background-image: url("../../image/himalayanbg.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;
@@ -36182,6 +36191,22 @@ header .navbar-nav .button a:hover {
 }
 .card-package-all .title {
   min-height: 3rem;
+}
+.card-blog-lg {
+  cursor: pointer;
+}
+.card-blog-lg:hover img {
+  transform: scale(1.1);
+}
+.card-blog-lg img {
+  transition: 0.4s all ease-in-out;
+}
+.card-blog-sm {
+  cursor: pointer;
+  transition: 0.4s all ease-in-out;
+}
+.card-blog-sm:hover {
+  transform: scale(1.01);
 }
 
 ul {

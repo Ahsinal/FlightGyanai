@@ -98,7 +98,7 @@ const LandingBucketList = () => {
             },
             1024: {
               slidesPerView: 4,
-              spaceBetween: 10,
+              spaceBetween: 20,
             },
           }}
           className="mySwiper p-12"
