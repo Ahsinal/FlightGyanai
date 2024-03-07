@@ -35479,6 +35479,10 @@ x-small,
   overflow: hidden;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .scrollable {
   position: relative;
   overflow: auto;

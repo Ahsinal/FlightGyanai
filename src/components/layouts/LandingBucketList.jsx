@@ -65,20 +65,20 @@ const LandingBucketList = () => {
   };
   return (
     <Container>
-      <h3 className="bitter text-cGray800 mb-32 text-center">
+      <h3 className="bitter text-cGray800 mb-8 mb-sm-16 text-center">
         Browse All Packages
       </h3>
-      <div className="flex-center gap-8">
+      <div className="flex-center gap-8 mb-12 mb-sm-32">
         {list.map((d, i) => {
           return (
             <div
-              className={`card-side-bucketlist rounded-8 py-8 px-12 mb-32 fw-normal text-center text-cGray800 ${
+              className={`card-side-bucketlist rounded-8 x-small bg-white shadow-4 py-8 px-24 fw-normal text-center text-cGray800 ${
                 selected === d.id ? "active" : ""
               }`}
               key={i}
               onClick={() => setSelected(d.id)}
             >
-              <p> {d.title}</p>
+              {d.title}
             </div>
           );
         })}

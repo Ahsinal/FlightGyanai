@@ -1,6 +1,6 @@
 // font weight
 $font-weight: (
-  lighter:100,
+  lighter: 100,
   light: 300,
   regular: 400,
   medium: 500,
@@ -21,7 +21,7 @@ $font-size: (
   small: 1rem,
   x-small: 0.875rem,
   xx-small: 0.75rem,
-  xxx-small:0.25rem,
+  xxx-small: 0.25rem,
 );
 //Typography Settings
 $font-size-sm: (
@@ -36,9 +36,7 @@ $font-size-sm: (
 );
 
 //Typography Settings
-@each $label,
-$value in $font-size {
-
+@each $label, $value in $font-size {
   .#{$label},
   #{$label} {
     font-size: #{$value};
@@ -46,9 +44,7 @@ $value in $font-size {
 
     @if $label==p or $label==small or $label==x-small {
       line-height: 150%;
-    }
-
-    @else {
+    } @else {
       line-height: 130%;
       font-weight: 600;
     }
@@ -56,10 +52,7 @@ $value in $font-size {
 }
 
 @include media-breakpoint-down(xxl) {
-
-  @each $label,
-  $value in $font-size-sm {
-
+  @each $label, $value in $font-size-sm {
     .#{$label},
     #{$label} {
       font-size: #{$value};
@@ -68,17 +61,14 @@ $value in $font-size {
 }
 
 // Font weight
-@each $label,
-$value in $font-weight {
+@each $label, $value in $font-weight {
   .fw-#{$label} {
     font-weight: #{$value};
   }
 }
 
 .textbox {
-
-  @each $label,
-  $value in $font-size {
+  @each $label, $value in $font-size {
     #{$label} {
       margin-bottom: 1rem;
     }
@@ -132,11 +122,13 @@ $value in $font-weight {
     &.dashed {
       &::after {
         width: 164px;
-        background: linear-gradient(90deg,
-            $accent 25%,
-            $white 25%,
-            $white 37%,
-            $accent 37%);
+        background: linear-gradient(
+          90deg,
+          $accent 25%,
+          $white 25%,
+          $white 37%,
+          $accent 37%
+        );
       }
     }
   }
@@ -182,4 +174,8 @@ x-small,
       overflow: hidden;
     }
   }
+}
+
+.text-justify {
+  text-align: justify;
 }

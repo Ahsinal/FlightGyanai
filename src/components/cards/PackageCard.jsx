@@ -11,15 +11,15 @@ const PackageCard = (props) => {
       <div className="img">
         <img src={props.img} alt="" />
       </div>
-      <div className="position-absolute top-0 bg-white m-8 p-4 btn-pill text-secondary">
+      <div className="position-absolute top-0 bg-white m-8 py-4 px-16 x-small btn-pill text-secondary">
         Rs 100,000
       </div>
       <div className="flex-between  gap-4  mb-8 px-8 mt-12">
-        <div className="d-flex gap-4 align-items-center small ">
-          <FaLocationDot className="text-cGray700" />
-          <span className="text-cGray800">{props.location}</span>
+        <div className="align-center gap-4 small ">
+          <FaLocationDot className="text-cGray600 h6" />
+          <span className="text-cGray800 x-small">{props.location}</span>
         </div>
-        <div className="d-flex gap-4 align-items-center small text-warning ">
+        <div className="d-flex gap-4 align-items-center small text-yellow500">
           {/* <FaCalendar className="text-cGray700" />
             <span className="text-cGray-800">{props.days} Days</span> */}
           {stars}
@@ -27,10 +27,10 @@ const PackageCard = (props) => {
       </div>
       <div className=" px-16 mt-12">
         <div className="title">
-          <h6>{props.title}</h6>
+          <p className="fw-medium">{props.title}</p>
         </div>
-        <p className=" fw-light mt-4 clamp-2">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+        <p className=" fw-light mt-4 clamp-2 small text-justify">
+          Lonsectetur adipisicing elit. Similique
           corrupti, in totam quod facilis quibusdam ratione alias, nesciunt
           dolores quasi tempora fugit saepe ea magnam nam praesentium placeat!
           Sequi, atque?
