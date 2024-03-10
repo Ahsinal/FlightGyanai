@@ -28,7 +28,7 @@ export default function Home() {
       <section className="landing-testimonial py-40">
         <LandingTestimonial />
       </section>
-      {/* <section className="bg-testimonial display-none d-lg-block"></section> */}
+      <section className="py-40">Paymentpartners </section>
     </>
   );
 }
