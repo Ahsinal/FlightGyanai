@@ -287,32 +287,51 @@ export const testimonialData = {
         },
     ],
 };
-export const teamsData={
-    data:[
+export const teamsData = {
+    data: [
         {
-            img:"https://img.freepik.com/free-photo/young-businessman-wearing-glasses-working-using-laptop-standing-white-background-with-confident-expression-smart-face-thinking-serious_231208-12572.jpg?w=1380",
-            name:"Mark Zukerberg",
-            designation:"CEO-Founder",
+            img: "https://img.freepik.com/free-photo/young-businessman-wearing-glasses-working-using-laptop-standing-white-background-with-confident-expression-smart-face-thinking-serious_231208-12572.jpg?w=1380",
+            name: "Mark Zukerberg",
+            designation: "CEO-Founder",
         },
         {
-            img:"https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?t=st=1710043464~exp=1710047064~hmac=3366cc66bc007ace6b616a467f5613fbd8e4d3c9c8fd0c7fb06f8bd8539867cb&w=1380",
-            name:"Mark Holland",
-            designation:"HR",
+            img: "https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?t=st=1710043464~exp=1710047064~hmac=3366cc66bc007ace6b616a467f5613fbd8e4d3c9c8fd0c7fb06f8bd8539867cb&w=1380",
+            name: "Mark Holland",
+            designation: "HR",
         },
         {
-            img:"https://img.freepik.com/free-photo/young-businessman-wearing-glasses-working-using-laptop-standing-white-background-with-confident-expression-smart-face-thinking-serious_231208-12572.jpg?w=1380",
-            name:"Tom Cruize",
-            designation:"Designer",
+            img: "https://img.freepik.com/free-photo/young-businessman-wearing-glasses-working-using-laptop-standing-white-background-with-confident-expression-smart-face-thinking-serious_231208-12572.jpg?w=1380",
+            name: "Tom Cruize",
+            designation: "Designer",
         },
         {
-            img:"https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?t=st=1710043464~exp=1710047064~hmac=3366cc66bc007ace6b616a467f5613fbd8e4d3c9c8fd0c7fb06f8bd8539867cb&w=1380",
-            name:"John xyz",
-            designation:"Developer",
+            img: "https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?t=st=1710043464~exp=1710047064~hmac=3366cc66bc007ace6b616a467f5613fbd8e4d3c9c8fd0c7fb06f8bd8539867cb&w=1380",
+            name: "John xyz",
+            designation: "Developer",
         },
         {
-            img:"https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?t=st=1710043464~exp=1710047064~hmac=3366cc66bc007ace6b616a467f5613fbd8e4d3c9c8fd0c7fb06f8bd8539867cb&w=1380",
-            name:"xyz mmmmmam",
-            designation:"Developer",
+            img: "https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?t=st=1710043464~exp=1710047064~hmac=3366cc66bc007ace6b616a467f5613fbd8e4d3c9c8fd0c7fb06f8bd8539867cb&w=1380",
+            name: "xyz mmmmmam",
+            designation: "Developer",
+        },
+    ]
+};
+export const paymentData = {
+    data: [
+        {
+            img: "/assets/image/payment1.jpeg"
+        },
+        {
+            img: "/assets/image/payment-2.jpeg"
+        },
+        {
+            img: "/assets/image/payment3.png"
+        },
+        {
+            img: "/assets/image/payment4.png"
+        },
+        {
+            img: "/assets/image/payment5.png"
         },
     ]
 }
