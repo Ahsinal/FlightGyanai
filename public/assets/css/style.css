@@ -36241,12 +36241,34 @@ header .navbar-nav .button a:hover {
   overflow: hidden;
   border-radius: 50%;
   width: 8rem;
-  height: 10rem;
+  height: 8rem;
 }
 .card-testimonial .image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.card-teams {
+  border: 1px solid rgb(245, 243, 243);
+}
+.card-teams .image {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgb(245, 243, 243);
+  background-color: F9F9F9;
+}
+.card-teams .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.card-teams .btn-outline-gray:hover {
+  background-color: #c1272f !important;
+  color: #fff !important;
+  border: 1px solid transparent;
 }
 
 ul {
@@ -36315,7 +36337,7 @@ button:active, button:focus-visible,
 
 .btn-outline-gray {
   color: #6c757d;
-  border: 1px solid #6c757d;
+  border: 1px solid #DCDCDD;
 }
 .btn-outline-gray:hover {
   background-color: #e98161;

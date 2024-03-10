@@ -247,7 +247,7 @@ button,
     }
 
     @else if $label=="gray" {
-      @include btn-outline($cool-gray-600,
+      @include btn-outline($cool-gray-200,
         $cool-gray-600,
         $secondary-300,
         $white !important,
