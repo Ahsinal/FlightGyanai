@@ -6,7 +6,7 @@ import { blogData } from "@/data/Data";
 import { BlogCardlg } from "@/components/cards/BlogCard";
 import { useState } from "react";
 const Blog = () => {
-  const pageSize = 4; // Number of blogs per page
+  const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
   const startIndex = (currentPage - 1) * pageSize;
@@ -35,7 +35,7 @@ const Blog = () => {
           <Row className="mt-32">
             {currentBlogs.map((d, i) => {
               return (
-                <Col lg={6} sm={12} className="rounded-12 p-12 " key={i}>
+                <Col lg={4} sm={12} className="rounded-12 p-12 " key={i}>
                   <BlogCardlg
                     img={d.img}
                     title={d.title}
