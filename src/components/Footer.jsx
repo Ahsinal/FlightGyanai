@@ -97,7 +97,7 @@ const Footer = () => {
                 </ul>
               </Col>
               <Col lg={2} sm={12}>
-                <h6 className="fw-semibold mb-16">Useful Links</h6>
+                <h6 className="fw-semibold mb-16">Explore</h6>
                 <ul className="d-flex flex-column gap-12">
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />

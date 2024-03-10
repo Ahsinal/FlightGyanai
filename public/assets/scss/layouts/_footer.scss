@@ -1,7 +1,10 @@
-.footer {
-    a {
-        &:hover {
-            color: $secondary !important;
-        }
+footer {
+    // a {
+    //     &:hover {
+    //         color: $secondary !important;
+    //     }
+    // }
+    .stretched-link:hover {
+        color: $secondary !important; /* Change $secondary to the desired hover color */
     }
 }
