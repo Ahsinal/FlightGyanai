@@ -32,7 +32,7 @@ const LandingBlog = () => {
         {blogData?.data.slice(0, 1).map((d, i) => {
           return (
             <Col lg={6} sm={12} className="rounded-12 p-12 " key={i}>
-              <BlogCardlg />
+              <BlogCardlg img={d.img} title={d.title} desc={d.desc} date={d.date}/>
             </Col>
           );
         })}
@@ -40,7 +40,7 @@ const LandingBlog = () => {
           {blogData?.data.slice(1, 5).map((d, i) => {
             return (
               <div className="w-100 p-12" key={i}>
-                <BlogCardsm />
+                <BlogCardsm  img={d.img} title={d.title} desc={d.desc} date={d.date}/>
               </div>
             );
           })}
