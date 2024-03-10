@@ -36044,6 +36044,16 @@ header .navbar-nav .button a:hover {
   margin-top: -20%;
 }
 
+.payment-partner .image {
+  width: 6rem;
+  height: 3rem;
+}
+.payment-partner .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;
