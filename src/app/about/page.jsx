@@ -1,10 +1,8 @@
 import TeamsCard from "@/components/cards/TeamsCard";
 import { Col, Container, Row } from "react-bootstrap";
-import { teamsData } from "@/data/Data";
+import { teamsData ,aboutCardData} from "@/data/Data";
 import { Breadcrumb } from "antd";
 import Link from "next/link";
-import { FaSmile } from "react-icons/fa";
-import { aboutCardData } from "@/data/Data";
 const About = () => {
   return (
     <>
@@ -14,6 +12,7 @@ const About = () => {
             src="https://media.istockphoto.com/id/523262976/photo/about-us-concept-with-alphabet-blocks.webp?b=1&s=170667a&w=0&k=20&c=8I_-0GMuZqgT54o3mjHeHCsiffqw0mxa2fFB6wxgHd0="
             alt="about-image"
           />
+          
           <Container>
             <div className="about-banner-content bitter">
               <h2>About Us</h2>
@@ -72,8 +71,9 @@ const About = () => {
                 are created with the objective of delivering incomparable travel
                 experiences which is what differentiates us from other
                 cookie-cutter packaged .Based in Kathmandu /Butwal
-                
-                <br/><br/>FlightsGyani.Com was founded in the year 2018 with a vision to
+                <br />
+                <br />
+                FlightsGyani.Com was founded in the year 2018 with a vision to
                 make a great contribution. We are specialized in design to every
                 kind of holiday, like Group, incentive and mice & tailor made
                 for Europe, Scandinavia, USA, Canada, Far East, Middle East,
@@ -85,7 +85,10 @@ const About = () => {
               </div>
             </Col>
             <Col lg={5} sm={12} className="img">
-              <img src="https://img.freepik.com/premium-vector/vector-cute-people-playing-laptop-cartoon_300636-3013.jpg?w=826" alt="about us" />
+              <img
+                src="https://img.freepik.com/premium-vector/vector-cute-people-playing-laptop-cartoon_300636-3013.jpg?w=826"
+                alt="about us"
+              />
             </Col>
           </Row>
         </Container>
