@@ -36071,6 +36071,42 @@ footer .stretched-link:hover {
   object-position: center;
 }
 
+.breadcrumb-banner {
+  position: relative;
+}
+.breadcrumb-banner .img-wide {
+  height: 0;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+.breadcrumb-banner .img-wide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);
+}
+.breadcrumb-banner .img-wide .about-banner-content {
+  color: #fff !important;
+  position: absolute;
+  bottom: 20%;
+}
+.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-separator {
+  color: #fff !important;
+}
+.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-link {
+  color: white;
+}
+.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-link a {
+  color: inherit;
+}
+.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-link a:hover {
+  color: inherit !important;
+}
+
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;
@@ -36299,6 +36335,15 @@ footer .stretched-link:hover {
 }
 .card-side-card:hover {
   transform: scale(1.01);
+}
+.card-about-us .image {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.card-about-us .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 ul {
