@@ -35932,6 +35932,10 @@ header .navbar-nav .button a:hover {
   }
 }
 
+footer .stretched-link:hover {
+  color: #c1272f !important; /* Change $secondary to the desired hover color */
+}
+
 .landing-banner .swiper {
   /* Ensure Swiper slides take the full width */
 }
@@ -36045,13 +36049,26 @@ header .navbar-nav .button a:hover {
 }
 
 .payment-partner .image {
-  width: 6rem;
-  height: 3rem;
+  width: 8rem;
+  height: 5rem;
 }
 .payment-partner .image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.blog-details .auth-img {
+  width: 3rem;
+  height: 3rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.blog-details .auth-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .swiper-pagination-center .swiper-pagination {
@@ -36275,6 +36292,13 @@ header .navbar-nav .button a:hover {
   background-color: #c1272f !important;
   color: #fff !important;
   border: 1px solid transparent;
+}
+.card-side-card {
+  cursor: pointer;
+  transition: 0.4s all ease-in-out;
+}
+.card-side-card:hover {
+  transform: scale(1.01);
 }
 
 ul {

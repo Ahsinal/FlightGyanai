@@ -8,7 +8,7 @@ const BlogDetail = () => {
     <>
       <section className="py-16 blog-detail-breadcrumb">
         <Container>
-            <div className="btn btn-circle"></div>
+          <div className="btn btn-circle"></div>
           <Breadcrumb
             className="p fw-normal text-dark"
             items={[
@@ -22,7 +22,7 @@ const BlogDetail = () => {
           />
         </Container>
       </section>
-      <section className=" mb-40">
+      <section className=" mb-40 blog-details">
         <Container>
           <div className="img-wide">
             <img src={blogData?.data[2].img} alt="image-blog" />
@@ -77,6 +77,15 @@ const BlogDetail = () => {
                   soluta? Voluptatum quidem sunt similique cum cumque temporibus
                   quod.
                 </p>
+                <div className="d-flex gap-12 align-items-center mt-32">
+                  <div className="auth-img ">
+                    <img
+                      src="https://img.freepik.com/free-photo/portrait-smiling-beautiful-brunette-woman-cute-dress-red-lips-flowers-background-concept-professional-photossesion-modern-greenhouse_7502-8441.jpg?t=st=1710131009~exp=1710134609~hmac=7258023d6bf09d634795a87feea61f8bb4891d0ec98d13a28976e67341e74b64&w=740"
+                      alt="author"
+                    />
+                  </div>
+                  <p>Written By- Genellia Musk</p>
+                </div>
               </Col>
               <Col lg={4} sm={12}>
                 <h6 className="text-secondary mb-12">Blogs And Articles</h6>
