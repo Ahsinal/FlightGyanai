@@ -36107,6 +36107,28 @@ footer .stretched-link:hover {
   color: inherit !important;
 }
 
+.package-detail-page .ant-breadcrumb ol li:hover {
+  background-color: white;
+}
+.package-detail-page .ant-breadcrumb .ant-breadcrumb-separator {
+  color: #269215 !important;
+  font-weight: bold;
+}
+.package-detail-page .package-detail-content p {
+  font-size: 16px;
+  margin-top: 12px;
+}
+.package-detail-page .package-detail-content .basic-info-table table tbody tr {
+  border-bottom: 1px solid rgba(174, 172, 172, 0.85);
+}
+.package-detail-page .package-detail-content .basic-info-table table tbody td {
+  padding: 16px 0px 16px 0;
+}
+.package-detail-page .package-detail-content .other-packages {
+  position: sticky;
+  top: 0;
+}
+
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;
@@ -36328,6 +36350,18 @@ footer .stretched-link:hover {
   background-color: #c1272f !important;
   color: #fff !important;
   border: 1px solid transparent;
+}
+.card-side .image {
+  width: 70px;
+  height: 60px;
+}
+.card-side .package-info {
+  cursor: pointer;
+  border-bottom: 1px solid #BAB9B9;
+  width: 100%;
+}
+.card-side .package-info:hover {
+  color: #c1272f !important;
 }
 .card-side-card {
   cursor: pointer;

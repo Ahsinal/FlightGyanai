@@ -368,3 +368,56 @@ export const aboutCardData = {
         },
     ]
 }
+export const accordionData = {
+    data: [
+        {
+            id: "1",
+            title: "Arrival in Phuket and Patong Beach Exploration",
+            body: "Upon your arrival at Phuket International Airport, our friendly guide will greet you and transfer you to your luxurious beachfront resort in Patong. After check-in and some relaxation, embark on an exciting exploration of Patong Beach, one of the liveliest beaches in Phuket. Stroll along the vibrant promenade, indulge in beach activities, and admire the beautiful sunset. In the evening, experience Patong's vibrant nightlife with a mix of bars, restaurants, and entertainment venues. Arrival at Phuket International Airport and transfer to the beachfront resort in Patong.Explore Patong Beach, enjoy beach activities, and witness a stunning sunset."
+        },
+        {
+            id: "2",
+            title: "Arrival in Phuket and Patong Beach Exploration",
+            body: "Upon your arrival at Phuket International Airport, our friendly guide will greet you and transfer you to your luxurious beachfront resort in Patong. After check-in and some relaxation, embark on an exciting exploration of Patong Beach, one of the liveliest beaches in Phuket. Stroll along the vibrant promenade, indulge in beach activities, and admire the beautiful sunset. In the evening, experience Patong's vibrant nightlife with a mix of bars, restaurants, and entertainment venues. Arrival at Phuket International Airport and transfer to the beachfront resort in Patong.Explore Patong Beach, enjoy beach activities, and witness a stunning sunset."
+        },
+        {
+            id: "3",
+            title: "Arrival in Phuket and Patong Beach Exploration",
+            body: "Upon your arrival at Phuket International Airport, our friendly guide will greet you and transfer you to your luxurious beachfront resort in Patong. After check-in and some relaxation, embark on an exciting exploration of Patong Beach, one of the liveliest beaches in Phuket. Stroll along the vibrant promenade, indulge in beach activities, and admire the beautiful sunset. In the evening, experience Patong's vibrant nightlife with a mix of bars, restaurants, and entertainment venues. Arrival at Phuket International Airport and transfer to the beachfront resort in Patong.Explore Patong Beach, enjoy beach activities, and witness a stunning sunset."
+        },
+    ]
+};
+export const packageDetailOverview = {
+    data: [
+        {
+            img: "/assets/image/duration.png",
+            title: "Duration",
+            content: "5 Days"
+        },
+        {
+            img: "/assets/image/duration.png",
+            title: "Activity",
+            content: "5 Days"
+        },
+        {
+            img: "/assets/image/duration.png",
+            title: "Best Season",
+            content: "Spring"
+        },
+        {
+            img: "/assets/image/duration.png",
+            title: "Difficulty",
+            content: "5 Days"
+        },
+        {
+            img: "/assets/image/duration.png",
+            title: "Transportation",
+            content: "5 Days"
+        },
+        {
+            img: "/assets/image/duration.png",
+            title: "Accomodation",
+            content: "5 Star Hotels"
+        },
+    ]
+}

@@ -24,7 +24,7 @@ const ContactForm = () => {
     <>
       <Form>
         <div className="mb-8">
-          <FormLabel htmlFor="">
+          <FormLabel htmlFor="" className="mb-4">
             Full Name
             {errors.name?.type === "required" && (
               <span className="text-danger ms-4">*</span>
@@ -53,7 +53,7 @@ const ContactForm = () => {
           )}
         </div>
         <div className="mb-8">
-          <FormLabel htmlFor="">
+          <FormLabel htmlFor="" className="mb-4">
             Email
             {errors.name?.type === "required" && (
               <span className="text-danger ms-4">*</span>
@@ -82,7 +82,7 @@ const ContactForm = () => {
           )}
         </div>
         <div className="mb-8">
-          <FormLabel htmlFor="">
+          <FormLabel htmlFor="" className="mb-4">
             Phone
             {errors.phone?.type === "required" && (
               <span className="text-danger ms-4">*</span>
@@ -111,7 +111,7 @@ const ContactForm = () => {
           )}
         </div>
         <div className="mb-8">
-          <FormLabel htmlFor="">
+          <FormLabel htmlFor="" className="mb-4">
             Message
             {errors.message?.type === "required" && (
               <span className="text-danger ms-4">*</span>
@@ -134,7 +134,7 @@ const ContactForm = () => {
         </div>
         <Button
           onClick={handleSubmit(onSubmit)}
-          className="btn btn-xs rounded-12"
+          className="btn btn-xs rounded-8"
           variant="primary"
           type="submit"
         >

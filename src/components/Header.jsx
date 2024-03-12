@@ -123,12 +123,12 @@ const Header = () => {
                 <Nav.Link href="/about" as={Link}>
                   About US
                 </Nav.Link>
-                <Nav.Link href="/contact" as={Link}>
+                <Nav.Link href="/services" as={Link}>
                   Services
                 </Nav.Link>
               </Nav>
               <Link
-                href="/login"
+                href="/contact"
                 className="btn-xs btn-primary text-white rounded-8 py-12 px-24  d-none d-xl-block"
               >
                 Contact Us
