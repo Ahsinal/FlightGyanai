@@ -1,16 +1,13 @@
-import { Container } from "react-bootstrap"
-
+import { Container } from "react-bootstrap";
 
 const NotFound = () => {
   return (
-   <>
-   <section>
-    <Container>
-        <img src="assets/image/notfound.jsx" alt="" />
-    </Container>
-   </section>
-   </>
-  )
-}
+    <>
+      <section>
+        <Container></Container>
+      </section>
+    </>
+  );
+};
 
-export default NotFound
+export default NotFound;

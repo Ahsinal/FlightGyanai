@@ -9,6 +9,12 @@ export const bannerData = {
         {
             img: "https://img.freepik.com/free-photo/air-ticket-flight-booking-concept_53876-122380.jpg?t=st=1709526338~exp=1709529938~hmac=da40966f4d9784dace9fffbc3dedd2a8f02277438ce9a0f6e228fb487098cc8e&w=1380"
         },
+        {
+            img: "https://img.freepik.com/free-vector/airplane-sky_1308-31202.jpg?t=st=1709527632~exp=1709531232~hmac=7ab070eabef59d16f12d8c6a4c6e43133e7835f865f551f61702c0c9c1a7bd80&w=1060"
+        },
+        {
+            img: "https://img.freepik.com/free-photo/air-ticket-flight-booking-concept_53876-122380.jpg?t=st=1709526338~exp=1709529938~hmac=da40966f4d9784dace9fffbc3dedd2a8f02277438ce9a0f6e228fb487098cc8e&w=1380"
+        },
     ]
 }
 
