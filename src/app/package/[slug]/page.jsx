@@ -10,6 +10,8 @@ import SideCardPackage from "@/components/cards/SideCard";
 import { accordionData, packageDetailOverview } from "@/data/Data";
 import { TiTick } from "react-icons/ti";
 import { RxCross2 } from "react-icons/rx";
+import BookingForm from "@/components/layouts/BookingForm";
+import Booking from "@/components/layouts/Booking";
 const PackageDetail = () => {
   return (
     <>
@@ -96,6 +98,17 @@ const PackageDetail = () => {
               </p>
             </Col>
             <Col lg={4}>
+              <Row >
+                <Col sm={12}>
+                  <div className="p-24 shadow-1 rounded-16 bg-secondary text-white">
+                    <h6 className="text-center mb-8">
+                     Booking Form
+                    </h6>
+                    <p className="text-center small">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam, dicta.</p>
+                    <Booking/>
+                  </div>
+                </Col>
+              </Row>
               <div className="p-24 shadow-1 rounded-16">
                 <h6 className="text-cGray700">Basic Information</h6>
                 <PackageSidetable />
@@ -175,7 +188,7 @@ const PackageDetail = () => {
               <Row className="gap-12-row mt-32">
                 <Col sm={12}></Col>
               </Row>
-             
+
               <Row className="mt-32">
                 <Col sm={12}>
                   <div className=" p-24 rounded-12 shadow-1">
