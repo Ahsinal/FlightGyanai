@@ -1,7 +1,7 @@
 import Link from "next/link";
 export const BlogCardlg = (props) => {
   return (
-    <div className="card-blog-lg">
+    <div className="card-blog-lg position-relative">
       <div className="img-landscape rounded-12 position-relative">
         <img src={props.img} alt="blog-img" />
       </div>
@@ -11,7 +11,7 @@ export const BlogCardlg = (props) => {
         <p className="mt-8 clamp-4 fw-light">{props.desc}</p>
       </div>
       <Link
-        href="/blogs"
+        href="/blog"
         className="stretched-link btn btn-xs btn-primary mt-16"
       >
         Read More
@@ -31,7 +31,7 @@ export const BlogCardsm = (props) => {
         <h6 className="text-cGray800 mt-8">{props.title}</h6>
         <p className="clamp-2 text-cGray-800 fw-light mt-8">{props.desc}</p>
       </div>
-      <Link href="/blogs" className="stretched-link"></Link>
+      <Link href="/blog" className="stretched-link"></Link>
     </div>
   );
 };

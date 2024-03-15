@@ -10,6 +10,14 @@ const PackageSidetable = () => {
             <td>Otto</td>
           </tr>
           <tr>
+            <td>Duration</td>
+            <td>Otto</td>
+          </tr>
+          <tr>
+            <td>Activity</td>
+            <td>Otto</td>
+          </tr>
+          <tr>
             <td>Currency</td>
             <td>Yen,Dollars</td>
           </tr>

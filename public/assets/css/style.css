@@ -36370,6 +36370,15 @@ footer .stretched-link:hover {
 .card-side-card:hover {
   transform: scale(1.01);
 }
+.card-package-overview .img, .card-package-overview .avatar-xxxl, .card-package-overview .avatar-xxl, .card-package-overview .avatar-xl, .card-package-overview .avatar-lg, .card-package-overview .avatar-md, .card-package-overview .avatar-sm, .card-package-overview .avatar-xs {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.card-package-overview .img img, .card-package-overview .avatar-xxxl img, .card-package-overview .avatar-xxl img, .card-package-overview .avatar-xl img, .card-package-overview .avatar-lg img, .card-package-overview .avatar-md img, .card-package-overview .avatar-sm img, .card-package-overview .avatar-xs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .card-about-us .image {
   width: 3.5rem;
   height: 3.5rem;

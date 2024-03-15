@@ -123,9 +123,9 @@ const Header = () => {
                 <Nav.Link href="/about" as={Link}>
                   About US
                 </Nav.Link>
-                <Nav.Link href="/services" as={Link}>
+                {/* <Nav.Link href="/services" as={Link}>
                   Services
-                </Nav.Link>
+                </Nav.Link> */}
               </Nav>
               <Link
                 href="/contact"
