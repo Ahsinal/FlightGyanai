@@ -487,3 +487,19 @@ export const excludesData = {
         },
     ]
 }
+export const swiperImage = {
+    data: [
+        {
+            img: "https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph"
+        },
+        {
+            img: "https://img.freepik.com/free-photo/shiraito-waterfall-autumn-japan_335224-193.jpg?t=st=1710671467~exp=1710675067~hmac=551ea29d2577c9172630583d224c37b970732ada4962f4950abf183aded3a3c9&w=1480"
+        },
+        {
+            img: "https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph"
+        },
+        {
+            img: "https://img.freepik.com/free-photo/shiraito-waterfall-autumn-japan_335224-193.jpg?t=st=1710671467~exp=1710675067~hmac=551ea29d2577c9172630583d224c37b970732ada4962f4950abf183aded3a3c9&w=1480"
+        },
+    ]
+}

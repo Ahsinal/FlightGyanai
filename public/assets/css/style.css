@@ -36129,6 +36129,12 @@ footer .stretched-link:hover {
   top: 0;
 }
 
+.package-detail-page .swiper-pagination-bullet {
+  border-radius: 50% !important;
+  height: 0.85rem !important;
+  width: 0.85rem !important;
+}
+
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;

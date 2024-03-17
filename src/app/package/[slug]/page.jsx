@@ -1,12 +1,21 @@
 "use client";
-import { Container, Badge, Row, Col, BreadcrumbItem } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Container, Row, Col } from "react-bootstrap";
 import Link from "next/link";
 import { Breadcrumb } from "antd";
 import { FaStar } from "react-icons/fa";
-import PackageSidetable from "@/components/layouts/PackageSideTable";
-import { cardData } from "@/data/Data";
+import {
+  cardData,
+  includesdata,
+  excludesData,
+  packageDetailOverview,
+  swiperImage,
+} from "@/data/Data";
 import SideCardPackage from "@/components/cards/SideCard";
-import { includesdata, excludesData, packageDetailOverview } from "@/data/Data";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { RxCrossCircled } from "react-icons/rx";
 import Booking from "@/components/layouts/Booking";
@@ -39,7 +48,7 @@ const PackageDetail = () => {
           </Container>
         </div>
       </section>
-      <section className="py-40">
+      <section className="py-40 package-detail-page">
         <Container>
           <div className=" flex-between align-items-center">
             <div className="">
@@ -57,12 +66,34 @@ const PackageDetail = () => {
           </div>
           <Row className="mt-32 ">
             <Col lg={8} sm={12}>
-              <div className="img-landscape rounded-12 overflow-hidden">
+              <Swiper
+                spaceBetween={30}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay={{ delay: 3000 }}
+                modules={[Pagination, Autoplay]}
+                className="mySwiper"
+              >
+                {swiperImage?.data.map((d, i) => {
+                  return (
+                    <SwiperSlide key={i}>
+                      <div className="" style={{ minHeight: "450px" }}>
+                        <div className="img-landscape rounded-12 overflow-hidden">
+                          <img src={d.img} alt="image package" />
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+
+              {/* <div className="img-landscape rounded-12 overflow-hidden">
                 <img
                   src="https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph"
                   alt="image package"
                 />
-              </div>
+              </div> */}
               <Row className="mt-12">
                 <h5>Overview</h5>
                 {packageDetailOverview?.data.map((d, i) => {
@@ -126,7 +157,7 @@ const PackageDetail = () => {
             </Col>
 
             <Col lg={4} className=" position-relative">
-              <Row className="position-sticky top-0 ">
+              <Row className="position-sticky top-0">
                 <Col sm={12}>
                   <Booking />
                 </Col>

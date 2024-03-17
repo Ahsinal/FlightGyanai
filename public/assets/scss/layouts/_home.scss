@@ -256,8 +256,13 @@
 
 }
 
-.sticky-sidecol {
-    // position: sticky;
-    // top: 100;
-    // background-color: indianred;
+.sticky-sidecol {}
+
+.package-detail-page {
+    .swiper-pagination-bullet {
+        border-radius: 50% !important;
+        height: 0.85rem !important;
+        width: 0.85rem !important;
+    }
+
 }

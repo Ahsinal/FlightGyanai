@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button, Col, Container, Form, Row, InputGroup } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 const Booking = () => {
   const {
