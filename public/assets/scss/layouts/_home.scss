@@ -225,6 +225,7 @@
             font-weight: bold;
         }
     }
+
     .package-detail-content {
         p {
             font-size: 16px;
@@ -253,4 +254,10 @@
         }
     }
 
+}
+
+.sticky-sidecol {
+    // position: sticky;
+    // top: 100;
+    // background-color: indianred;
 }

@@ -8,6 +8,7 @@ import { cardData } from "@/data/Data";
 import SideCardPackage from "@/components/cards/SideCard";
 import { includesdata, excludesData, packageDetailOverview } from "@/data/Data";
 import { IoIosCheckmarkCircle } from "react-icons/io";
+import { RxCrossCircled } from "react-icons/rx";
 import Booking from "@/components/layouts/Booking";
 import Itinerary from "@/components/layouts/Itinerary";
 const PackageDetail = () => {
@@ -38,9 +39,9 @@ const PackageDetail = () => {
           </Container>
         </div>
       </section>
-      <section>
+      <section className="py-40">
         <Container>
-          <div className="mt-32 flex-between align-items-center">
+          <div className=" flex-between align-items-center">
             <div className="">
               <h5 className="bitter ">SUMMER HOLIDAY TO THE OXOLOTAN RIVER</h5>
               <div className="text-warning d-flex gap-4 mt-4">
@@ -111,15 +112,12 @@ const PackageDetail = () => {
                   );
                 })}
               </Col>
-              <Col
-                sm={12}
-                className="mt-24 py-24 px-8 bg-cGray100 rounded-12 mb-24"
-              >
+              <Col sm={12} className="mt-24 py-24 px-8 bg-cGray100 rounded-12 ">
                 <h6 className="mb-12"> Excludes</h6>
                 {excludesData?.data?.map((d, i) => {
                   return (
                     <div className="d-flex gap-8 mb-8" key={i}>
-                      <IoIosCheckmarkCircle className="text-secondary h4" />
+                      <RxCrossCircled className="text-secondary h4" />
                       <p>{d.desc}</p>
                     </div>
                   );
@@ -127,8 +125,8 @@ const PackageDetail = () => {
               </Col>
             </Col>
 
-            <Col lg={4}>
-              <Row>
+            <Col lg={4} className=" position-relative">
+              <Row className="position-sticky top-0 ">
                 <Col sm={12}>
                   <Booking />
                 </Col>
