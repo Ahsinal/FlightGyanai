@@ -3,15 +3,13 @@ import { Container, Badge, Row, Col, BreadcrumbItem } from "react-bootstrap";
 import Link from "next/link";
 import { Breadcrumb } from "antd";
 import { FaStar } from "react-icons/fa";
-import PackageDetailContent from "@/components/layouts/PackageDetailContent";
 import PackageSidetable from "@/components/layouts/PackageSideTable";
 import { cardData } from "@/data/Data";
 import SideCardPackage from "@/components/cards/SideCard";
-import { accordionData, packageDetailOverview } from "@/data/Data";
-import { TiTick } from "react-icons/ti";
-import { RxCross2 } from "react-icons/rx";
-import BookingForm from "@/components/layouts/BookingForm";
+import { includesdata, excludesData, packageDetailOverview } from "@/data/Data";
+import { IoIosCheckmarkCircle } from "react-icons/io";
 import Booking from "@/components/layouts/Booking";
+import Itinerary from "@/components/layouts/Itinerary";
 const PackageDetail = () => {
   return (
     <>
@@ -57,14 +55,14 @@ const PackageDetail = () => {
             </div>
           </div>
           <Row className="mt-32 ">
-            <Col lg={8}>
+            <Col lg={8} sm={12}>
               <div className="img-landscape rounded-12 overflow-hidden">
                 <img
                   src="https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph"
                   alt="image package"
                 />
               </div>
-              {/* <Row className="mt-12">
+              <Row className="mt-12">
                 <h5>Overview</h5>
                 {packageDetailOverview?.data.map((d, i) => {
                   return (
@@ -83,8 +81,8 @@ const PackageDetail = () => {
                     </Col>
                   );
                 })}
-              </Row> */}
-              <p className="mt-24">
+              </Row>
+              <p className="mt-32">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
                 iusto corrupti voluptatum hic dolores consectetur recusandae est
                 velit vero facilis, exercitationem impedit quis explicabo nobis
@@ -96,25 +94,45 @@ const PackageDetail = () => {
                 Illo magni dolorum molestiae ex odit, at impedit, corporis,
                 assumenda autem velit ducimus omnis? Magnam iustion.
               </p>
+              <Col sm={12} className="mt-24">
+                <Itinerary />
+              </Col>
+              <Col
+                sm={12}
+                className="mt-24 py-24 px-8 bg-cGray100 rounded-12 mb-24"
+              >
+                <h6 className="mb-12"> Includes</h6>
+                {includesdata?.data?.map((d, i) => {
+                  return (
+                    <div className="d-flex gap-8 mb-8" key={i}>
+                      <IoIosCheckmarkCircle className="text-secondary h4" />
+                      <p>{d.desc}</p>
+                    </div>
+                  );
+                })}
+              </Col>
+              <Col
+                sm={12}
+                className="mt-24 py-24 px-8 bg-cGray100 rounded-12 mb-24"
+              >
+                <h6 className="mb-12"> Excludes</h6>
+                {excludesData?.data?.map((d, i) => {
+                  return (
+                    <div className="d-flex gap-8 mb-8" key={i}>
+                      <IoIosCheckmarkCircle className="text-secondary h4" />
+                      <p>{d.desc}</p>
+                    </div>
+                  );
+                })}
+              </Col>
             </Col>
+
             <Col lg={4}>
-              <Row >
+              <Row>
                 <Col sm={12}>
-                  <div className="p-24 shadow-1 rounded-16 bg-secondary text-white">
-                    <h6 className="text-center mb-8">
-                     Booking Form
-                    </h6>
-                    <p className="text-center small">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam, dicta.</p>
-                    <Booking/>
-                  </div>
+                  <Booking />
                 </Col>
-              </Row>
-              <div className="p-24 shadow-1 rounded-16">
-                <h6 className="text-cGray700">Basic Information</h6>
-                <PackageSidetable />
-              </div>
-              <Row className="mt-32">
-                <Col sm={12}>
+                <Col sm={12} className="mt-32">
                   <div className="p-24 shadow-1 rounded-16">
                     <h6 className="text-cGray700 mb-12">
                       Other Packages for you
@@ -131,72 +149,21 @@ const PackageDetail = () => {
                     })}
                   </div>
                 </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-
-        <Container>
-          <Row className="g-32">
-            <Col lg={8} sm={12}>
-              <PackageDetailContent />
-            </Col>
-            <div className=" mt-16">
-              <Row>
-                <Col lg={6} sm={12} className="">
-                  <h5 className="text-cGray700 ">Included</h5>
-                  <div className="d-flex align-items-center gap-8">
-                    <TiTick className="text-primary h4" />
-                    <p>Pick and Drop Services</p>
-                  </div>
-                  <div className="d-flex align-items-center gap-8">
-                    <TiTick className="text-primary h4" />
-                    <p>1 Meal Per Day</p>
-                  </div>
-                  <div className="d-flex align-items-center gap-8">
-                    <TiTick className="text-primary h4" />
-                    <p>Cruise Dinner & Music Event</p>
-                  </div>
-                  <div className="d-flex align-items-center gap-8">
-                    <TiTick className="text-primary h4" />
-                    <p>Visit 7 Best Places in the City</p>
-                  </div>
-                </Col>
-                <Col lg={6} sm={12}>
-                  <h5 className="text-cGray700 ">Excluded</h5>
-                  <div className="d-flex align-items-center gap-8">
-                    <RxCross2 className="text-danger h4" />
-                    <p>Additional Services</p>
-                  </div>
-                  <div className="d-flex align-items-center gap-8">
-                    <RxCross2 className="text-danger h4" />
-                    <p>Insurance</p>
-                  </div>
-                  <div className="d-flex align-items-center gap-8">
-                    <RxCross2 className="text-danger h4" />
-                    <p>Food & Drinks</p>
-                  </div>
-                  <div className="d-flex align-items-center gap-8">
-                    <RxCross2 className="text-danger h4" />
-                    <p>Tickets</p>
-                  </div>
-                </Col>
-              </Row>
-            </div>
-
-            <Col lg={4} sm={12} className=" ">
-              <Row className="gap-12-row mt-32">
-                <Col sm={12}></Col>
-              </Row>
-
-              <Row className="mt-32">
-                <Col sm={12}>
+                <Col sm={12} className="mt-32">
                   <div className=" p-24 rounded-12 shadow-1">
                     <h5 className="text-cGray300 fw-seibold mb-16">City Map</h5>
-                    {/* <Map /> */}
+                    <iframe
+                      width="100%"
+                      height="250"
+                      src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=kathmandu+(Flight%20Gyani)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                    ></iframe>
                   </div>
                 </Col>
               </Row>
+              {/* <Col sm={12} className="p-24 shadow-1 rounded-16 mt-24">
+                <h6 className="text-cGray700">Basic Information</h6>
+                <PackageSidetable />
+              </Col> */}
             </Col>
           </Row>
         </Container>

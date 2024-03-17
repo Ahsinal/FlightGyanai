@@ -427,3 +427,63 @@ export const packageDetailOverview = {
         },
     ]
 }
+export const includesdata = {
+    data: [
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        }, {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+    ]
+}
+export const excludesData = {
+    data: [
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        }, {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+        {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odit et pariatur dolores necessitatibus praesentium.",
+        },
+    ]
+}

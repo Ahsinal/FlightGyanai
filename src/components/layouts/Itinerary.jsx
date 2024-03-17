@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { Row, Col } from "react-bootstrap";
 import { Accordion } from "react-bootstrap";
 
-import { accordionData, packageDetailOverview } from "@/data/Data";
-const PackageDetailContent = () => {
+import { accordionData } from "@/data/Data";
+const Itinerary = () => {
   const [openAccordion, setOpenAccordion] = useState(null);
   const handleAccordionToggle = (id) => {
     setOpenAccordion(openAccordion == id ? null : id);
   };
   return (
     <>
-      <div className="mt-32">
+      <div className="">
         <h5 className=" text-cGray800 mb-12">ITINERARY</h5>
         {accordionData?.data.map((d, i) => {
           return (
@@ -37,4 +36,4 @@ const PackageDetailContent = () => {
   );
 };
 
-export default PackageDetailContent;
+export default Itinerary;
