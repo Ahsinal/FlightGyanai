@@ -68,21 +68,23 @@ const LandingBucketList = () => {
       <h3 className="bitter text-cGray800 mb-8 mb-sm-16 text-center">
         Browse All Packages
       </h3>
-      <div className="flex-center gap-8 mb-12 mb-sm-32">
-        {list.map((d, i) => {
-          return (
-            <div
-              className={`card-side-bucketlist rounded-8 x-small bg-white shadow-4 py-8 px-24 fw-normal text-center text-cGray800 ${
-                selected === d.id ? "active" : ""
-              }`}
-              key={i}
-              onClick={() => setSelected(d.id)}
-            >
-              {d.title}
-            </div>
-          );
-        })}
-      </div>
+      <Row>
+        <Col lg={12} className="flex-center gap-4 mb-12 mb-sm-32 flex-wrap">
+          {list.map((d, i) => {
+            return (
+              <div
+                className={`card-side-bucketlist rounded-8 x-small bg-white shadow-4 py-8 px-24 fw-normal text-center text-cGray800 ${
+                  selected === d.id ? "active" : ""
+                }`}
+                key={i}
+                onClick={() => setSelected(d.id)}
+              >
+                {d.title}
+              </div>
+            );
+          })}
+        </Col>
+      </Row>
       <Row>
         <Swiper
           loop={true}

@@ -36129,7 +36129,7 @@ footer .stretched-link:hover {
   top: 0;
 }
 
-.package-detail-page .swiper-pagination-bullet {
+.st .package-detail-page .swiper-pagination-bullet {
   border-radius: 50% !important;
   height: 0.85rem !important;
   width: 0.85rem !important;
@@ -36316,6 +36316,18 @@ footer .stretched-link:hover {
 }
 .card-blog-sm:hover {
   transform: scale(1.01);
+}
+.card-blog-sm .image {
+  width: 25%;
+  height: auto;
+}
+.card-blog-sm .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-blog-sm .content {
+  width: 75%;
 }
 .card-testimonial {
   cursor: pointer;

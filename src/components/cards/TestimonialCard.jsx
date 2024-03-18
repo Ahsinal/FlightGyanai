@@ -12,10 +12,10 @@ const TestimonialCard = (props) => {
       </div>
 
       <div className="d-flex gap-4 text-warning mt-8">{stars}</div>
-      <p className="clamp-5 mt-12 text-cGray700  fw-light">{props.desc}</p>
-      <h6 className="text-cGray800 mt-12 bitter">{props.name}</h6>
+      <p className="clamp-5 mt-12 small fw-light text-justify">{props.desc}</p>
+      <h6 className=" fw-medium mt-12 bitter">{props.name}</h6>
       {/* <p className="x-small text-cGray400 mt-4 ">{props.org}</p> */}
-      <p className="fw-bold text-secondary small">Customer</p>
+      <p className="fw-normal text-secondary small ">Customer</p>
     </div>
   );
 };

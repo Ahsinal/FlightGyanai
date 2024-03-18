@@ -23,9 +23,8 @@ const PopularPackageCard = (props) => {
             <h6 className="bitter">{props.title}</h6>
           </div>
         </div>
-       
-          View Detail
-        </Link>
+
+        <Link href="/"> View Detail</Link>
       </div> */}
 
       <div className="card-package-popular position-relative d-flex flex-column  py-16">
@@ -41,8 +40,10 @@ const PopularPackageCard = (props) => {
               Rs 100,000
             </p>
           </div>
-          <h6 className="mb-8">{props.title}</h6>
-          <p className="mb-16 clamp-3 fw-light">
+          <div className="title">
+            <p className="mb-8 fw-medium">{props.title}</p>
+          </div>
+          <p className="mb-16 clamp-3 fw-light  small text-justify">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
             deleniti eius at suscipit unde ipsam ad non fugiat ullam, tempore
             incidunt iste eum, aut ea.

@@ -7,7 +7,7 @@ const PackageCard = (props) => {
     <FaStar key={index} />
   ));
   return (
-    <div className="card-package-all shadow-1 rounded-8 overflow-hidden position-relative">
+    <div className="card-package-all shadow-1  rounded-8 overflow-hidden position-relative">
       <div className="img">
         <img src={props.img} alt="" />
       </div>
@@ -20,8 +20,6 @@ const PackageCard = (props) => {
           <span className="text-cGray800 x-small">{props.location}</span>
         </div>
         <div className="d-flex gap-4 align-items-center small text-yellow500">
-          {/* <FaCalendar className="text-cGray700" />
-            <span className="text-cGray-800">{props.days} Days</span> */}
           {stars}
         </div>
       </div>
@@ -30,10 +28,9 @@ const PackageCard = (props) => {
           <p className="fw-medium">{props.title}</p>
         </div>
         <p className=" fw-light mt-4 clamp-2 small text-justify">
-          Lonsectetur adipisicing elit. Similique
-          corrupti, in totam quod facilis quibusdam ratione alias, nesciunt
-          dolores quasi tempora fugit saepe ea magnam nam praesentium placeat!
-          Sequi, atque?
+          Lonsectetur adipisicing elit. Similique corrupti, in totam quod
+          facilis quibusdam ratione alias, nesciunt dolores quasi tempora fugit
+          saepe ea magnam nam praesentium placeat! Sequi, atque?
         </p>
         <hr />
         <Link

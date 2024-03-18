@@ -31,16 +31,26 @@ const LandingBlog = () => {
       <Row className="d-flex align-items-center gx-40">
         {blogData?.data.slice(0, 1).map((d, i) => {
           return (
-            <Col lg={6} sm={12} className="rounded-12 p-12 " key={i}>
-              <BlogCardlg img={d.img} title={d.title} desc={d.desc} date={d.date}/>
+            <Col lg={6} sm={12} className="rounded-12 p-12 px-sm-12 " key={i}>
+              <BlogCardlg
+                img={d.img}
+                title={d.title}
+                desc={d.desc}
+                date={d.date}
+              />
             </Col>
           );
         })}
-        <Col lg={6} sm={12} className=" p-12">
+        <Col lg={6} sm={12} className=" p-12 d-none d-lg-block d-md-block">
           {blogData?.data.slice(1, 5).map((d, i) => {
             return (
               <div className="w-100 p-12" key={i}>
-                <BlogCardsm  img={d.img} title={d.title} desc={d.desc} date={d.date}/>
+                <BlogCardsm
+                  img={d.img}
+                  title={d.title}
+                  desc={d.desc}
+                  date={d.date}
+                />
               </div>
             );
           })}

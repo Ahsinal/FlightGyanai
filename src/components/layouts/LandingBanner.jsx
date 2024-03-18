@@ -41,7 +41,7 @@ const LandingBanner = () => {
             <Col
               lg={10}
               sm={12}
-              className="card-banner flex-between mx-auto py-16  px-32 shadow   rounded-12 mt-0 bg-white "
+              className="card-banner flex-between mx-auto py-16  px-32 shadow rounded-12 mt-0 bg-white flex-wrap"
             >
               <div className="card-col flex-center-center  gap-16 pe-24">
                 <div className="text-secondary h2">

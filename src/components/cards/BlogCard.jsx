@@ -6,9 +6,9 @@ export const BlogCardlg = (props) => {
         <img src={props.img} alt="blog-img" />
       </div>
       <div className="content mt-12">
-        <p className="x-small text-cGray700">{props.date}</p>
-        <h5 className="mt-8 fw-semibold text-cGray800">{props.title}</h5>
-        <p className="mt-8 clamp-4 fw-light">{props.desc}</p>
+        <p className="xx-small text-cGray500">{props.date}</p>
+        <p className="mt-8 fw-medium ">{props.title}</p>
+        <p className="mt-8 clamp-4   text-justify fw-light">{props.desc}</p>
       </div>
       <Link
         href="/blog"
@@ -23,13 +23,13 @@ export const BlogCardlg = (props) => {
 export const BlogCardsm = (props) => {
   return (
     <div className="card-blog-sm d-flex gap-24 shadow-1 p-16 rounded-8 position-relative">
-      <div className="img w-25 rounded-12">
+      <div className="image rounded-12 overflow-hidden">
         <img src={props.img} alt="image" />
       </div>
-      <div className="w-75">
-        <p className="xx-small text-cGray700"> {props.date}</p>
-        <h6 className="text-cGray800 mt-8">{props.title}</h6>
-        <p className="clamp-2 text-cGray-800 fw-light mt-8">{props.desc}</p>
+      <div className="content">
+        <p className="xx-small text-cGray500"> {props.date}</p>
+        <p className="text-cGray800 fw-medium mt-8">{props.title}</p>
+        <p className="clamp-2 fw-light text-justify mt-8">{props.desc}</p>
       </div>
       <Link href="/blog" className="stretched-link"></Link>
     </div>
