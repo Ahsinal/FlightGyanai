@@ -503,3 +503,27 @@ export const swiperImage = {
         },
     ]
 }
+export const faqData = {
+    data: [
+        {
+            id: "1",
+            title: "What Any increase in the rate of exchange leading to an increase in surface transportation and land arrangements,",
+            desc: "Any increase in the rate of exchange leading to an increase in surface transportation and land arrangements,Any increase in the rate of exchange leading to an increase in surface transportation and land arAny increase in the rate of exchange leading to an increase in surface transportation and land arrangements,"
+        },
+        {
+            id: "2",
+            title: "What Any increase in the rate of exchange leading to an increase in surface transportation and land arrangements,",
+            desc: "Any increase in the rate of exchange leading to an increase in surface transportation and land arrangements,Any increase in the rate of exchange leading to an increase in surface transportation and land arAny increase in the rate of exchange leading to an increase in surface transportation and land arrangements,"
+        },
+        {
+            id: "3",
+            title: "What Any increase in the rate of exchange leading to an increase in surface transportation and land arrangements,",
+            desc: "Any increase in the rate of exchange leading to an increase in surface transportation and land arrangements,Any increase in the rate of exchange leading to an increase in surface transportation and land arAny increase in the rate of exchange leading to an increase in surface transportation and land arrangements,"
+        },
+        {
+            id: "4",
+            title: "What Any increase in the rate of exchange leading to an increase in surface transportation and land arrangements,",
+            desc: "Any increase in the rate of exchange leading to an increase in surface transportation and land arrangements,Any increase in the rate of exchange leading to an increase in surface transportation and land arAny increase in the rate of exchange leading to an increase in surface transportation and land arrangements,"
+        },
+    ]
+}
