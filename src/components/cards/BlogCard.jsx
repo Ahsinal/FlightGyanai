@@ -1,11 +1,11 @@
 import Link from "next/link";
 export const BlogCardlg = (props) => {
   return (
-    <div className="card-blog-lg position-relative">
+    <div className="card-blog-lg position-relative px-8">
       <div className="img-landscape rounded-12 position-relative">
         <img src={props.img} alt="blog-img" />
       </div>
-      <div className="content mt-12">
+      <div className="content mt-12 ">
         <p className="xx-small text-cGray500">{props.date}</p>
         <p className="mt-8 fw-medium ">{props.title}</p>
         <p className="mt-8 clamp-4   text-justify fw-light">{props.desc}</p>

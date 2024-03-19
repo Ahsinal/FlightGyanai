@@ -33,7 +33,7 @@ const About = () => {
       </section>
       <section className="py-32  ">
         <Container>
-          <Row>
+          <Row className="gap-16-row">
             {aboutCardData?.data.map((d, i) => {
               return (
                 <Col lg={3} sm={6} key={i}>
@@ -54,7 +54,7 @@ const About = () => {
           </Row>
         </Container>
       </section>
-      <section className="mt-32">
+      <section className="mt-32 px-sm-12">
         <Container>
           <Row className="gx-32 d-flex align-items-center">
             <Col lg={7} sm={12}>
@@ -93,12 +93,12 @@ const About = () => {
           </Row>
         </Container>
       </section>
-      <section className="about-teams py-40">
+      <section className="about-teams py-40 ">
         <Container>
           <h3 className="text-center bitter text-cGray700">
             Meet Our Teammates
           </h3>
-          <Row className="gap-24-row mt-16">
+          <Row className="gap-24-row mt-16 px-sm-12">
             {teamsData?.data.slice(0, 4).map((d, i) => {
               return (
                 <Col lg={3} md={4} sm={12} key={i}>

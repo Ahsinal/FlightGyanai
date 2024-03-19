@@ -28,7 +28,7 @@ const LandingTestimonial = () => {
   };
   return (
     <>
-      <div className="testimonial-shape-1 ms-16">
+      <div className="testimonial-shape-1" style={{ marginLeft: "-20px" }}>
         <img src="assets/image/testicon1.png" alt="flight img" />
       </div>
       <Container>
@@ -88,7 +88,7 @@ const LandingTestimonial = () => {
           </Col>
         </Row>
       </Container>
-      <div className="bg-testimonial "></div>
+      <div className="bg-testimonial d-none d-lg-block"></div>
     </>
   );
 };

@@ -48,7 +48,7 @@ const PackageDetail = () => {
           </Container>
         </div>
       </section>
-      <section className="py-40 package-detail-page">
+      <section className="py-40 package-detail-page px-sm-12">
         <Container>
           <div className=" flex-between align-items-center">
             <div className="">
@@ -64,7 +64,7 @@ const PackageDetail = () => {
               NPR 100000
             </div>
           </div>
-          <Row className="mt-32 ">
+          <Row className="mt-32 gap-24-row ">
             <Col lg={8} sm={12}>
               <Swiper
                 spaceBetween={30}
@@ -78,7 +78,7 @@ const PackageDetail = () => {
                 {swiperImage?.data.map((d, i) => {
                   return (
                     <SwiperSlide key={i}>
-                      <div className="" style={{ minHeight: "450px" }}>
+                      <div className="">
                         <div className="img-landscape rounded-12 overflow-hidden">
                           <img src={d.img} alt="image package" />
                         </div>
@@ -87,13 +87,6 @@ const PackageDetail = () => {
                   );
                 })}
               </Swiper>
-
-              {/* <div className="img-landscape rounded-12 overflow-hidden">
-                <img
-                  src="https://img.freepik.com/premium-photo/bangkok-city-skyscraper-sunset_268174-1501.jpg?size=626&ext=jpg&ga=GA1.1.2047347518.1707369163&semt=sph"
-                  alt="image package"
-                />
-              </div> */}
               <Row className="mt-12">
                 <h5>Overview</h5>
                 {packageDetailOverview?.data.map((d, i) => {
@@ -126,7 +119,8 @@ const PackageDetail = () => {
                 Illo magni dolorum molestiae ex odit, at impedit, corporis,
                 assumenda autem velit ducimus omnis? Magnam iustion.
               </p>
-              <Col sm={12} className="mt-24">
+
+              <Col sm={12} lg={12} className="mt-24">
                 <Itinerary />
               </Col>
               <Col

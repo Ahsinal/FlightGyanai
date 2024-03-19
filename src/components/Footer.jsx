@@ -147,26 +147,6 @@ const Footer = () => {
         </section>
         <section className="bg-secondary text-white">
           <Container className="flex-between align-items-center py-12 ">
-            {/* <div className="flex-items-center gap-8 ">
-              <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                <FaFacebook className="text-white" />
-              </Link>
-              <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                <FaTwitter className="text-white" />
-              </Link>
-              <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                <FaInstagram className="text-white" />
-              </Link>
-              <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                <FaYoutube className="text-white" />
-              </Link>
-              <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                <FaPinterest className="text-white" />
-              </Link>
-            </div>
-            <p className="xx-small">
-              Copyright @ 2024 Flights Gyani Pvt Ltd | All rights are preserved
-            </p> */}
             <Row className="gap-8-row  w-100 align-items-center">
               <Col lg={6} sm={12} className="">
                 <div className="flex-items-center gap-8 ">
@@ -188,7 +168,7 @@ const Footer = () => {
                 </div>
               </Col>
               <Col lg={6} sm={12}>
-                <p className="xx-small text-end">
+                <p className="xx-small text-lg-end">
                   Copyright @ 2024 Flights Gyani Pvt Ltd | All rights are
                   preserved
                 </p>
