@@ -1,6 +1,6 @@
 import TeamsCard from "@/components/cards/TeamsCard";
 import { Col, Container, Row } from "react-bootstrap";
-import { teamsData ,aboutCardData} from "@/data/Data";
+import { teamsData, aboutCardData } from "@/data/Data";
 import { Breadcrumb } from "antd";
 import Link from "next/link";
 const About = () => {
@@ -12,7 +12,7 @@ const About = () => {
             src="https://media.istockphoto.com/id/523262976/photo/about-us-concept-with-alphabet-blocks.webp?b=1&s=170667a&w=0&k=20&c=8I_-0GMuZqgT54o3mjHeHCsiffqw0mxa2fFB6wxgHd0="
             alt="about-image"
           />
-          
+
           <Container>
             <div className="about-banner-content bitter">
               <h2>About Us</h2>
@@ -99,7 +99,7 @@ const About = () => {
             Meet Our Teammates
           </h3>
           <Row className="gap-24-row mt-16">
-            {teamsData?.data.map((d, i) => {
+            {teamsData?.data.slice(0, 4).map((d, i) => {
               return (
                 <Col lg={3} md={4} sm={12} key={i}>
                   <TeamsCard

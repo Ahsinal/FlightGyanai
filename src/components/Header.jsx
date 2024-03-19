@@ -50,9 +50,9 @@ const Header = () => {
                   title="International"
                   id="collapsible-nav-dropdown"
                   className="dropdown "
-                  // show={dropdownOpen}
-                  // onMouseEnter={handleMouseEnter}
-                  // onMouseLeave={handleMouseLeave}
+                  show={dropdownOpen}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <NavDropdown
                     title="Europe and UK"
@@ -122,6 +122,9 @@ const Header = () => {
                 </Nav.Link>
                 <Nav.Link href="/about" as={Link}>
                   About US
+                </Nav.Link>
+                <Nav.Link href="/teams" as={Link}>
+                  Our teams
                 </Nav.Link>
                 {/* <Nav.Link href="/services" as={Link}>
                   Services
