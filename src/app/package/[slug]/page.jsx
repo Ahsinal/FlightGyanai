@@ -78,7 +78,7 @@ const PackageDetail = () => {
                 {swiperImage?.data.map((d, i) => {
                   return (
                     <SwiperSlide key={i}>
-                      <div className="" style={{ minHeight: "fitcontent" }}>
+                      <div className="" style={{ minHeight: "450px" }}>
                         <div className="img-landscape rounded-12 overflow-hidden">
                           <img src={d.img} alt="image package" />
                         </div>
@@ -86,7 +86,7 @@ const PackageDetail = () => {
                     </SwiperSlide>
                   );
                 })}
-              </Swiper>  
+              </Swiper>
 
               {/* <div className="img-landscape rounded-12 overflow-hidden">
                 <img
@@ -156,8 +156,8 @@ const PackageDetail = () => {
               </Col>
             </Col>
 
-            <Col lg={4} className=" position-relative">
-              <Row className="position-sticky top-0">
+            <Col lg={4} className="side-col">
+              <Row className="stick-side-card">
                 <Col sm={12}>
                   <Booking />
                 </Col>

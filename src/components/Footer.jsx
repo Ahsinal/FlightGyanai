@@ -38,7 +38,7 @@ const Footer = () => {
                   eligendi.
                 </p>
               </Col>
-              <Col lg={2} sm={12}>
+              <Col lg={2} sm={6}>
                 <h6 className="fw-semibold mb-16">Pages</h6>
                 <ul className="d-flex flex-column gap-12">
                   <li className="d-flex align-items-center gap-2 position-relative ">
@@ -67,7 +67,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </Col>
-              <Col lg={2} sm={12}>
+              <Col lg={2} sm={6}>
                 <h6 className="fw-semibold mb-16">Useful Links</h6>
                 <ul className="d-flex flex-column gap-12">
                   <li className="d-flex align-items-center gap-2 position-relative ">
@@ -96,7 +96,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </Col>
-              <Col lg={2} sm={12}>
+              <Col lg={2} sm={6}>
                 <h6 className="fw-semibold mb-16">Explore</h6>
                 <ul className="d-flex flex-column gap-12">
                   <li className="d-flex align-items-center gap-2 position-relative ">
@@ -125,7 +125,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </Col>
-              <Col lg={2} sm={12}>
+              <Col lg={2} sm={6}>
                 <h6 className="fw-semibold mb-16">Find Us</h6>
                 <ul className="d-flex flex-column gap-12">
                   <li className="d-flex align-items-center gap-8">
@@ -142,32 +142,38 @@ const Footer = () => {
                   </li>
                 </ul>
               </Col>
-              {/* <hr className="mt-24 mb-0" /> */}
             </Row>
           </Container>
         </section>
         <section className="bg-secondary text-white">
-          <Container className="flex-between align-items-center py-12">
-            <div className="flex-items-center gap-8">
-              <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                <FaFacebook className="text-white" />
-              </Link>
-              <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                <FaTwitter className="text-white" />
-              </Link>
-              <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                <FaInstagram className="text-white" />
-              </Link>
-              <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                <FaYoutube className="text-white" />
-              </Link>
-              <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                <FaPinterest className="text-white" />
-              </Link>
-            </div>
-            <p className="xx-small">
-              Copyright @ 2024 Flights Gyani Pvt Ltd | All rights are preserved
-            </p>
+          <Container className="flex-between align-items-center py-12 ">
+            <Row className="gap-8-row  w-100">
+              <Col lg={6} sm={12} className="">
+                <div className="flex-items-center gap-8 ">
+                  <Link href="/" className=" btn-circle-xs btn-outline-gray">
+                    <FaFacebook className="text-white" />
+                  </Link>
+                  <Link href="/" className=" btn-circle-xs btn-outline-gray">
+                    <FaTwitter className="text-white" />
+                  </Link>
+                  <Link href="/" className=" btn-circle-xs btn-outline-gray">
+                    <FaInstagram className="text-white" />
+                  </Link>
+                  <Link href="/" className=" btn-circle-xs btn-outline-gray">
+                    <FaYoutube className="text-white" />
+                  </Link>
+                  <Link href="/" className=" btn-circle-xs btn-outline-gray">
+                    <FaPinterest className="text-white" />
+                  </Link>
+                </div>
+              </Col>
+              <Col lg={6} sm={12}>
+                <p className="xx-small">
+                  Copyright @ 2024 Flights Gyani Pvt Ltd | All rights are
+                  preserved
+                </p>
+              </Col>
+            </Row>
           </Container>
         </section>
       </footer>

@@ -263,4 +263,13 @@
         width: 0.85rem !important;
     }
 
+    .side-col {
+        position: relative;
+
+        .stick-side-card {
+            position: sticky;
+            top: 90px;
+        }
+    }
+
 }

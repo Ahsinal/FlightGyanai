@@ -36129,10 +36129,17 @@ footer .stretched-link:hover {
   top: 0;
 }
 
-.st .package-detail-page .swiper-pagination-bullet {
+.package-detail-page .swiper-pagination-bullet {
   border-radius: 50% !important;
   height: 0.85rem !important;
   width: 0.85rem !important;
+}
+.package-detail-page .side-col {
+  position: relative;
+}
+.package-detail-page .side-col .stick-side-card {
+  position: sticky;
+  top: 90px;
 }
 
 .swiper-pagination-center .swiper-pagination {
