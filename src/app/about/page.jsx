@@ -15,7 +15,7 @@ const About = () => {
 
           <Container>
             <div className="about-banner-content bitter">
-              <h2>About Us</h2>
+              <h2>Our Teams</h2>
               <Breadcrumb
                 className="h5 fw-normal mt-8"
                 items={[

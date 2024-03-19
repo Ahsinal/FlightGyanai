@@ -19,9 +19,34 @@ const Blog = () => {
 
   return (
     <>
+      <section className="breadcrumb-banner position-relative">
+        <div className="img-wide">
+          <img
+            src="https://media.istockphoto.com/id/1408387701/photo/social-media-marketing-digitally-generated-image-engagement.jpg?s=612x612&w=0&k=20&c=VVAxxwhrZZ7amcPYJr08LLZJTyoBVMN6gyzDk-4CXos="
+            alt="about-image"
+          />
+
+          <Container>
+            <div className="about-banner-content bitter">
+              <h2>Our Blogs</h2>
+              <Breadcrumb
+                className="h5 fw-normal mt-8"
+                items={[
+                  {
+                    title: <Link href="/">Home</Link>,
+                  },
+                  {
+                    title: "Blogs",
+                  },
+                ]}
+              />
+            </div>
+          </Container>
+        </div>
+      </section>
       <section className="py-40">
         <Container>
-          <Breadcrumb
+          {/* <Breadcrumb
             className="p fw-normal"
             items={[
               {
@@ -31,7 +56,7 @@ const Blog = () => {
                 title: "Blogs",
               },
             ]}
-          />
+          /> */}
           <Row className="mt-32">
             {currentBlogs.map((d, i) => {
               return (
