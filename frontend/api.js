@@ -5,10 +5,10 @@ import { HYDRATE } from "next-redux-wrapper";
 export const globalApi = createApi({
     reducerPath: "globalApi",
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://admin.rightoptionedu.com/api/",
+        baseUrl: "https://flightsgyani.paradiseit.com.np/api/",
     }),
     tagTypes: [
-        "",
+        "Package",
     ],
     extractRehydrationInfo(action, { reducerPath }) {
         if (action.type === HYDRATE) {
@@ -31,26 +31,28 @@ export const globalApi = createApi({
             invalidatesTags: ["Inquiries"],
         }),
 
-        getServices: builder.query({
+        getPackage: builder.query({
             query: () => ({
-                url: "/services",
+                url: "/packages",
                 method: "GET",
             }),
-            providesTags: ["Services"],
+            providesTags: ["Package"],
         }),
-        getServiceDetail: builder.query({
+        getPackageDetail: builder.query({
             query: (id) => {
                 return {
-                    url: `/service/${id}`,
+                    url: `/package/${id}`,
                     method: "GET",
                 };
             },
-            providesTags: ["Services"],
+            providesTags: ["Package"],
         }),
 
     }),
 });
 
 export const {
+    useGetPackageQuery,
+    useGetPackageDetailQuery,
 
 } = globalApi;

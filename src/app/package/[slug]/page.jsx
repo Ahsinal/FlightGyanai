@@ -7,7 +7,11 @@ import "swiper/css/pagination";
 import { Container, Row, Col } from "react-bootstrap";
 import Link from "next/link";
 import { Breadcrumb } from "antd";
-import { FaStar } from "react-icons/fa";
+import { FaClock, FaStar } from "react-icons/fa";
+import { CgDanger } from "react-icons/cg";
+import { MdOutlineTravelExplore } from "react-icons/md";
+import { TbTrekking } from "react-icons/tb";
+import { BsCarFront } from "react-icons/bs";
 import {
   cardData,
   includesdata,
@@ -15,12 +19,24 @@ import {
   packageDetailOverview,
   swiperImage,
 } from "@/data/Data";
+
+import {
+  useGetPackageQuery,
+  useGetPackageDetailQuery,
+} from "../../../../frontend/api";
 import SideCardPackage from "@/components/cards/SideCard";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { RxCrossCircled } from "react-icons/rx";
 import Booking from "@/components/layouts/Booking";
 import Itinerary from "@/components/layouts/Itinerary";
-const PackageDetail = () => {
+import { FaUserGroup } from "react-icons/fa6";
+const PackageDetail = ({ params }) => {
+  const { data: packageData } = useGetPackageQuery();
+  const { data: packageDetailData } = useGetPackageDetailQuery(params.slug);
+  const stars = Array.from(
+    { length: packageDetailData?.data.rating },
+    (_, index) => <FaStar key={index} />
+  );
   return (
     <>
       <section className="breadcrumb-banner position-relative">
@@ -32,7 +48,7 @@ const PackageDetail = () => {
 
           <Container>
             <div className="about-banner-content bitter">
-              <h2>Package Name 1</h2>
+              <h2>{packageDetailData?.data.name}</h2>
               <Breadcrumb
                 className="h5 fw-normal mt-8"
                 items={[
@@ -52,16 +68,14 @@ const PackageDetail = () => {
         <Container>
           <div className=" flex-between align-items-center">
             <div className="">
-              <h5 className="bitter ">SUMMER HOLIDAY TO THE OXOLOTAN RIVER</h5>
-              <div className="text-warning d-flex gap-4 mt-4">
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
+              <h5 className="bitter ">{packageDetailData?.data.name}</h5>
+              <div className="text-warning d-flex gap-4 mt-4 text-yellow500">
+                {stars}
               </div>
             </div>
-            <div className="text-white mt-12  btn btn-pill btn-secondary btn-xs">
-              NPR 100000
+            <div className=" p d-flex gap-4 price bg-secondary text-white px-12 rounded-12 py-4 fw-normal">
+              <div className="small ">{packageDetailData?.data.currency}</div>
+              <div className=" small">{packageDetailData?.data.fair_price}</div>
             </div>
           </div>
           <Row className="mt-32 gap-24-row ">
@@ -75,12 +89,12 @@ const PackageDetail = () => {
                 modules={[Pagination, Autoplay]}
                 className="mySwiper"
               >
-                {swiperImage?.data.map((d, i) => {
+                {packageDetailData?.data.galleries.map((d, i) => {
                   return (
                     <SwiperSlide key={i}>
                       <div className="">
                         <div className="img-landscape rounded-12 overflow-hidden">
-                          <img src={d.img} alt="image package" />
+                          <img src={d.image} alt="image package" />
                         </div>
                       </div>
                     </SwiperSlide>
@@ -89,64 +103,126 @@ const PackageDetail = () => {
               </Swiper>
               <Row className="mt-12">
                 <h5>Overview</h5>
-                {packageDetailOverview?.data.map((d, i) => {
-                  return (
-                    <Col lg={4} sm={6} className="g-16" key={i}>
-                      <div className="d-flex align-items-center gap-12 card-package-overview">
-                        <div className="img">
-                          <img src={d.img} alt="icon" />
-                        </div>
-                        <div className=" flex-column">
-                          <p className="fw-semibold">{d.title}</p>
-                          <p className="mt-0 text-cGray700 small">
-                            {d.content}
-                          </p>
-                        </div>
-                      </div>
-                    </Col>
-                  );
-                })}
+                <Col lg={4} sm={6} className="g-16">
+                  <div className="d-flex align-items-center gap-12 card-package-overview">
+                    <MdOutlineTravelExplore className="h1 text-secondary" />
+                    <div className=" flex-column">
+                      <p className="fw-medium">Activity</p>
+                      <p className="mt-0 text-cGray700 small">
+                        {packageDetailData?.data.activity.activities}
+                      </p>
+                    </div>
+                  </div>
+                </Col>
+                <Col lg={4} sm={6} className="g-16">
+                  <div className="d-flex align-items-center gap-12 card-package-overview">
+                    <CgDanger className="h1 text-secondary" />
+                    <div className=" flex-column">
+                      <p className="fw-medium">Trip Grade</p>
+                      <p className="mt-0 text-cGray700 small">
+                        {packageDetailData?.data.activity.trip_grade}
+                      </p>
+                    </div>
+                  </div>
+                </Col>
+                <Col lg={4} sm={6} className="g-16">
+                  <div className="d-flex align-items-center gap-12 card-package-overview">
+                    <TbTrekking className="h1 text-secondary" />
+                    <div className=" flex-column">
+                      <p className="fw-medium">Trip Type</p>
+                      <p className="mt-0 text-cGray700 small">
+                        {packageDetailData?.data.activity.trip_type}
+                      </p>
+                    </div>
+                  </div>
+                </Col>
+                <Col lg={4} sm={6} className="g-16">
+                  <div className="d-flex align-items-center gap-12 card-package-overview">
+                    <BsCarFront className="h1 text-secondary" />
+                    <div className=" flex-column">
+                      <p className="fw-medium">Trip Mode</p>
+                      <p className="mt-0 text-cGray700 small">
+                        {packageDetailData?.data.activity.trip_mode}
+                      </p>
+                    </div>
+                  </div>
+                </Col>
+                <Col lg={4} sm={6} className="g-16">
+                  <div className="d-flex align-items-center gap-12 card-package-overview">
+                    <FaClock className="h1 text-secondary" />
+                    <div className=" flex-column">
+                      <p className="fw-medium">Trip Duration</p>
+                      <p className="mt-0 text-cGray700 small">
+                        {packageDetailData?.data.activity.trip_duration}
+                      </p>
+                    </div>
+                  </div>
+                </Col>
+                <Col lg={4} sm={6} className="g-16">
+                  <div className="d-flex align-items-center gap-12 card-package-overview">
+                    <FaUserGroup className="h1 text-secondary" />
+                    <div className=" flex-column">
+                      <p className="fw-medium">Group Size</p>
+                      <p className="mt-0 text-cGray700 small">
+                        {packageDetailData?.data.activity.group_size}
+                      </p>
+                    </div>
+                  </div>
+                </Col>
               </Row>
-              <p className="mt-32">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                iusto corrupti voluptatum hic dolores consectetur recusandae est
-                velit vero facilis, exercitationem impedit quis explicabo nobis
-                commodi quod ex. Quae amet, similique aliquid distinctio minus
-                ea laborum commodi placeat maiores a beatae sed molestiae? Ipsum
-                adipisci, dicta atque corporis fugit dolores harum optio, rem
-                hic eveniet dolorum rerum suscipit, alias veniam modi velit
-                impedit? Pariatur quasi, facilis quis tenetur iure expedita.
-                Illo magni dolorum molestiae ex odit, at impedit, corporis,
-                assumenda autem velit ducimus omnis? Magnam iustion.
-              </p>
+              <div className="mt-32 p fw-light">
+                {packageDetailData?.data.short_description}
+              </div>
 
               <Col sm={12} lg={12} className="mt-24">
-                <Itinerary />
+                <h6 className=" text-cGray800 mb-12">ITINERARY</h6>
+                {packageDetailData?.data.itenaries.map((d, i) => {
+                  return (
+                    <Itinerary
+                      key={i}
+                      id={d.id}
+                      title={d.title}
+                      body={d.description}
+                    />
+                  );
+                })}
               </Col>
               <Col
                 sm={12}
                 className="mt-24 py-24 px-8 bg-cGray100 rounded-12 mb-24"
               >
                 <h6 className="mb-12"> Includes</h6>
-                {includesdata?.data?.map((d, i) => {
+                <div
+                  className="p"
+                  dangerouslySetInnerHTML={{
+                    __html: packageDetailData?.data.inclusion,
+                  }}
+                ></div>
+                {/* {includesdata?.data?.map((d, i) => {
                   return (
                     <div className="d-flex gap-8 mb-8" key={i}>
                       <IoIosCheckmarkCircle className="text-secondary h4" />
                       <p>{d.desc}</p>
                     </div>
                   );
-                })}
+                })} */}
               </Col>
               <Col sm={12} className="mt-24 py-24 px-8 bg-cGray100 rounded-12 ">
                 <h6 className="mb-12"> Excludes</h6>
-                {excludesData?.data?.map((d, i) => {
+                <div
+                  className="p"
+                  dangerouslySetInnerHTML={{
+                    __html: packageDetailData?.data.exclusion,
+                  }}
+                ></div>
+                {/* {excludesData?.data?.map((d, i) => {
                   return (
                     <div className="d-flex gap-8 mb-8" key={i}>
                       <RxCrossCircled className="text-secondary h4" />
                       <p>{d.desc}</p>
                     </div>
                   );
-                })}
+                })} */}
               </Col>
             </Col>
 
@@ -160,19 +236,12 @@ const PackageDetail = () => {
                     <h6 className="text-cGray700 mb-12">
                       Other Packages for you
                     </h6>
-                    {cardData?.data.slice(0, 3).map((d, i) => {
-                      return (
-                        <SideCardPackage
-                          title={d.title}
-                          price={d.price}
-                          img={d.img}
-                          key={i}
-                        />
-                      );
+                    {packageData?.data.slice(0, 4).map((d, i) => {
+                      return <SideCardPackage title={d.name} key={i} />;
                     })}
                   </div>
                 </Col>
-                <Col sm={12} className="mt-32">
+                {/* <Col sm={12} className="mt-32">
                   <div className=" p-24 rounded-12 shadow-1">
                     <h5 className="text-cGray300 fw-seibold mb-16">City Map</h5>
                     <iframe
@@ -181,7 +250,7 @@ const PackageDetail = () => {
                       src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=kathmandu+(Flight%20Gyani)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                     ></iframe>
                   </div>
-                </Col>
+                </Col> */}
               </Row>
               {/* <Col sm={12} className="p-24 shadow-1 rounded-16 mt-24">
                 <h6 className="text-cGray700">Basic Information</h6>

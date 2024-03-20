@@ -30,7 +30,7 @@ const BlogDetail = () => {
           <div className="content mt-32">
             <p className="xx-small text-cGray600">{blogData?.data[2].date}</p>
             <h5 className="mt-12">{blogData?.data[2].title}</h5>
-            <Row className="mt-12">
+            <Row className="mt-12 gap-16-row">
               <Col lg={8} sm={12} className="">
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.

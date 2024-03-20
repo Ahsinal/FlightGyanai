@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
-import { cardData } from "@/data/Data";
 import { Col, Container, Row } from "react-bootstrap";
 import { Breadcrumb, Pagination } from "antd";
 import Link from "next/link";
 import PopularPackageCard from "@/components/cards/PopularPackageCard";
+import { useGetPackageQuery } from "../../../frontend/api";
 const Package = () => {
+  const { data: cardData } = useGetPackageQuery();
+
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -43,18 +45,20 @@ const Package = () => {
           </Container>
         </div>
       </section>
-      <section className="py-40">
+      <section className="py-40 ">
         <Container>
           <Row className="gap-16-row">
             {currentPackage?.map((d, i) => {
               return (
                 <Col lg={4} sm={6} key={i}>
                   <PopularPackageCard
-                    img={d.img}
-                    title={d.title}
-                    location={d.location}
+                    img={d.image}
+                    title={d.name}
+                    desc={d.description}
                     rating={d.rating}
-                    price={d.price}
+                    currency={d.currency}
+                    price={d.fair_price}
+                    slug={d.slug}
                   />
                 </Col>
               );
