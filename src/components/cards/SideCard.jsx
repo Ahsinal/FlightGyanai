@@ -6,7 +6,7 @@ const SideCardPackage = (props) => {
       <div className="d-flex align-items-center gap-12 py-12 text-primary package-info position-relative">
         <FaRegArrowAltCircleRight />
         <span className="">{props.title}</span>
-        <Link href="/package" className="stretched-link"></Link>
+        <Link href={`/package/${props.slug}`} className="stretched-link"></Link>
       </div>
     </div>
   );

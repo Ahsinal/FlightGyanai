@@ -193,7 +193,7 @@ const PackageDetail = ({ params }) => {
               >
                 <h6 className="mb-12"> Includes</h6>
                 <div
-                  className="p"
+                  className="p details-contents "
                   dangerouslySetInnerHTML={{
                     __html: packageDetailData?.data.inclusion,
                   }}
@@ -210,7 +210,7 @@ const PackageDetail = ({ params }) => {
               <Col sm={12} className="mt-24 py-24 px-8 bg-cGray100 rounded-12 ">
                 <h6 className="mb-12"> Excludes</h6>
                 <div
-                  className="p"
+                  className="p details-contents "
                   dangerouslySetInnerHTML={{
                     __html: packageDetailData?.data.exclusion,
                   }}
@@ -236,9 +236,18 @@ const PackageDetail = ({ params }) => {
                     <h6 className="text-cGray700 mb-12">
                       Other Packages for you
                     </h6>
-                    {packageData?.data.slice(0, 4).map((d, i) => {
-                      return <SideCardPackage title={d.name} key={i} />;
-                    })}
+                    {packageData?.data
+                      .filter((d) => d.slug != packageDetailData?.data.slug)
+                      .slice(0, 4)
+                      .map((d, i) => {
+                        return (
+                          <SideCardPackage
+                            title={d.name}
+                            key={i}
+                            slug={d.slug}
+                          />
+                        );
+                      })}
                   </div>
                 </Col>
                 {/* <Col sm={12} className="mt-32">

@@ -11,7 +11,7 @@ export const BlogCardlg = (props) => {
         <p className="mt-8 clamp-4   text-justify fw-light">{props.desc}</p>
       </div>
       <Link
-        href="/blog"
+        href={`/blog/${props.slug}`}
         className="stretched-link btn btn-xs btn-primary mt-16"
       >
         Read More

@@ -9,6 +9,8 @@ export const globalApi = createApi({
     }),
     tagTypes: [
         "Package",
+        "Blog",
+        "Teams",
     ],
     extractRehydrationInfo(action, { reducerPath }) {
         if (action.type === HYDRATE) {
@@ -47,6 +49,29 @@ export const globalApi = createApi({
             },
             providesTags: ["Package"],
         }),
+        getBlog: builder.query({
+            query: () => ({
+                url: "/blogs",
+                method: "GET",
+            }),
+            providesTags: ["Blog"],
+        }),
+        getBlogDetail: builder.query({
+            query: (id) => {
+                return {
+                    url: `/blog/${id}`,
+                    method: "GET",
+                };
+            },
+            providesTags: ["Blog"],
+        }),
+        getTeams: builder.query({
+            query: () => ({
+                url: "/ourteams",
+                method: "GET",
+            }),
+            providesTags: ["Teams"],
+        }),
 
     }),
 });
@@ -54,5 +79,9 @@ export const globalApi = createApi({
 export const {
     useGetPackageQuery,
     useGetPackageDetailQuery,
+    useGetBlogQuery,
+    useGetBlogDetailQuery,
+    useGetTeamsQuery,
+
 
 } = globalApi;

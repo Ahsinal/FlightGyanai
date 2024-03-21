@@ -25,7 +25,7 @@ const Footer = () => {
                   <img
                     src="/assets/image/logo.png"
                     alt="logo"
-                    width={60}
+                    width={100}
                     height={60}
                   />
                 </a>

@@ -121,26 +121,26 @@
     }
 
     .swiper {
-    //     width: 100%;
-    //     height: 100%;
+        //     width: 100%;
+        //     height: 100%;
 
-    //     .swiper-slide {
-    //         text-align: center;
-    //         font-size: 18px;
-    //         background: #fff;
-    //         height: 100%;
+        //     .swiper-slide {
+        //         text-align: center;
+        //         font-size: 18px;
+        //         background: #fff;
+        //         height: 100%;
 
-    //         display: flex;
-    //         justify-content: center;
-    //         align-items: center;
+        //         display: flex;
+        //         justify-content: center;
+        //         align-items: center;
 
-    //         img {
-    //             display: block;
-    //             width: 100%;
-    //             height: 100%;
-    //             object-fit: cover;
-    //         }
-    //     }
+        //         img {
+        //             display: block;
+        //             width: 100%;
+        //             height: 100%;
+        //             object-fit: cover;
+        //         }
+        //     }
     }
 
     // .bg-testimonial {
@@ -177,6 +177,15 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+        }
+    }
+
+    .blog-side-cards {
+        position: relative;
+
+        .stick-side-card-blog {
+            position: sticky;
+            top: 0;
         }
     }
 }
@@ -291,4 +300,30 @@
         }
     }
 
+    .details-contents {
+        ul {
+            list-style: none;
+
+            li {
+                display: flex;
+                align-items: center;
+                position: relative; // Required for positioning pseudo-elements
+                margin-bottom: 5px; // Optional: Add spacing between list items
+                padding-left: 10px;
+
+                &::before {
+                    content: ""; // Required for pseudo-elements
+                    display: inline-block;
+                    width: 1rem; // Adjust size of the circle
+                    height: 1rem; // Adjust size of the circle
+                    border-radius: 50%; // Make it a circle
+                    background-color: $secondary; // Set color of the circle
+                    margin-right: 5px; // Optional: Add spacing between the circle and the text
+                }
+
+                &::after {}
+            }
+        }
+
+    }
 }

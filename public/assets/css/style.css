@@ -36059,6 +36059,13 @@ footer .stretched-link:hover {
   object-fit: cover;
   object-position: center;
 }
+.blog-details .blog-side-cards {
+  position: relative;
+}
+.blog-details .blog-side-cards .stick-side-card-blog {
+  position: sticky;
+  top: 0;
+}
 
 .breadcrumb-banner {
   position: relative;
@@ -36130,7 +36137,25 @@ footer .stretched-link:hover {
   position: sticky;
   top: 90px;
 }
-
+.package-detail-page .details-contents ul {
+  list-style: none;
+}
+.package-detail-page .details-contents ul li {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+.package-detail-page .details-contents ul li::before {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #c1272f;
+  margin-right: 5px;
+}
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;

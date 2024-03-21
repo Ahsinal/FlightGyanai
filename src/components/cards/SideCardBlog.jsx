@@ -7,10 +7,10 @@ const SideCardBlog = (props) => {
         <img src={props.img} alt="side image" />
       </div>
       <div className="flex-column w-75">
-        <p className="">{props.title}</p>
-        <p className="xx-small text-cGray600">{props.date}date</p>
+        <h6 className="mb-8 fw-medium">{props.title}</h6>
+        <p className="xx-small text-cGray600">{props.date}</p>
       </div>
-      <Link href="/" className="stretched-link"></Link>
+      <Link href={`/blog/${props.slug}`} className="stretched-link"></Link>
     </div>
   );
 };

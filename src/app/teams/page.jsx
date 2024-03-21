@@ -1,9 +1,12 @@
+"use client";
 import { Col, Container, Row } from "react-bootstrap";
 import { Breadcrumb } from "antd";
 import Link from "next/link";
 import { teamsData } from "@/data/Data";
+import { useGetTeamsQuery } from "../../../frontend/api";
 import TeamsCard from "@/components/cards/TeamsCard";
 const OurTeams = () => {
+  const { data: teamsData } = useGetTeamsQuery();
   return (
     <>
       <section className="breadcrumb-banner position-relative">
@@ -15,7 +18,7 @@ const OurTeams = () => {
 
           <Container>
             <div className="about-banner-content bitter">
-              <h2>About Us</h2>
+              <h2>Our Teams</h2>
               <Breadcrumb
                 className="h5 fw-normal mt-8"
                 items={[
@@ -41,9 +44,12 @@ const OurTeams = () => {
               return (
                 <Col lg={3} md={4} sm={12} key={i}>
                   <TeamsCard
-                    img={d.img}
-                    designation={d.designation}
+                    img={d.image}
+                    designation={d.position}
                     name={d.name}
+                    facebook={d.facebook_link}
+                    twitter={d.twitter_link}
+                    linkedin={d.linkedin_link}
                   />
                 </Col>
               );

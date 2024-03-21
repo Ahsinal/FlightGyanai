@@ -13,13 +13,22 @@ const TeamsCard = (props) => {
         {props.designation}
       </p>
       <div className="flex-center-center gap-8 text-cGray600 mt-8">
-        <Link href="/" className="social-icon btn-circle-xs btn-outline-gray">
+        <Link
+          href={props.facebook}
+          className="social-icon btn-circle-xs btn-outline-gray"
+        >
           <FaFacebook />
         </Link>
-        <Link href="/" className="social-icon btn-circle-xs btn-outline-gray">
+        <Link
+          href={props.twitter}
+          className="social-icon btn-circle-xs btn-outline-gray"
+        >
           <FaTwitter />
         </Link>
-        <Link href="/" className="social-icon btn-circle-xs btn-outline-gray">
+        <Link
+          href={props.linkedin}
+          className="social-icon btn-circle-xs btn-outline-gray"
+        >
           <FaLinkedin />
         </Link>
       </div>

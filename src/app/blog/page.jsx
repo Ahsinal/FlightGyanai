@@ -2,10 +2,11 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Breadcrumb, Pagination } from "antd";
 import Link from "next/link";
-import { blogData } from "@/data/Data";
+import { useGetBlogQuery } from "../../../frontend/api";
 import { BlogCardlg } from "@/components/cards/BlogCard";
 import { useState } from "react";
 const Blog = () => {
+  const { data: blogData } = useGetBlogQuery();
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -46,30 +47,19 @@ const Blog = () => {
       </section>
       <section className="py-40">
         <Container>
-          {/* <Breadcrumb
-            className="p fw-normal"
-            items={[
-              {
-                title: <Link href="/">Home</Link>,
-              },
-              {
-                title: "Blogs",
-              },
-            ]}
-          /> */}
           <Row className="mt-32">
-            {currentBlogs.map((d, i) => {
-              return (
-                <Col lg={4} sm={12} className="rounded-12 p-12 " key={i}>
+            {currentBlogs &&
+              currentBlogs.map((d, i) => (
+                <Col lg={4} sm={12} className="rounded-12 p-12" key={i}>
                   <BlogCardlg
-                    img={d.img}
+                    img={d.image}
                     title={d.title}
-                    desc={d.desc}
-                    date={d.date}
+                    desc={d.short_description}
+                    date={d.created_at}
+                    slug={d.slug}
                   />
                 </Col>
-              );
-            })}
+              ))}
           </Row>
           <Row className=" mt-32">
             <Col className="flex-center-center">
