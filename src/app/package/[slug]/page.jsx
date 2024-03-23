@@ -16,8 +16,6 @@ import {
   useGetSettingsQuery,
 } from "../../../../frontend/api";
 import SideCardPackage from "@/components/cards/SideCard";
-import { IoIosCheckmarkCircle } from "react-icons/io";
-import { RxCrossCircled } from "react-icons/rx";
 import Booking from "@/components/layouts/Booking";
 import Itinerary from "@/components/layouts/Itinerary";
 import { FaUserGroup } from "react-icons/fa6";
@@ -190,14 +188,6 @@ const PackageDetail = ({ params }) => {
                     __html: packageDetailData?.data.inclusion,
                   }}
                 ></div>
-                {/* {includesdata?.data?.map((d, i) => {
-                  return (
-                    <div className="d-flex gap-8 mb-8" key={i}>
-                      <IoIosCheckmarkCircle className="text-secondary h4" />
-                      <p>{d.desc}</p>
-                    </div>
-                  );
-                })} */}
               </Col>
               <Col sm={12} className="mt-24 py-24 px-8 bg-cGray100 rounded-12 ">
                 <h6 className="mb-12"> Excludes</h6>
@@ -207,21 +197,13 @@ const PackageDetail = ({ params }) => {
                     __html: packageDetailData?.data.exclusion,
                   }}
                 ></div>
-                {/* {excludesData?.data?.map((d, i) => {
-                  return (
-                    <div className="d-flex gap-8 mb-8" key={i}>
-                      <RxCrossCircled className="text-secondary h4" />
-                      <p>{d.desc}</p>
-                    </div>
-                  );
-                })} */}
               </Col>
             </Col>
 
             <Col lg={4} className="side-col">
               <Row className="stick-side-card">
                 <Col sm={12}>
-                  <Booking />
+                  <Booking packageId={packageDetailData?.data.id} />
                 </Col>
                 <Col sm={12} className="mt-32">
                   <div className="p-24 shadow-1 rounded-16">

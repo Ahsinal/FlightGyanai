@@ -24,31 +24,31 @@ const Booking = () => {
               <div className="mb-4">
                 <Form.Label htmlFor="" className="form-label mb-4">
                   Full Name
-                  {errors.name?.type === "required" && (
+                  {errors.full_name?.type === "required" && (
                     <span className="text-secondary ms-4">*</span>
                   )}
                 </Form.Label>
                 <Form.Control
-                  {...register("name", {
+                  {...register("full_name", {
                     required: true,
                     pattern: {
                       value: /^[A-Za-z\s]+$/,
-                      message:
+                      comments:
                         "Full name must not contain numbers and special symbol",
                     },
                   })}
-                  aria-invalid={errors.name ? "true" : "false"}
+                  aria-invalid={errors.full_name ? "true" : "false"}
                   type="text"
                   required
                 />
-                {errors.name?.type === "required" && (
+                {errors.full_name?.type === "required" && (
                   <p className="small text-secondary" role="alert">
                     Full name is required
                   </p>
                 )}
-                {errors.name?.type === "pattern" && (
+                {errors.full_name?.type === "pattern" && (
                   <p className="small text-secondary" role="alert">
-                    {errors.name.message}
+                    {errors.full_name.message}
                   </p>
                 )}
               </div>
@@ -111,6 +111,7 @@ const Booking = () => {
                   </p>
                 )}
               </div>
+
               <div className="mb-4">
                 <Form.Label htmlFor="" className="form-label mb-4">
                   Country
@@ -137,22 +138,23 @@ const Booking = () => {
                   </p>
                 )}
               </div>
+
               <div className="mb-4">
                 <Form.Label htmlFor="" className="form-label mb-4">
-                  Message
-                  {errors.message?.type === "required" && (
+                  Comments
+                  {errors.comments?.type === "required" && (
                     <span className="text-secondary ms-4">*</span>
                   )}
                 </Form.Label>
                 <Form.Control
                   as="textarea"
                   resize="none"
-                  {...register("message", { required: true })}
-                  aria-invalid={errors.message ? "true" : "false"}
+                  {...register("comments", { required: true })}
+                  aria-invalid={errors.comments ? "true" : "false"}
                 />
-                {errors.message?.type === "required" && (
+                {errors.comments?.type === "required" && (
                   <p className="small text-secondary" role="alert">
-                    Message is required
+                    Comments is required
                   </p>
                 )}
               </div>

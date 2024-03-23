@@ -1,12 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Button, Row, Col, Form } from "react-bootstrap";
 import { Modal } from "antd";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { FaPhoneAlt } from "react-icons/fa";
-
-const Booking = () => {
+import { useCreateBookingMutation } from "../../../frontend/api";
+import { ClipLoader } from "react-spinners";
+const Booking = ({ packageId }) => {
   const router = useRouter();
   const {
     register,
@@ -14,23 +15,60 @@ const Booking = () => {
     handleSubmit,
     reset,
   } = useForm();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState({});
 
-  const showModal = () => {
+  // const [formData, setFormData] = useState({}); local
+  // const onSubmit = (data) => {
+  //   console.log("Form Data submitted:", data);
+  //   setFormData(data);
+  //   reset();
+  //   router.push("/");
+  // };
+
+  const [selectedPackageId, setSelectedPackageId] = useState(null);
+  const [createBookingMutation, { isError, isSuccess, isLoading }] =
+    useCreateBookingMutation();
+  //this is function so write inside [] otherwise error
+  const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalFinalOpen, setIsModalFinalOpen] = useState(false);
+  const showModal = (packageId) => {
+    setSelectedPackageId(packageId);
     setIsModalOpen(true);
   };
-
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
-  const onSubmit = (data) => {
-    console.log("Form Data submitted:", data);
-    setFormData(data);
-    reset();
-    router.push("/");
+  const onSubmit = async (data) => {
+    try {
+      //include the selected package id in the form data
+      const formData = {
+        ...data,
+        packageId: selectedPackageId,
+      };
+      await createBookingMutation(formData);
+      reset();
+      setIsModalOpen(false); // Close the first modal
+      setIsModalFinalOpen(true); // Open the final modal upon successful submission
+    } catch (error) {}
   };
+  const showModalFinal = () => {
+    setIsModalFinalOpen(true);
+  };
+  const handleCancelFinal = () => {
+    setIsModalFinalOpen(false);
+  };
+  const handleOk = () => {
+    setIsModalFinalOpen(false);
+    router.push("/"); // Redirect to the homepage
+  };
+  useEffect(() => {
+    if (isError) {
+      alert("Failed to submit the form");
+    }
+    if (isSuccess) {
+      showModal(true);
+    }
+  }, [isSuccess, isError]);
   return (
     <>
       <div className="p-24 shadow-1 rounded-16 bg-secondary text-white flex-center-center flex-column">
@@ -44,9 +82,9 @@ const Booking = () => {
         <Button
           variant="light"
           className="btn-outline-white btn-block w-100"
-          onClick={showModal}
+          onClick={() => showModal(packageId)} // Use packageId from props
         >
-          Book Now
+          Book Package Now
         </Button>
         <div className="text-white flex-center-center flex-column">
           <p className="xx-small mt-12">Neep Help? Call us on WhatsApp</p>
@@ -68,7 +106,11 @@ const Booking = () => {
             form="bookingForm"
             onClick={handleSubmit(onSubmit)}
           >
-            Book Now
+            {isLoading ? (
+              <ClipLoader loading={loading} size={20} color="#CCCCCC" />
+            ) : (
+              "Submit"
+            )}
           </Button>,
         ]}
       >
@@ -80,12 +122,12 @@ const Booking = () => {
                 <div className="mb-4">
                   <Form.Label htmlFor="" className="form-label mb-4">
                     Full Name
-                    {errors.name?.type === "required" && (
+                    {errors.full_name?.type === "required" && (
                       <span className="text-secondary ms-4">*</span>
                     )}
                   </Form.Label>
                   <Form.Control
-                    {...register("name", {
+                    {...register("full_name", {
                       required: true,
                       pattern: {
                         value: /^[A-Za-z\s]+$/,
@@ -93,17 +135,17 @@ const Booking = () => {
                           "Full name must not contain numbers and special symbol",
                       },
                     })}
-                    aria-invalid={errors.name ? "true" : "false"}
+                    aria-invalid={errors.full_name ? "true" : "false"}
                     type="text"
                   />
-                  {errors.name?.type === "required" && (
+                  {errors.full_name?.type === "required" && (
                     <p className="small text-secondary" role="alert">
                       Full name is required
                     </p>
                   )}
-                  {errors.name?.type === "pattern" && (
+                  {errors.full_name?.type === "pattern" && (
                     <p className="small text-secondary" role="alert">
-                      {errors.name.message}
+                      {errors.full_name.message}
                     </p>
                   )}
                 </div>
@@ -166,6 +208,7 @@ const Booking = () => {
                     </p>
                   )}
                 </div>
+
                 <div className="mb-4">
                   <Form.Label htmlFor="" className="form-label mb-4">
                     Country
@@ -192,22 +235,23 @@ const Booking = () => {
                     </p>
                   )}
                 </div>
+
                 <div className="mb-4">
                   <Form.Label htmlFor="" className="form-label mb-4">
-                    Message
-                    {errors.message?.type === "required" && (
+                    Comments
+                    {errors.comments?.type === "required" && (
                       <span className="text-secondary ms-4">*</span>
                     )}
                   </Form.Label>
                   <Form.Control
                     as="textarea"
                     resize="none"
-                    {...register("message", { required: true })}
-                    aria-invalid={errors.message ? "true" : "false"}
+                    {...register("comments", { required: true })}
+                    aria-invalid={errors.comments ? "true" : "false"}
                   />
-                  {errors.message?.type === "required" && (
+                  {errors.comments?.type === "required" && (
                     <p className="small text-secondary" role="alert">
-                      Message is required
+                      Comment is required
                     </p>
                   )}
                 </div>
@@ -215,6 +259,19 @@ const Booking = () => {
             </Col>
           </Row>
         </Container>
+      </Modal>
+      <Modal
+        title="Thank You"
+        open={isModalFinalOpen}
+        onCancel={handleCancelFinal}
+        onOk={handleOk}
+        footer={[
+          <Button className="btn-xs" key="OK" onClick={handleOk}>
+            OK
+          </Button>,
+        ]}
+      >
+        <p>Your Package has been booked</p>
       </Modal>
     </>
   );

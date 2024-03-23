@@ -68,6 +68,7 @@ const Packages = () => {
                 currency={d.currency}
                 price={d.fair_price}
                 slug={d.slug}
+                id={d.id}
               />
             </SwiperSlide>
           );
