@@ -4,16 +4,17 @@ import { Col, Container, Row } from "react-bootstrap";
 import { FaQuoteRight, FaQuoteLeft } from "react-icons/fa";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
 import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import TestimonialCard from "../cards/TestimonialCard";
-import { testimonialData } from "@/data/Data";
+import {
+  useGetTestimonialQuery,
+  useGetSettingsQuery,
+} from "../../../frontend/api";
 SwiperCore.use([Navigation]);
 const LandingTestimonial = () => {
+  const { data: settingData } = useGetSettingsQuery();
+  const { data: testimonialData } = useGetTestimonialQuery();
   const swiperRef = React.useRef(null);
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -35,7 +36,7 @@ const LandingTestimonial = () => {
         <div className="gap-12 flex-center">
           <FaQuoteLeft className="text-secondary" />
           <h3 className="text-cGray800 bitter text-center mb-48 position-relative">
-            What Our Customer Says
+            {settingData?.data.testimonial_section_description}
           </h3>
           <FaQuoteRight className="text-primary" />
         </div>
@@ -64,11 +65,10 @@ const LandingTestimonial = () => {
                 return (
                   <SwiperSlide key={i} className="p-12">
                     <TestimonialCard
-                      img={d.img}
+                      img={d.image}
                       name={d.name}
-                      desc={d.desc}
-                      designation={d.designation}
-                      org={d.org}
+                      desc={d.description}
+                      designation={d.position}
                       rating={d.rating}
                     />
                   </SwiperSlide>
@@ -78,11 +78,11 @@ const LandingTestimonial = () => {
             <div className="flex-center-center gap-16 mt-12 h3">
               <FaLongArrowAltLeft
                 onClick={goPrev}
-                className="text-secondary "
+                className="text-secondary arrow"
               />
               <FaLongArrowAltRight
                 onClick={goNext}
-                className="text-secondary "
+                className="text-secondary arrow"
               />
             </div>
           </Col>

@@ -31,7 +31,7 @@ export const BlogCardsm = (props) => {
         <p className="text-cGray800 fw-medium mt-8">{props.title}</p>
         <p className="clamp-2 fw-light text-justify mt-8">{props.desc}</p>
       </div>
-      <Link href="/blog" className="stretched-link"></Link>
+      <Link href={`/blog/${props.slug}`} className="stretched-link"></Link>
     </div>
   );
 };

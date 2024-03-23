@@ -8,11 +8,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { BlogCardlg, BlogCardsm } from "../cards/BlogCard";
-import { blogData } from "@/data/Data";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { useGetBlogQuery, useGetSettingsQuery } from "../../../frontend/api";
 SwiperCore.use([Navigation]);
 
 const LandingBlog = () => {
+  const { data: settingData } = useGetSettingsQuery();
+  const { data: blogData } = useGetBlogQuery();
   const swiperRef = React.useRef(null);
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -27,16 +28,19 @@ const LandingBlog = () => {
   };
   return (
     <Container>
-      <h3 className="mb text-cGray800 bitter">Explore Our Latest Blogs</h3>
+      <h3 className="mb text-cGray800 bitter">
+        {settingData?.data.homepage_blog_section_description}
+      </h3>
       <Row className="d-flex align-items-center gx-40">
         {blogData?.data.slice(0, 1).map((d, i) => {
           return (
             <Col lg={6} sm={12} className="rounded-12 p-12 px-sm-12 " key={i}>
               <BlogCardlg
-                img={d.img}
+                img={d.image}
                 title={d.title}
-                desc={d.desc}
+                desc={d.short_description}
                 date={d.date}
+                slug={d.slug}
               />
             </Col>
           );
@@ -46,10 +50,11 @@ const LandingBlog = () => {
             return (
               <div className="w-100 p-12" key={i}>
                 <BlogCardsm
-                  img={d.img}
+                  img={d.image}
                   title={d.title}
-                  desc={d.desc}
+                  desc={d.short_description}
                   date={d.date}
+                  slug={d.slug}
                 />
               </div>
             );

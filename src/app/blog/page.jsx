@@ -55,7 +55,7 @@ const Blog = () => {
                     img={d.image}
                     title={d.title}
                     desc={d.short_description}
-                    date={d.created_at}
+                    date={d.date}
                     slug={d.slug}
                   />
                 </Col>

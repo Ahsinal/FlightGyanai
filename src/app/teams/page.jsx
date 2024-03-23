@@ -2,19 +2,16 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Breadcrumb } from "antd";
 import Link from "next/link";
-import { teamsData } from "@/data/Data";
-import { useGetTeamsQuery } from "../../../frontend/api";
+import { useGetTeamsQuery, useGetSettingsQuery } from "../../../frontend/api";
 import TeamsCard from "@/components/cards/TeamsCard";
 const OurTeams = () => {
   const { data: teamsData } = useGetTeamsQuery();
+  const { data: settingData } = useGetSettingsQuery();
   return (
     <>
       <section className="breadcrumb-banner position-relative">
         <div className="img-wide">
-          <img
-            src="https://media.istockphoto.com/id/1460999924/photo/business-team-working-on-a-computer-late-in-the-office.jpg?s=612x612&w=0&k=20&c=XA_gat8z9rk5JI0C7XxZ-71q1QgYr3H7h2gzbH2WW7c="
-            alt="about-image"
-          />
+          <img src={settingData?.data.banner_image} alt="about-image" />
 
           <Container>
             <div className="about-banner-content bitter">
@@ -37,7 +34,7 @@ const OurTeams = () => {
       <section>
         <Container className="py-40">
           <h4 className="text-center bitter text-cGray700">
-            Meet Our Teammates
+            {settingData?.data.ourteam_section_description}
           </h4>
           <Row className="gap-24-row mt-16">
             {teamsData?.data.map((d, i) => {

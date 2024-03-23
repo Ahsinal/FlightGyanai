@@ -7,8 +7,11 @@ import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Autoplay, Navigation } from "swiper/modules";
+import { useGetPackageQuery, useGetSettingsQuery } from "../../../frontend/api";
 SwiperCore.use([Navigation]);
 const Packages = () => {
+  const { data: packageData } = useGetPackageQuery();
+  const { data: settingData } = useGetSettingsQuery();
   const swiperRef = React.useRef(null);
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -25,7 +28,7 @@ const Packages = () => {
     <Container className="pb-40">
       <div className=" flex-between align-items-center mb-32">
         <h3 className="bitter text-cGray900">
-          Popular Packages<span className="ms-8 text-secondary"></span>
+          {settingData?.data.homepage_trending_section_description}
         </h3>
         <div className="d-flex gap-16 h2  text-primary ">
           <FaArrowAltCircleLeft onClick={goPrev} className="arrow" />
@@ -54,15 +57,17 @@ const Packages = () => {
         }}
         className="mySwiper"
       >
-        {cardData?.data.map((d, i) => {
+        {packageData?.data.map((d, i) => {
           return (
             <SwiperSlide key={i}>
               <PackageCard
-                img={d.img}
-                title={d.title}
-                location={d.location}
+                img={d.image}
+                title={d.name}
+                desc={d.description}
                 rating={d.rating}
-                price={d.price}
+                currency={d.currency}
+                price={d.fair_price}
+                slug={d.slug}
               />
             </SwiperSlide>
           );

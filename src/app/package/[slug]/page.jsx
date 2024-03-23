@@ -2,8 +2,6 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
 import { Container, Row, Col } from "react-bootstrap";
 import Link from "next/link";
 import { Breadcrumb } from "antd";
@@ -13,16 +11,9 @@ import { MdOutlineTravelExplore } from "react-icons/md";
 import { TbTrekking } from "react-icons/tb";
 import { BsCarFront } from "react-icons/bs";
 import {
-  cardData,
-  includesdata,
-  excludesData,
-  packageDetailOverview,
-  swiperImage,
-} from "@/data/Data";
-
-import {
   useGetPackageQuery,
   useGetPackageDetailQuery,
+  useGetSettingsQuery,
 } from "../../../../frontend/api";
 import SideCardPackage from "@/components/cards/SideCard";
 import { IoIosCheckmarkCircle } from "react-icons/io";
@@ -33,6 +24,7 @@ import { FaUserGroup } from "react-icons/fa6";
 const PackageDetail = ({ params }) => {
   const { data: packageData } = useGetPackageQuery();
   const { data: packageDetailData } = useGetPackageDetailQuery(params.slug);
+  const { data: settingData } = useGetSettingsQuery();
   const stars = Array.from(
     { length: packageDetailData?.data.rating },
     (_, index) => <FaStar key={index} />
@@ -42,7 +34,7 @@ const PackageDetail = ({ params }) => {
       <section className="breadcrumb-banner position-relative">
         <div className="img-wide">
           <img
-            src="https://cdn.pixabay.com/photo/2017/10/10/07/48/beach-2836300_1280.jpg"
+            src={settingData?.data.destination_page_image}
             alt="about-image"
           />
 

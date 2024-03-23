@@ -36037,6 +36037,10 @@ footer .stretched-link:hover {
   position: absolute;
   bottom: 50%;
 }
+.landing-testimonial .arrow {
+  cursor: pointer;
+}
+
 .payment-partner .image {
   width: 8rem;
   height: 5rem;
@@ -36272,6 +36276,15 @@ footer .stretched-link:hover {
 }
 .card-banner .card-col {
   border-right: 1px solid rgb(167, 166, 169);
+}
+.card-banner .card-col .banner-card-icon {
+  width: 2.5rem;
+  height: 3rem;
+}
+.card-banner .card-col .banner-card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .card-package-popular {
   cursor: pointer;

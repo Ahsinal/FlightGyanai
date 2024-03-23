@@ -1,10 +1,20 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Button, FormControl, FormLabel } from "react-bootstrap";
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Form,
+  Spinner,
+  Row,
+  Col,
+} from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import Form from "react-bootstrap/Form";
-import TextArea from "antd/es/input/TextArea";
+import { ClipLoader } from "react-spinners";
+import { Modal } from "antd";
+import { useCreateInquiriesMutation } from "../../../frontend/api";
+
 const ContactForm = () => {
   const router = useRouter();
   const {
@@ -13,44 +23,107 @@ const ContactForm = () => {
     handleSubmit,
     reset,
   } = useForm();
-  const [formData, setFormData] = useState({});
-  const onSubmit = (data) => {
-    console.log("Form Data submitted:", data);
-    setFormData(data);
-    reset();
-  };
+  // const [formData, setFormData] = useState({});
+  // const onSubmit = (data) => {
+  //   console.log("Form Data submitted:", data);
+  //   setFormData(data);
+  //   reset();
+  // };//local setup
 
+  const [createInquiriesMutation, { isError, isSuccess, isLoading }] =
+    useCreateInquiriesMutation(); //this is a function so write inside [] otherwise error
+  const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const onSubmit = async (data) => {
+    try {
+      await createInquiriesMutation(data);
+      reset();
+    } catch (error) {}
+  };
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+    router.push("/"); //Redirect to landing page
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  useEffect(() => {
+    if (isError) {
+      alert("Failed to submit the form");
+    }
+    if (isSuccess) {
+      showModal(true);
+    }
+  }, [isSuccess, isError]);
   return (
     <>
       <Form>
         <div className="mb-8">
-          <FormLabel htmlFor="" className="mb-4">
-            Full Name
-            {errors.name?.type === "required" && (
-              <span className="text-danger ms-4">*</span>
-            )}
-          </FormLabel>
-          <FormControl
-            {...register("name", {
-              required: "true",
-              pattern: {
-                value: /^[A-Za-z\s]+$/,
-                message: "Full name must not contain special symbol or number",
-              },
-            })}
-            aria-invalid={errors.name ? "true" : "false"}
-            type="text"
-          />
-          {errors.name?.type === "required" && (
-            <p className="small text-secondary" role="alert">
-              Full name is required
-            </p>
-          )}
-          {errors.name?.type === "pattern" && (
-            <p className="small text-secondary" role="alert">
-              {errors.name.message}
-            </p>
-          )}
+          <Row>
+            <Col lg={6} sm={12}>
+              <FormLabel htmlFor="" className="mb-4">
+                First Name
+                {errors.first_name?.type === "required" && (
+                  <span className="text-danger ms-4">*</span>
+                )}
+              </FormLabel>
+              <FormControl
+                {...register("first_name", {
+                  required: "true",
+                  pattern: {
+                    value: /^[A-Za-z\s]+$/,
+                    message:
+                      "First name must not contain special symbol or number",
+                  },
+                })}
+                aria-invalid={errors.first_name ? "true" : "false"}
+                type="text"
+              />
+              {errors.first_name?.type === "required" && (
+                <p className="small text-secondary" role="alert">
+                  First name is required
+                </p>
+              )}
+              {errors.first_name?.type === "pattern" && (
+                <p className="small text-secondary" role="alert">
+                  {errors.first_name.message}
+                </p>
+              )}
+            </Col>
+            <Col lg={6} sm={12}>
+              <FormLabel htmlFor="" className="mb-4">
+                Last Name
+                {errors.last_name?.type === "required" && (
+                  <span className="text-danger ms-4">*</span>
+                )}
+              </FormLabel>
+              <FormControl
+                {...register("last_name", {
+                  required: "true",
+                  pattern: {
+                    value: /^[A-Za-z\s]+$/,
+                    message:
+                      "Last name must not contain special symbol or number",
+                  },
+                })}
+                aria-invalid={errors.last_name ? "true" : "false"}
+                type="text"
+              />
+              {errors.last_name?.type === "required" && (
+                <p className="small text-secondary" role="alert">
+                  Last name is required
+                </p>
+              )}
+              {errors.last_name?.type === "pattern" && (
+                <p className="small text-secondary" role="alert">
+                  {errors.last_name.message}
+                </p>
+              )}
+            </Col>
+          </Row>
         </div>
         <div className="mb-8">
           <FormLabel htmlFor="" className="mb-4">
@@ -138,9 +211,26 @@ const ContactForm = () => {
           variant="primary"
           type="submit"
         >
-          Send Message
+          {isLoading ? (
+            <ClipLoader loading={loading} size={20} color="#CCCCCC" />
+          ) : (
+            "Send Message"
+          )}
         </Button>
       </Form>
+      <Modal
+        title="Thank You"
+        open={isModalOpen}
+        onCancel={handleCancel}
+        onOk={handleOk}
+        footer={[
+          <Button className="btn-xs" key="OK" onClick={handleOk}>
+            OK
+          </Button>,
+        ]}
+      >
+        <p>Your Inquiries has been submitted successfully.</p>
+      </Modal>
     </>
   );
 };

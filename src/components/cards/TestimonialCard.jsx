@@ -11,8 +11,11 @@ const TestimonialCard = (props) => {
         <img src={props.img} alt="image" height={80} width={80} />
       </div>
 
-      <div className="d-flex gap-4 text-warning mt-8">{stars}</div>
-      <p className="clamp-5 mt-12 small fw-light text-justify">{props.desc}</p>
+      <div className="d-flex gap-4 text-yellow500 mt-8">{stars}</div>
+      <div
+        className="clamp-5 mt-12 p small fw-light text-justify"
+        dangerouslySetInnerHTML={{ __html: props.desc }}
+      ></div>
       <h6 className=" fw-medium mt-12 bitter">{props.name}</h6>
       {/* <p className="x-small text-cGray400 mt-4 ">{props.org}</p> */}
       <p className="fw-normal text-secondary small ">Customer</p>

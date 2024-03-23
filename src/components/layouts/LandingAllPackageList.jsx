@@ -7,11 +7,10 @@ import PackageCard from "../cards/PackageCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import { useGetSettingsQuery } from "../../../frontend/api";
 SwiperCore.use([Navigation]);
 const LandingBucketList = () => {
+  const { data: settingData } = useGetSettingsQuery();
   const [selected, setSelected] = useState("family");
   const [data, setData] = useState([]);
   const list = [
@@ -66,7 +65,7 @@ const LandingBucketList = () => {
   return (
     <Container>
       <h3 className="bitter text-cGray800 mb-8 mb-sm-16 text-center">
-        Browse All Packages
+        {settingData?.data.homepage_combo_package_section_description}
       </h3>
       <Row>
         <Col lg={12} className="flex-center gap-4 mb-12 mb-sm-32 flex-wrap">

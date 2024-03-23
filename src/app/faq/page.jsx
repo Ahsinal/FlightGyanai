@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Container, Accordion } from "react-bootstrap";
 import { Breadcrumb } from "antd";
 import Link from "next/link";
-import { faqData } from "@/data/Data";
+import { useGetFaqQuery } from "../../../frontend/api";
 const Faq = () => {
-  //   const { data: faqData } = useGetFaqQuery();
+  const { data: faqData } = useGetFaqQuery();
   const [openAccordion, setOpenAccordion] = useState(null);
   const handleAccordionToggle = (id) => {
     setOpenAccordion(openAccordion == id ? null : id);
@@ -50,7 +50,10 @@ const Faq = () => {
                 <Accordion.Item eventKey={d.id}>
                   <Accordion.Header>{d.title}</Accordion.Header>
                   <Accordion.Body>
-                    <div>{d.desc}</div>
+                    <div
+                      className="p fw-light "
+                      dangerouslySetInnerHTML={{ __html: d.description }}
+                    ></div>
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>

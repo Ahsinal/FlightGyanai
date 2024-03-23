@@ -1,10 +1,9 @@
-import React from "react";
+"use client";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   FaFacebook,
   FaPhoneAlt,
-  FaLinkedin,
   FaTwitter,
   FaYoutube,
   FaInstagram,
@@ -13,7 +12,27 @@ import {
 } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
+import { useGetSettingsQuery, useGetSocialQuery } from "../../frontend/api";
 const Footer = () => {
+  const { data: settingData } = useGetSettingsQuery();
+  const { data: socialmediaData } = useGetSocialQuery();
+  function checkIcon(icon) {
+    switch (icon) {
+      case "facebook":
+        return <FaFacebook />;
+      case "twitter":
+        return <FaTwitter />;
+      case "instagram":
+        return <FaInstagram />;
+      case "youtube":
+        return <FaYoutube />;
+      case "pinterest":
+        return <FaPinterest />;
+
+      default:
+        return <FaInstagram />;
+    }
+  }
   return (
     <>
       <footer>
@@ -23,7 +42,7 @@ const Footer = () => {
               <Col lg={4} sm={12}>
                 <a href="/">
                   <img
-                    src="/assets/image/logo.png"
+                    src={settingData?.data.site_footer_logo}
                     alt="logo"
                     width={100}
                     height={60}
@@ -33,9 +52,7 @@ const Footer = () => {
                   Welcome to our Trip and Tour Agency.
                 </p>
                 <p className="x-small mt-4">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque excepturi deleniti praesentium eligendi praesentium
-                  eligendi.
+                  {settingData?.data.site_information}
                 </p>
               </Col>
               <Col lg={2} sm={6}>
@@ -49,26 +66,26 @@ const Footer = () => {
                   </li>
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
-                      About
+                    <Link href="/about" className="stretched-link">
+                      About Us
                     </Link>
                   </li>
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
-                      Services
+                    <Link href="/blog" className="stretched-link">
+                      Our Blogs
                     </Link>
                   </li>
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
-                      Blogs
+                    <Link href="/contact" className="stretched-link">
+                      Contact Us
                     </Link>
                   </li>
                 </ul>
               </Col>
               <Col lg={2} sm={6}>
-                <h6 className="fw-semibold mb-16">Useful Links</h6>
+                <h6 className="fw-semibold mb-16">Packages</h6>
                 <ul className="d-flex flex-column gap-12">
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
@@ -88,12 +105,12 @@ const Footer = () => {
                       All Packages
                     </Link>
                   </li>
-                  <li className="d-flex align-items-center gap-2 position-relative ">
+                  {/* <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
                     <Link href="/" className="stretched-link">
                       Home
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </Col>
               <Col lg={2} sm={6}>
@@ -101,26 +118,29 @@ const Footer = () => {
                 <ul className="d-flex flex-column gap-12">
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
+                    <Link href="/privacy-policy" className="stretched-link">
                       Privacy Policy
                     </Link>
                   </li>
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
+                    <Link
+                      href="/terms-and-conditions"
+                      className="stretched-link"
+                    >
                       Terms And Conditions
                     </Link>
                   </li>
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
+                    <Link href="/faq" className="stretched-link">
                       FAQ
                     </Link>
                   </li>
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
-                      Home
+                    <Link href="/teams" className="stretched-link">
+                      Our Teams
                     </Link>
                   </li>
                 </ul>
@@ -130,15 +150,15 @@ const Footer = () => {
                 <ul className="d-flex flex-column gap-12">
                   <li className="d-flex align-items-center gap-8">
                     <FaPhoneAlt className="text-cGray700" />{" "}
-                    <p className="small">01-5970440</p>
+                    <p className="small">{settingData?.data.site_contact}</p>
                   </li>
                   <li className="d-flex align-items-center gap-8">
                     <FaLocationDot className="text-cGray700" />{" "}
-                    <p className="small">Address,Kathmandu</p>
+                    <p className="small">{settingData?.data.site_location}</p>
                   </li>
                   <li className="d-flex align-items-center gap-8">
                     <IoMail className="text-cGray700" />{" "}
-                    <p className="small">info@flightsgyani.com</p>
+                    <p className="small">{settingData?.data.site_email}</p>
                   </li>
                 </ul>
               </Col>
@@ -150,27 +170,22 @@ const Footer = () => {
             <Row className="gap-8-row  w-100 align-items-center">
               <Col lg={6} sm={12} className="">
                 <div className="flex-items-center gap-8 ">
-                  <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                    <FaFacebook className="text-white" />
-                  </Link>
-                  <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                    <FaTwitter className="text-white" />
-                  </Link>
-                  <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                    <FaInstagram className="text-white" />
-                  </Link>
-                  <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                    <FaYoutube className="text-white" />
-                  </Link>
-                  <Link href="/" className=" btn-circle-xs btn-outline-gray">
-                    <FaPinterest className="text-white" />
-                  </Link>
+                  {socialmediaData?.data.map((d, i) => {
+                    return (
+                      <Link
+                        href={d.link}
+                        className=" btn-circle-xs btn-outline-gray text-white"
+                        key={i}
+                      >
+                        {checkIcon(d.title.toLowerCase())}
+                      </Link>
+                    );
+                  })}
                 </div>
               </Col>
               <Col lg={6} sm={12}>
                 <p className="xx-small text-lg-end">
-                  Copyright @ 2024 Flights Gyani Pvt Ltd | All rights are
-                  preserved
+                  {settingData?.data.site_copyright}
                 </p>
               </Col>
             </Row>

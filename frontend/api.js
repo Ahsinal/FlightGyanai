@@ -8,9 +8,22 @@ export const globalApi = createApi({
         baseUrl: "https://flightsgyani.paradiseit.com.np/api/",
     }),
     tagTypes: [
+        "Inquiries",
+        "Booking",
         "Package",
         "Blog",
         "Teams",
+        "Services",
+        "ChooseUs",
+        "Pages",
+        "Testimonial",
+        "Faq",
+        "Banner",
+        "Setting",
+        "SocialMedia",
+
+
+
     ],
     extractRehydrationInfo(action, { reducerPath }) {
         if (action.type === HYDRATE) {
@@ -32,7 +45,28 @@ export const globalApi = createApi({
             },
             invalidatesTags: ["Inquiries"],
         }),
+        createBooking: builder.mutation({
+            query: (data) => {
+                return {
+                    url: '/bookings',
+                    method: "POST",
+                    body: data,
+                    prepareHeaders: (headers) => {
+                        headers.set("Content-Type", "multipart/form-data");
+                        return headers;
+                    },
+                };
+            },
+            invalidatesTags: ["Booking"],
+        }),
 
+        getSettings: builder.query({
+            query: () => ({
+                url: "/settings",
+                method: "GET",
+            }),
+            providesTags: ["Setting"],
+        }),
         getPackage: builder.query({
             query: () => ({
                 url: "/packages",
@@ -72,16 +106,85 @@ export const globalApi = createApi({
             }),
             providesTags: ["Teams"],
         }),
-
+        getServices: builder.query({
+            query: () => ({
+                url: "/services",
+                method: "GET",
+            }),
+            providesTags: ["Services"],
+        }),
+        getChooseUs: builder.query({
+            query: () => ({
+                url: "/whychooseus",
+                method: "GET",
+            }),
+            providesTags: ["ChooseUs"],
+        }),
+        getPage: builder.query({
+            query: () => ({
+                url: "/pages",
+                method: "GET",
+            }),
+            providesTags: ["Pages"]
+        }),
+        getPageDetail: builder.query({
+            query: (id) => {
+                return {
+                    url: `page/${id}`,
+                    method: "GET",
+                };
+            },
+            providesTags: ["Pages"],
+        }),
+        getTestimonial: builder.query({
+            query: () => ({
+                url: "/testimonials",
+                method: "GET",
+            }),
+            providesTags: ["Testimonial"]
+        }),
+        getFaq: builder.query({
+            query: () => ({
+                url: "/faqs",
+                method: "GET",
+            }),
+            providesTags: ["Faq"]
+        }),
+        getBanner: builder.query({
+            query: () => ({
+                url: "/sliders",
+                method: "GET",
+            }),
+            providesTags: ["Banner"]
+        }),
+        getSocial: builder.query({
+            query: () => ({
+                url: "/socialmedias",
+                method: "GET",
+            }),
+            providesTags: ["SocialMedia"]
+        }),
     }),
 });
 
 export const {
+    useCreateInquiriesMutation,
+    useCreateBookingMutation,
     useGetPackageQuery,
     useGetPackageDetailQuery,
     useGetBlogQuery,
     useGetBlogDetailQuery,
     useGetTeamsQuery,
+    useGetServicesQuery,
+    useGetChooseUsQuery,
+    useGetPageQuery,
+    useGetPageDetailQuery,
+    useGetTestimonialQuery,
+    useGetFaqQuery,
+    useGetBannerQuery,
+    useGetSettingsQuery,
+    useGetSocialQuery,
+
 
 
 } = globalApi;

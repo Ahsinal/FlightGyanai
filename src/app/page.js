@@ -1,3 +1,4 @@
+"use client";
 import Card from "@/components/cards/Card";
 import LandingAbout from "@/components/layouts/LandingAbout";
 import LandingBanner from "@/components/layouts/LandingBanner";
@@ -6,8 +7,6 @@ import LandingBucketList from "@/components/layouts/LandingAllPackageList";
 import LandingPackage from "@/components/layouts/LandingPackage";
 import LandingTestimonial from "@/components/layouts/LandingTestimonial";
 import PaymentPartner from "@/components/layouts/PaymentPartner";
-import { FaArrowAltCircleLeft } from "react-icons/fa";
-
 export default function Home() {
   return (
     <>
@@ -30,7 +29,7 @@ export default function Home() {
         <LandingTestimonial />
       </section>
       <section className="py-40 ">
-        <PaymentPartner/>
+        <PaymentPartner />
       </section>
     </>
   );

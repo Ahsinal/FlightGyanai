@@ -9,12 +9,12 @@ const Booking = () => {
     handleSubmit,
     reset,
   } = useForm();
-  const [formData, setFormData] = useState({});
-  const onSubmit = (data) => {
-    console.log("Form Data submitted:", data);
-    setFormData(data);
-    reset();
-  };
+  // const [formData, setFormData] = useState({});
+  // const onSubmit = (data) => {
+  //   console.log("Form Data submitted:", data);
+  //   setFormData(data);
+  //   reset();
+  // };local setup
   return (
     <>
       <Container className="py-40">

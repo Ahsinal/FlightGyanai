@@ -1,15 +1,18 @@
+"use client";
 import Link from "next/link";
 import { Breadcrumb } from "antd";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa";
+import {useGetSettingsQuery,} from "../../../frontend/api";
 import ContactForm from "@/components/layouts/ContactForm";
 const ContactUs = () => {
+  const { data: settingData } = useGetSettingsQuery();
   return (
     <>
       <section className="breadcrumb-banner ">
         <div className="img-wide">
           <img
-            src="https://img.freepik.com/free-vector/technology-background-navy-digital-grid_53876-116447.jpg?w=826&t=st=1710142024~exp=1710142624~hmac=1ab98f7ae477fdebef7845a1f5b27bfb1efc49f84fadfe77bb64337019eaddf3"
+            src={settingData?.data.contact_page_image}
             alt="about-image"
           />
           <Container>

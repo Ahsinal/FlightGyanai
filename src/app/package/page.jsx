@@ -4,10 +4,10 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Breadcrumb, Pagination } from "antd";
 import Link from "next/link";
 import PopularPackageCard from "@/components/cards/PopularPackageCard";
-import { useGetPackageQuery } from "../../../frontend/api";
+import { useGetPackageQuery, useGetSettingsQuery } from "../../../frontend/api";
 const Package = () => {
   const { data: cardData } = useGetPackageQuery();
-
+  const { data: settingData } = useGetSettingsQuery();
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -23,7 +23,7 @@ const Package = () => {
       <section className="breadcrumb-banner position-relative">
         <div className="img-wide">
           <img
-            src="https://media.istockphoto.com/id/1431090023/photo/road-through-the-forest.jpg?s=612x612&w=0&k=20&c=DMj6Jg0jzwM9XNPQp_JQei-Gonqqfdo_8pmLJDy9Mdo="
+            src={settingData?.data.destination_page_image}
             alt="about-image"
           />
 

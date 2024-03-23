@@ -44,6 +44,17 @@
 
     .card-col {
       border-right: 1px solid rgb(167, 166, 169);
+
+      .banner-card-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
     }
   }
 

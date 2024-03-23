@@ -2,7 +2,9 @@
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useGetSettingsQuery } from "../../frontend/api";
 const Header = () => {
+  const { data: settingData } = useGetSettingsQuery();
   const [windowChange, setWindowChange] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   useEffect(() => {
@@ -34,7 +36,7 @@ const Header = () => {
           <Container className=" d-flex justify-content-between">
             <Navbar.Brand href="/" as={Link}>
               <img
-                src="/assets/image/logo.png"
+                src={settingData?.data.site_main_logo}
                 alt="logo"
                 width={100}
                 height={60}
