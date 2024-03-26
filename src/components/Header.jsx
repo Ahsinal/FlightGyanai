@@ -6,17 +6,21 @@ import {
   useGetSettingsQuery,
   useGetCategoryPackageDetailQuery,
   useGetCategoryPackageQuery,
+  useGetDestinationQuery,
+  useGetPackageQuery,
 } from "../../frontend/api";
 const Header = () => {
   const { data: settingData } = useGetSettingsQuery();
   const { data: categoryData } = useGetCategoryPackageQuery();
+  const { data: destination } = useGetDestinationQuery();
+  const { data: packageData } = useGetPackageQuery();
   const { data: dropdownDomestic } =
     useGetCategoryPackageDetailQuery("domestic-tours");
   const { data: dropdownInternational } = useGetCategoryPackageDetailQuery(
     "international-tours"
   );
   const [windowChange, setWindowChange] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [nestedDropdownData, setNestedDropdownData] = useState([]);
   useEffect(() => {
     const changeNavbarPosition = () => {
       if (window.scrollY >= 100) {
@@ -32,13 +36,29 @@ const Header = () => {
       window.removeEventListener("scroll", changeNavbarPosition);
     };
   }, []);
-  const handleMouseEnter = () => {
-    setDropdownOpen(true);
-  };
 
-  const handleMouseLeave = () => {
-    setDropdownOpen(false);
+  useEffect(() => {
+    // Fetch nested dropdown data from API
+    fetchNestedDropdownData();
+  }, []);
+
+  const fetchNestedDropdownData = async () => {
+    try {
+      const response = await fetch("API_ENDPOINT_FOR_INTERNATIONAL_CATEGORIES");
+      const data = await response.json();
+      setNestedDropdownData(data.data);
+    } catch (error) {
+      console.error("Error fetching nested dropdown data:", error);
+    }
   };
+  // const [dropdownOpen, setDropdownOpen] = useState(false);
+  // const handleMouseEnter = () => {
+  //   setDropdownOpen(true);
+  // };
+
+  // const handleMouseLeave = () => {
+  //   setDropdownOpen(false);
+  // };
   return (
     <>
       <header className={`w-100  ${windowChange ? "sticky" : ""}`}>
@@ -66,46 +86,23 @@ const Header = () => {
                   // onMouseEnter={handleMouseEnter}
                   // onMouseLeave={handleMouseLeave}
                 >
-                  {dropdownInternational?.data.slice(0, 5).map((d, i) => {
-                    return (
-                      <NavDropdown.Item href={`/package/${d.slug}`} key={i}>
-                        {d.name}
-                      </NavDropdown.Item>
-                    );
-                  })}
-                  {/* <NavDropdown
-                    title="Europe and UK"
-                    id="nested-dropdown"
-                    className="nested-dropdown"
-                    drop="end"
-                  >
-                    {dropdownInternational?.data.map((d, i) => {
-                      return (
-                        <NavDropdown.Item href="/" key={i}>
-                          {d.name}
+                  {packageData?.data.slice(0, 5).map((category, index) => (
+                    <NavDropdown
+                      title={category.name}
+                      id={`international-dropdown-${index}`}
+                      key={index}
+                      drop="end"
+                    >
+                      {category.destinations.map((subcategory, idx) => (
+                        <NavDropdown.Item
+                          href={`/package/${subcategory.slug}`}
+                          key={idx}
+                        >
+                          {subcategory.name}
                         </NavDropdown.Item>
-                      );
-                    })}
-                  </NavDropdown> */}
-
-                  {/* <NavDropdown title="England" id="nested-dropdown" drop="end">
-                    <NavDropdown.Item href="/">London</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Scotland</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Switzerland</NavDropdown.Item>
-                    <NavDropdown.Item href="/">UK</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Germany</NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown
-                    title="Europe and UK"
-                    id="nested-dropdown"
-                    drop="end"
-                  >
-                    <NavDropdown.Item href="/">London</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Scotland</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Switzerland</NavDropdown.Item>
-                    <NavDropdown.Item href="/">UK</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Germany</NavDropdown.Item>
-                  </NavDropdown> */}
+                      ))}
+                    </NavDropdown>
+                  ))}
                 </NavDropdown>
 
                 <NavDropdown
@@ -116,30 +113,40 @@ const Header = () => {
                   // onMouseEnter={handleMouseEnter}
                   // onMouseLeave={handleMouseLeave}
                 >
-                  {dropdownDomestic?.data.slice(0, 5).map((d, i) => {
+                  {packageData?.data.slice(0, 5).map((category, index) => (
+                    <NavDropdown
+                      title={category.name}
+                      id={`international-dropdown-${index}`}
+                      key={index}
+                      drop="end"
+                    >
+                      {category.destinations.map((subcategory, idx) => (
+                        <NavDropdown.Item
+                          href={`/package/${subcategory.slug}`}
+                          key={idx}
+                        >
+                          {subcategory.name}
+                        </NavDropdown.Item>
+                      ))}
+                    </NavDropdown>
+                  ))}
+                </NavDropdown>
+                {/* <NavDropdown
+                  title="Domestic"
+                  id="collapsible-nav-dropdown"
+                  className="dropdown "
+                  // show={dropdownOpen}
+                  // onMouseEnter={handleMouseEnter}
+                  // onMouseLeave={handleMouseLeave}
+                >
+                  {destination?.data.slice(0, 5).map((d, i) => {
                     return (
                       <NavDropdown.Item href={`/package/${d.slug}`} key={i}>
                         {d.name}
                       </NavDropdown.Item>
                     );
                   })}
-                  {/* <NavDropdown
-                    title="Kathmandu"
-                    id="nested-dropdown"
-                    drop="end"
-                  >
-                    <NavDropdown.Item href="/">Bharatpur</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Chitwan</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Switzerland</NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown title="Butwal" id="nested-dropdown" drop="end">
-                    <NavDropdown.Item href="/">London</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Scotland</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Switzerland</NavDropdown.Item>
-                    <NavDropdown.Item href="/">UK</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Germany</NavDropdown.Item>
-                  </NavDropdown> */}
-                </NavDropdown>
+                </NavDropdown> */}
 
                 <Nav.Link href="/blog" as={Link}>
                   Blog

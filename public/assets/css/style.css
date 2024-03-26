@@ -35897,9 +35897,6 @@ header .navbar-nav .dropdown .dropdown-menu a {
 header .navbar-nav .dropdown .dropdown-menu a:hover {
   color: #c1272f !important;
 }
-header .navbar-nav .dropdown .nested-dropdown {
-  background-color: red;
-}
 header .navbar-nav .button a:hover {
   background-color: red !important;
   color: white !important;
