@@ -11,13 +11,14 @@ const PackageCard = (props) => {
       <div className="img">
         <img src={props.img} alt="" />
       </div>
-      <div className="position-absolute top-0 bg-white m-8 py-4 px-16 x-small btn-pill text-secondary">
-        Rs 100,000
+      <div className="position-absolute top-0 d-flex bg-white m-8 py-4 px-16 x-small btn-pill text-secondary">
+        <div className="small me-4">{props.currency}</div>
+        <div className=" small">{props.price}</div>
       </div>
       <div className="flex-between  gap-4  mb-8 px-8 mt-12">
         <div className="align-center gap-4 small ">
-          <FaLocationDot className="text-cGray600 h6" />
-          <span className="text-cGray800 x-small">{props.location}</span>
+          <FaCalendar className="text-cGray400 h6" />
+          <span className="text-cGray800 x-small p">{props.days} Days</span>
         </div>
         <div className="d-flex gap-4 align-items-center small text-yellow500">
           {stars}
@@ -27,14 +28,13 @@ const PackageCard = (props) => {
         <div className="title">
           <p className="fw-medium">{props.title}</p>
         </div>
-        <p className=" fw-light mt-4 clamp-2 small text-justify">
-          Lonsectetur adipisicing elit. Similique corrupti, in totam quod
-          facilis quibusdam ratione alias, nesciunt dolores quasi tempora fugit
-          saepe ea magnam nam praesentium placeat! Sequi, atque?
-        </p>
+        <div
+          className=" p fw-light mt-4 clamp-2 small text-justify"
+          dangerouslySetInnerHTML={{ __html: props.desc }}
+        ></div>
         <hr />
         <Link
-          href="/"
+          href={`/package/${props.slug}`}
           className="stretched-link x-small text-primary  align-items-end mb-12"
         >
           <FaEye /> View More

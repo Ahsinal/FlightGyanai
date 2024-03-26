@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
-import { familyData, honeymoonData, cooperateData } from "@/data/Data";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import PackageCard from "../cards/PackageCard";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -84,11 +83,14 @@ const LandingBucketList = () => {
               <SwiperSlide key={i}>
                 <PackageCard
                   img={d.image}
-                  title={d.title}
+                  title={d.name}
                   location={d.location}
-                  price={d.price}
-                  days={d.days}
+                  currency={d.currency}
+                  price={d.fair_price}
+                  days={d.duration}
                   rating={d.rating}
+                  desc={d.short_description}
+                  slug={d.slug}
                 />
               </SwiperSlide>
             );

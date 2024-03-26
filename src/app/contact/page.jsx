@@ -3,21 +3,22 @@ import Link from "next/link";
 import { Breadcrumb } from "antd";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaFacebook, FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa";
-import {useGetSettingsQuery,} from "../../../frontend/api";
+import {
+  useGetSettingsQuery,
+  useGetPageDetailQuery,
+} from "../../../frontend/api";
 import ContactForm from "@/components/layouts/ContactForm";
 const ContactUs = () => {
   const { data: settingData } = useGetSettingsQuery();
+  const { data: contactData } = useGetPageDetailQuery("contact-page");
   return (
     <>
       <section className="breadcrumb-banner ">
         <div className="img-wide">
-          <img
-            src={settingData?.data.contact_page_image}
-            alt="about-image"
-          />
+          <img src={settingData?.data.contact_page_image} alt="about-image" />
           <Container>
             <div className="about-banner-content bitter">
-              <h2>Contact Us</h2>
+              <h2>{contactData?.data.title}</h2>
               <Breadcrumb
                 className="h5 fw-normal mt-8"
                 items={[
@@ -39,13 +40,15 @@ const ContactUs = () => {
             <Col lg={6} sm={12}>
               <div className="">
                 <p className="text-secondary small fw-bold">GET IN TOUCH</p>
-                <h3 className="bitter mt-12">REACH & CONTACT US!</h3>
-                <p className="mt-8 text-cGray700">
-                  Fusce hic augue velit wisi quibusdam pariatur, iusto primis,
-                  nec nemo, rutrum. Vestibulum cumque laudantium. Sit ornare
-                  mollitia tenetur, aptent. Eget feugiat error necessitatibus
-                  taciti.
-                </p>
+                <h3 className="bitter mt-12">
+                  {contactData?.data.short_description}
+                </h3>
+                <div
+                  className=" p mt-8 text-cGray700"
+                  dangerouslySetInnerHTML={{
+                    __html: contactData?.data.description,
+                  }}
+                ></div>
               </div>
 
               <div className="mt-16 overflow-hidden">
