@@ -5,7 +5,7 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import PackageCard from "../cards/PackageCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import {
   useGetSettingsQuery,
   useGetCategoryPackageQuery,
@@ -58,10 +58,13 @@ const LandingBucketList = () => {
           })}
         </Col>
       </Row>
-      <Row>
+      <Row >
         <Swiper
+          // spaceBetween={20}
           loop={true}
           ref={swiperRef}
+          autoplay={{ delay: 3000 }}
+          modules={[Autoplay]}
           breakpoints={{
             640: {
               slidesPerView: 1,
@@ -69,7 +72,7 @@ const LandingBucketList = () => {
             },
             768: {
               slidesPerView: 4,
-              spaceBetween: 20,
+              spaceBetween: 10,
             },
             1024: {
               slidesPerView: 4,
