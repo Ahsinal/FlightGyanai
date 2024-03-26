@@ -9,7 +9,6 @@ import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
 import {
   useGetSettingsQuery,
-  useGetPackageQuery,
   useGetCategoryPackageQuery,
   useGetCategoryPackageDetailQuery,
 } from "../../../frontend/api";
@@ -17,28 +16,8 @@ SwiperCore.use([Navigation]);
 const LandingBucketList = () => {
   const { data: settingData } = useGetSettingsQuery();
   const { data: categoryData } = useGetCategoryPackageQuery();
-  const { data: categoryDetailData } =
-    useGetCategoryPackageDetailQuery("group-package");
-  const [selected, setSelected] = useState("");
-  const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //   // switch (selected) {
-  //   //   case "family":
-  //   //     setData(familyData.data);
-  //   //     break;
-  //   //   case "honeymoon":
-  //   //     setData(honeymoonData.data);
-  //   //     break;
-  //   //   case "cooperate":
-  //   //     setData(cooperateData.data);
-  //   //     break;
-  //   //   default:
-  //   //     setData(familyData.data);
-  //   // }
-  //   setSelected(selected);
-  // }, [selected]);
-
+  const [selected, setSelected] = useState("group-package");
+  const { data: categorywise } = useGetCategoryPackageDetailQuery(selected);
 
   const swiperRef = React.useRef(null);
   const goNext = () => {
@@ -100,7 +79,7 @@ const LandingBucketList = () => {
           }}
           className="mySwiper p-12"
         >
-          {data.map((d, i) => {
+          {categorywise?.data.map((d, i) => {
             return (
               <SwiperSlide key={i}>
                 <PackageCard
