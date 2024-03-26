@@ -2,9 +2,19 @@
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { useGetSettingsQuery } from "../../frontend/api";
+import {
+  useGetSettingsQuery,
+  useGetCategoryPackageDetailQuery,
+  useGetCategoryPackageQuery,
+} from "../../frontend/api";
 const Header = () => {
   const { data: settingData } = useGetSettingsQuery();
+  const { data: categoryData } = useGetCategoryPackageQuery();
+  const { data: dropdownDomestic } =
+    useGetCategoryPackageDetailQuery("domestic-tours");
+  const { data: dropdownInternational } = useGetCategoryPackageDetailQuery(
+    "international-tours"
+  );
   const [windowChange, setWindowChange] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   useEffect(() => {
@@ -56,31 +66,29 @@ const Header = () => {
                   // onMouseEnter={handleMouseEnter}
                   // onMouseLeave={handleMouseLeave}
                 >
-                  <NavDropdown
+                  {dropdownInternational?.data.slice(0, 5).map((d, i) => {
+                    return (
+                      <NavDropdown.Item href={`/package/${d.slug}`} key={i}>
+                        {d.name}
+                      </NavDropdown.Item>
+                    );
+                  })}
+                  {/* <NavDropdown
                     title="Europe and UK"
                     id="nested-dropdown"
                     className="nested-dropdown"
                     drop="end"
                   >
-                    <NavDropdown.Item href="/">London</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Scotland</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Switzerland</NavDropdown.Item>
-                    <NavDropdown.Item href="/">UK</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Germany</NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown
-                    title="South East Asia"
-                    id="nested-dropdown"
-                    className="nested-dropdown"
-                    drop="end"
-                  >
-                    <NavDropdown.Item href="/">London</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Scotland</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Switzerland</NavDropdown.Item>
-                    <NavDropdown.Item href="/">UK</NavDropdown.Item>
-                    <NavDropdown.Item href="/">Germany</NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown title="England" id="nested-dropdown" drop="end">
+                    {dropdownInternational?.data.map((d, i) => {
+                      return (
+                        <NavDropdown.Item href="/" key={i}>
+                          {d.name}
+                        </NavDropdown.Item>
+                      );
+                    })}
+                  </NavDropdown> */}
+
+                  {/* <NavDropdown title="England" id="nested-dropdown" drop="end">
                     <NavDropdown.Item href="/">London</NavDropdown.Item>
                     <NavDropdown.Item href="/">Scotland</NavDropdown.Item>
                     <NavDropdown.Item href="/">Switzerland</NavDropdown.Item>
@@ -97,15 +105,25 @@ const Header = () => {
                     <NavDropdown.Item href="/">Switzerland</NavDropdown.Item>
                     <NavDropdown.Item href="/">UK</NavDropdown.Item>
                     <NavDropdown.Item href="/">Germany</NavDropdown.Item>
-                  </NavDropdown>
+                  </NavDropdown> */}
                 </NavDropdown>
-                
+
                 <NavDropdown
                   title="Domestic"
                   id="collapsible-nav-dropdown"
                   className="dropdown "
+                  // show={dropdownOpen}
+                  // onMouseEnter={handleMouseEnter}
+                  // onMouseLeave={handleMouseLeave}
                 >
-                  <NavDropdown
+                  {dropdownDomestic?.data.slice(0, 5).map((d, i) => {
+                    return (
+                      <NavDropdown.Item href={`/package/${d.slug}`} key={i}>
+                        {d.name}
+                      </NavDropdown.Item>
+                    );
+                  })}
+                  {/* <NavDropdown
                     title="Kathmandu"
                     id="nested-dropdown"
                     drop="end"
@@ -120,8 +138,9 @@ const Header = () => {
                     <NavDropdown.Item href="/">Switzerland</NavDropdown.Item>
                     <NavDropdown.Item href="/">UK</NavDropdown.Item>
                     <NavDropdown.Item href="/">Germany</NavDropdown.Item>
-                  </NavDropdown>
+                  </NavDropdown> */}
                 </NavDropdown>
+
                 <Nav.Link href="/blog" as={Link}>
                   Blog
                 </Nav.Link>

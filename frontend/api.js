@@ -22,8 +22,7 @@ export const globalApi = createApi({
         "Setting",
         "SocialMedia",
         "CategoryPackage",
-
-
+        "Partners",
 
     ],
     extractRehydrationInfo(action, { reducerPath }) {
@@ -174,6 +173,13 @@ export const globalApi = createApi({
             }),
             providesTags: ["Banner"]
         }),
+        getPartners: builder.query({
+            query: () => ({
+                url: "/partners",
+                method: "GET",
+            }),
+            providesTags: ["Partners"]
+        }),
         getSocial: builder.query({
             query: () => ({
                 url: "/socialmedias",
@@ -203,6 +209,7 @@ export const {
     useGetSocialQuery,
     useGetCategoryPackageQuery,
     useGetCategoryPackageDetailQuery,
+    useGetPartnersQuery,
 
 
 
