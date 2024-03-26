@@ -7,49 +7,39 @@ import PackageCard from "../cards/PackageCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Navigation } from "swiper/modules";
-import { useGetSettingsQuery } from "../../../frontend/api";
+import {
+  useGetSettingsQuery,
+  useGetPackageQuery,
+  useGetCategoryPackageQuery,
+  useGetCategoryPackageDetailQuery,
+} from "../../../frontend/api";
 SwiperCore.use([Navigation]);
 const LandingBucketList = () => {
   const { data: settingData } = useGetSettingsQuery();
-  const [selected, setSelected] = useState("family");
+  const { data: categoryData } = useGetCategoryPackageQuery();
+  const { data: categoryDetailData } =
+    useGetCategoryPackageDetailQuery("group-package");
+  const [selected, setSelected] = useState("");
   const [data, setData] = useState([]);
-  const list = [
-    {
-      id: "family",
-      title: "Family Package",
-    },
-    {
-      id: "honeymoon",
-      title: "Honeymoon Package",
-    },
-    {
-      id: "cooperate",
-      title: "Cooperate Package",
-    },
-    {
-      id: "group",
-      title: "Group Package",
-    },
-    {
-      id: "cruise",
-      title: "Cruise Package",
-    },
-  ];
-  useEffect(() => {
-    switch (selected) {
-      case "family":
-        setData(familyData.data);
-        break;
-      case "honeymoon":
-        setData(honeymoonData.data);
-        break;
-      case "cooperate":
-        setData(cooperateData.data);
-        break;
-      default:
-        setData(familyData.data);
-    }
-  }, [selected]);
+
+  // useEffect(() => {
+  //   // switch (selected) {
+  //   //   case "family":
+  //   //     setData(familyData.data);
+  //   //     break;
+  //   //   case "honeymoon":
+  //   //     setData(honeymoonData.data);
+  //   //     break;
+  //   //   case "cooperate":
+  //   //     setData(cooperateData.data);
+  //   //     break;
+  //   //   default:
+  //   //     setData(familyData.data);
+  //   // }
+  //   setSelected(selected);
+  // }, [selected]);
+
+
   const swiperRef = React.useRef(null);
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -69,18 +59,24 @@ const LandingBucketList = () => {
       </h3>
       <Row>
         <Col lg={12} className="flex-center gap-4 mb-12 mb-sm-32 flex-wrap">
-          {list.map((d, i) => {
-            return (
-              <div
-                className={`card-side-bucketlist rounded-8 x-small bg-white shadow-4 py-8 px-24 fw-normal text-center text-cGray800 ${
-                  selected === d.id ? "active" : ""
-                }`}
-                key={i}
-                onClick={() => setSelected(d.id)}
-              >
-                {d.title}
-              </div>
-            );
+          {categoryData?.data.map((d, i) => {
+            // Exclude categories with slugs "international-tours" and "domestic-tours"
+            if (
+              d.slug !== "international-tours" &&
+              d.slug !== "domestic-tours"
+            ) {
+              return (
+                <div
+                  className={`card-side-bucketlist rounded-8 x-small bg-white shadow-4 py-8 px-24 fw-normal text-center text-cGray800 ${
+                    selected === d.slug ? "active" : ""
+                  }`}
+                  key={i}
+                  onClick={() => setSelected(d.slug)}
+                >
+                  {d.name}
+                </div>
+              );
+            }
           })}
         </Col>
       </Row>
@@ -108,7 +104,7 @@ const LandingBucketList = () => {
             return (
               <SwiperSlide key={i}>
                 <PackageCard
-                  img={d.img}
+                  img={d.image}
                   title={d.title}
                   location={d.location}
                   price={d.price}

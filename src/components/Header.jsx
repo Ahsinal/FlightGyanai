@@ -52,13 +52,14 @@ const Header = () => {
                   title="International"
                   id="collapsible-nav-dropdown"
                   className="dropdown "
-                  show={dropdownOpen}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
+                  // show={dropdownOpen}
+                  // onMouseEnter={handleMouseEnter}
+                  // onMouseLeave={handleMouseLeave}
                 >
                   <NavDropdown
                     title="Europe and UK"
                     id="nested-dropdown"
+                    className="nested-dropdown"
                     drop="end"
                   >
                     <NavDropdown.Item href="/">London</NavDropdown.Item>
@@ -70,6 +71,7 @@ const Header = () => {
                   <NavDropdown
                     title="South East Asia"
                     id="nested-dropdown"
+                    className="nested-dropdown"
                     drop="end"
                   >
                     <NavDropdown.Item href="/">London</NavDropdown.Item>
@@ -97,6 +99,7 @@ const Header = () => {
                     <NavDropdown.Item href="/">Germany</NavDropdown.Item>
                   </NavDropdown>
                 </NavDropdown>
+                
                 <NavDropdown
                   title="Domestic"
                   id="collapsible-nav-dropdown"

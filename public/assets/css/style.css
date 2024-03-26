@@ -35897,6 +35897,9 @@ header .navbar-nav .dropdown .dropdown-menu a {
 header .navbar-nav .dropdown .dropdown-menu a:hover {
   color: #c1272f !important;
 }
+header .navbar-nav .dropdown .nested-dropdown {
+  background-color: red;
+}
 header .navbar-nav .button a:hover {
   background-color: red !important;
   color: white !important;
@@ -36279,7 +36282,7 @@ footer .stretched-link:hover {
 }
 .card-banner .card-col .banner-card-icon {
   width: 2.5rem;
-  height: 3rem;
+  height: 2.5rem;
 }
 .card-banner .card-col .banner-card-icon img {
   width: 100%;
@@ -36290,6 +36293,7 @@ footer .stretched-link:hover {
   cursor: pointer;
 }
 .card-package-popular:hover img {
+  min-height: 182px;
   transform: scale(1.1);
 }
 .card-package-popular:hover a {

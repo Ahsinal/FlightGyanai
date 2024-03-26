@@ -21,6 +21,7 @@ export const globalApi = createApi({
         "Banner",
         "Setting",
         "SocialMedia",
+        "CategoryPackage",
 
 
 
@@ -82,6 +83,22 @@ export const globalApi = createApi({
                 };
             },
             providesTags: ["Package"],
+        }),
+        getCategoryPackage: builder.query({
+            query: () => ({
+                url: "/packagecategories",
+                method: "GET",
+            }),
+            providesTags: ["CategoryPackage"],
+        }),
+        getCategoryPackageDetail: builder.query({
+            query: (id) => {
+                return {
+                    url: `/categorywisepackage/${id}`,
+                    method: "GET",
+                };
+            },
+            providesTags: ["CategoryPackage"],
         }),
         getBlog: builder.query({
             query: () => ({
@@ -184,6 +201,8 @@ export const {
     useGetBannerQuery,
     useGetSettingsQuery,
     useGetSocialQuery,
+    useGetCategoryPackageQuery,
+    useGetCategoryPackageDetailQuery,
 
 
 
