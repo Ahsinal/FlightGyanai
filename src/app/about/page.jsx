@@ -19,10 +19,7 @@ const About = () => {
     <>
       <section className="breadcrumb-banner position-relative">
         <div className="img-wide">
-          <img
-            src={settingData?.data.about_page_image}
-            alt="about-image"
-          />
+          <img src={settingData?.data.about_page_image} alt="about-image" />
 
           <Container>
             <div className="about-banner-content bitter">
@@ -67,7 +64,7 @@ const About = () => {
       </section>
       <section className="mt-32 px-sm-12 about-us">
         <Container>
-          <Row className="gx-32 d-flex align-items-center">
+          <Row className="gx-32 gap-24-row d-flex align-items-center">
             <Col lg={7} sm={12}>
               <h6 className="text-cGray700">{aboutusData?.data?.title}</h6>
               <div
@@ -85,7 +82,7 @@ const About = () => {
       </section>
       <section className="mt-32 choose-us px-sm-12">
         <Container>
-          <Row className="gx-32 d-flex align-items-center">
+          <Row className="gx-32 gap-24-row d-flex align-items-center">
             <Col lg={5} sm={12} className="img">
               <img src={chooseusData?.data?.image} alt="about us" />
             </Col>

@@ -11,16 +11,17 @@ import {
 } from "../../frontend/api";
 const Header = () => {
   const { data: settingData } = useGetSettingsQuery();
-  const { data: categoryData } = useGetCategoryPackageQuery();
-  const { data: destination } = useGetDestinationQuery();
-  const { data: packageData } = useGetPackageQuery();
-  const { data: dropdownDomestic } =
-    useGetCategoryPackageDetailQuery("domestic-tours");
-  const { data: dropdownInternational } = useGetCategoryPackageDetailQuery(
+  const { data: destinationInternational } = useGetDestinationQuery(
     "international-tours"
   );
+  const { data: destinationDomestic } =
+    useGetDestinationQuery("domestic-tours");
+  const { data: packageData } = useGetPackageQuery();
+  const { data: dropdownDomestic } =
+    useGetCategoryPackageDetailQuery("domestic");
+  const { data: dropdownInternational } =
+    useGetCategoryPackageDetailQuery("international");
   const [windowChange, setWindowChange] = useState(false);
-  const [nestedDropdownData, setNestedDropdownData] = useState([]);
   useEffect(() => {
     const changeNavbarPosition = () => {
       if (window.scrollY >= 100) {
@@ -36,21 +37,6 @@ const Header = () => {
       window.removeEventListener("scroll", changeNavbarPosition);
     };
   }, []);
-
-  useEffect(() => {
-    // Fetch nested dropdown data from API
-    fetchNestedDropdownData();
-  }, []);
-
-  const fetchNestedDropdownData = async () => {
-    try {
-      const response = await fetch("API_ENDPOINT_FOR_INTERNATIONAL_CATEGORIES");
-      const data = await response.json();
-      setNestedDropdownData(data.data);
-    } catch (error) {
-      console.error("Error fetching nested dropdown data:", error);
-    }
-  };
   // const [dropdownOpen, setDropdownOpen] = useState(false);
   // const handleMouseEnter = () => {
   //   setDropdownOpen(true);
@@ -86,23 +72,25 @@ const Header = () => {
                   // onMouseEnter={handleMouseEnter}
                   // onMouseLeave={handleMouseLeave}
                 >
-                  {packageData?.data.slice(0, 5).map((category, index) => (
-                    <NavDropdown
-                      title={category.name}
-                      id={`international-dropdown-${index}`}
-                      key={index}
-                      drop="end"
-                    >
-                      {category.destinations.map((subcategory, idx) => (
-                        <NavDropdown.Item
-                          href={`/package/${subcategory.slug}`}
-                          key={idx}
-                        >
-                          {subcategory.name}
-                        </NavDropdown.Item>
-                      ))}
-                    </NavDropdown>
-                  ))}
+                  {destinationInternational?.data
+                    .slice(0, 6)
+                    .map((category, index) => (
+                      <NavDropdown
+                        title={category.name}
+                        id={`international-dropdown-${index}`}
+                        key={index}
+                        drop="end"
+                      >
+                        {category.children.map((subcategory, idx) => (
+                          <NavDropdown.Item
+                            href={`/package/${subcategory.slug}`}
+                            key={idx}
+                          >
+                            {subcategory.name}
+                          </NavDropdown.Item>
+                        ))}
+                      </NavDropdown>
+                    ))}
                 </NavDropdown>
 
                 <NavDropdown
@@ -113,40 +101,26 @@ const Header = () => {
                   // onMouseEnter={handleMouseEnter}
                   // onMouseLeave={handleMouseLeave}
                 >
-                  {packageData?.data.slice(0, 5).map((category, index) => (
-                    <NavDropdown
-                      title={category.name}
-                      id={`international-dropdown-${index}`}
-                      key={index}
-                      drop="end"
-                    >
-                      {category.destinations.map((subcategory, idx) => (
-                        <NavDropdown.Item
-                          href={`/package/${subcategory.slug}`}
-                          key={idx}
-                        >
-                          {subcategory.name}
-                        </NavDropdown.Item>
-                      ))}
-                    </NavDropdown>
-                  ))}
+                  {destinationDomestic?.data
+                    .slice(0, 6)
+                    .map((category, index) => (
+                      <NavDropdown
+                        title={category.name}
+                        id={`international-dropdown-${index}`}
+                        key={index}
+                        drop="end"
+                      >
+                        {category.children.map((subcategory, idx) => (
+                          <NavDropdown.Item
+                            href={`/package/${subcategory.slug}`}
+                            key={idx}
+                          >
+                            {subcategory.name}
+                          </NavDropdown.Item>
+                        ))}
+                      </NavDropdown>
+                    ))}
                 </NavDropdown>
-                {/* <NavDropdown
-                  title="Domestic"
-                  id="collapsible-nav-dropdown"
-                  className="dropdown "
-                  // show={dropdownOpen}
-                  // onMouseEnter={handleMouseEnter}
-                  // onMouseLeave={handleMouseLeave}
-                >
-                  {destination?.data.slice(0, 5).map((d, i) => {
-                    return (
-                      <NavDropdown.Item href={`/package/${d.slug}`} key={i}>
-                        {d.name}
-                      </NavDropdown.Item>
-                    );
-                  })}
-                </NavDropdown> */}
 
                 <Nav.Link href="/blog" as={Link}>
                   Blog

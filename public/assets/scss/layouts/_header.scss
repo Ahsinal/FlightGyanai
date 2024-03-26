@@ -9,9 +9,19 @@ header {
     }
 
     .dropdown {
+
       // a {
       //   color: white !important;
       // }
+      .dropdown-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after {
+          margin-left: 0.5rem;
+        }
+      }
 
       .dropdown-menu {
         a {
