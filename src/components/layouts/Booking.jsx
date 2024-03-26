@@ -4,11 +4,16 @@ import { Container, Button, Row, Col, Form } from "react-bootstrap";
 import { Modal } from "antd";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { FaPhoneAlt } from "react-icons/fa";
-import { useCreateBookingMutation } from "../../../frontend/api";
+import { FaPhoneAlt, FaPlane } from "react-icons/fa";
+import {
+  useCreateBookingMutation,
+  useGetSettingsQuery,
+} from "../../../frontend/api";
 import { ClipLoader } from "react-spinners";
+import { MdMail } from "react-icons/md";
 const Booking = ({ packageId }) => {
   const router = useRouter();
+  const { data: settingData } = useGetSettingsQuery();
   const {
     register,
     formState: { errors },
@@ -33,6 +38,9 @@ const Booking = ({ packageId }) => {
   const [isModalFinalOpen, setIsModalFinalOpen] = useState(false);
   const showModal = (packageId) => {
     setSelectedPackageId(packageId);
+    // {
+    //   console.log(packageId, "pid model open");
+    // }
     setIsModalOpen(true);
   };
   const handleCancel = () => {
@@ -45,6 +53,9 @@ const Booking = ({ packageId }) => {
         ...data,
         packageId: selectedPackageId,
       };
+      // {
+      //   console.log(formData, "formdata");
+      // }
       await createBookingMutation(formData);
       reset();
       setIsModalOpen(false); // Close the first modal
@@ -74,10 +85,11 @@ const Booking = ({ packageId }) => {
       <div className="p-24 shadow-1 rounded-16 bg-secondary text-white flex-center-center flex-column">
         <h6 className="text-center mb-8">Booking Form</h6>
         <p className="text-center small">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam, dicta.
+          {settingData?.data.service_description}
         </p>
-        <div className="bg-white w-100 p-12 text-secondary rounded-4 my-12">
-          starts
+        <div className="bg-white w-100 p-12 text-secondary rounded-4 my-12 d-flex gap-12 flex-center-center">
+          <FaPlane />
+          <p>Fly at reasonable price</p>
         </div>
         <Button
           variant="light"
@@ -88,10 +100,14 @@ const Booking = ({ packageId }) => {
         </Button>
         <div className="text-white flex-center-center flex-column">
           <p className="xx-small mt-12">Neep Help? Call us on WhatsApp</p>
-          <div className="d-flex gap-4 align-items-center mt-12 ">
+          <div className="d-flex gap-12 align-items-center mt-12  small">
             <FaPhoneAlt />
-            01-5970440
+            {settingData?.data.site_contact}
           </div>
+          {/* <div className="d-flex gap-12 align-items-center mt-8 small ">
+            <MdMail />
+            {settingData?.data.site_email}
+          </div> */}
         </div>
       </div>
       <Modal

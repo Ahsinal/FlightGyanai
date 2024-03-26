@@ -39,7 +39,7 @@ const BlogDetail = ({ params }) => {
             </p>
             <h5 className="mt-12">{blogDetailData?.data.title}</h5>
             <Row className="mt-12 gap-16-row blog-side-cards ">
-              <Col lg={8} sm={12} className="" style={{ minHeight: "1400px" }}>
+              <Col lg={8} sm={12} className="">
                 <div
                   className="p"
                   dangerouslySetInnerHTML={{

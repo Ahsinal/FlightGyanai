@@ -58,47 +58,47 @@ const LandingBucketList = () => {
           })}
         </Col>
       </Row>
-      <Row >
-        <Swiper
-          // spaceBetween={20}
-          loop={true}
-          ref={swiperRef}
-          autoplay={{ delay: 3000 }}
-          modules={[Autoplay]}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 10,
-            },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 20,
-            },
-          }}
-          className="mySwiper p-12"
-        >
-          {categorywise?.data.map((d, i) => {
-            return (
-              <SwiperSlide key={i}>
-                <PackageCard
-                  img={d.image}
-                  title={d.name}
-                  location={d.location}
-                  currency={d.currency}
-                  price={d.fair_price}
-                  days={d.duration}
-                  rating={d.rating}
-                  desc={d.short_description}
-                  slug={d.slug}
-                />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+      <Row className="gap-24-row">
+        <Col>
+          <Swiper
+            spaceBetween={20}
+            loop={true}
+            ref={swiperRef}
+            autoplay={{ delay: 3000 }}
+            modules={[Autoplay]}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            className="mySwiper p-12"
+          >
+            {categorywise?.data.map((d, i) => {
+              return (
+                <SwiperSlide key={i}>
+                  <PackageCard
+                    img={d.image}
+                    title={d.name}
+                    location={d.location}
+                    currency={d.currency}
+                    price={d.fair_price}
+                    days={d.duration}
+                    rating={d.rating}
+                    desc={d.short_description}
+                    slug={d.slug}
+                    id={d.id}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </Col>
         <div className="flex-center gap-16 text-secondary h4 mt-8">
           <FaLongArrowAltLeft className="arrow" onClick={goPrev} />
           <FaLongArrowAltRight className="arrow" onClick={goNext} />

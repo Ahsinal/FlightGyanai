@@ -219,26 +219,13 @@ const PackageDetail = ({ params }) => {
                             title={d.name}
                             key={i}
                             slug={d.slug}
+                            id={d.id}
                           />
                         );
                       })}
                   </div>
                 </Col>
-                {/* <Col sm={12} className="mt-32">
-                  <div className=" p-24 rounded-12 shadow-1">
-                    <h5 className="text-cGray300 fw-seibold mb-16">City Map</h5>
-                    <iframe
-                      width="100%"
-                      height="250"
-                      src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=kathmandu+(Flight%20Gyani)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                    ></iframe>
-                  </div>
-                </Col> */}
               </Row>
-              {/* <Col sm={12} className="p-24 shadow-1 rounded-16 mt-24">
-                <h6 className="text-cGray700">Basic Information</h6>
-                <PackageSidetable />
-              </Col> */}
             </Col>
           </Row>
         </Container>
