@@ -35913,6 +35913,7 @@ header .navbar-nav .button a:hover {
 .sticky {
   position: fixed;
   top: 0;
+  left: 0;
   background-color: white;
   z-index: 100;
   animation: fadeInDown 0.5s ease-in-out 0s 1 normal none running;
@@ -36168,6 +36169,7 @@ footer .stretched-link:hover {
   background-color: #c1272f;
   margin-right: 5px;
 }
+
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;

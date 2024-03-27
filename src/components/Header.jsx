@@ -4,9 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import {
   useGetSettingsQuery,
-  useGetCategoryPackageDetailQuery,
   useGetDestinationQuery,
-  useGetPackageQuery,
 } from "../../frontend/api";
 const Header = () => {
   const { data: settingData } = useGetSettingsQuery();
@@ -84,7 +82,7 @@ const Header = () => {
                           >
                             {category.children.map((subcategory, idx) => (
                               <NavDropdown.Item
-                                href={`/package/${subcategory.slug}`}
+                                href={`/destination/${subcategory.slug}`}
                                 key={idx}
                               >
                                 {subcategory.name}
@@ -95,7 +93,7 @@ const Header = () => {
                       } else {
                         return (
                           <NavDropdown.Item
-                            href={`/package/${category.slug}`}
+                            href={`/destination/${category.slug}`}
                             key={index}
                           >
                             {category.name}
@@ -115,25 +113,38 @@ const Header = () => {
                 >
                   {destinationDomestic?.data
                     .slice(0, 6)
-                    .map((category, index) => (
-                      <NavDropdown
-                        title={category.name}
-                        id={`international-dropdown-${index}`}
-                        key={index}
-                        drop="end"
-                      >
-                        {category.children.map((subcategory, idx) => (
-                          <NavDropdown.Item
-                            href={`/destination/${subcategory.slug}`}
-                            key={idx}
+                    .map((category, index) => {
+                      if (category.children.length > 0) {
+                        return (
+                          <NavDropdown
+                            title={category.name}
+                            id={`domestic-dropdown-${index}`}
+                            key={index}
+                            drop="end"
+                            className="px-8"
                           >
-                            {subcategory.name}
+                            {category.children.map((subcategory, idx) => (
+                              <NavDropdown.Item
+                                href={`/destination/${subcategory.slug}`}
+                                key={idx}
+                              >
+                                {subcategory.name}
+                              </NavDropdown.Item>
+                            ))}
+                          </NavDropdown>
+                        );
+                      } else {
+                        return (
+                          <NavDropdown.Item
+                            href={`/destination/${category.slug}`}
+                            key={index}
+                          >
+                            {category.name}
                           </NavDropdown.Item>
-                        ))}
-                      </NavDropdown>
-                    ))}
+                        );
+                      }
+                    })}
                 </NavDropdown>
-
                 <Nav.Link href="/blog" as={Link}>
                   Blog
                 </Nav.Link>

@@ -7,7 +7,7 @@ import PopularPackageCard from "@/components/cards/PopularPackageCard";
 import {
   useGetSettingsQuery,
   useGetDestinationQuery,
-} from "../../../../frontend/api";
+} from "../../../frontend/api";
 
 const DestinationPage = (props) => {
   const { data: settingData } = useGetSettingsQuery();

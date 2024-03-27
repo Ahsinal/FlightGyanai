@@ -4,16 +4,22 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Breadcrumb, Pagination } from "antd";
 import Link from "next/link";
 import PopularPackageCard from "@/components/cards/PopularPackageCard";
-import { useGetPackageQuery, useGetSettingsQuery } from "../../../frontend/api";
-const Package = () => {
+import {
+  useGetPackageQuery,
+  useGetSettingsQuery,
+  useGetCategoryPackageDetailQuery,
+} from "../../../frontend/api";
+const Package = (props) => {
   const { data: cardData } = useGetPackageQuery();
   const { data: settingData } = useGetSettingsQuery();
+  const { data: categoryData } =
+    useGetCategoryPackageDetailQuery("domestic-tours");
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
-  const currentPackage = cardData?.data.slice(startIndex, endIndex);
+  const currentPackage = categoryData?.data.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -67,7 +73,7 @@ const Package = () => {
           <Row className=" mt-32">
             <Col className="flex-center-center">
               <Pagination
-                total={cardData?.data.length} // Total number of blogs
+                total={categoryData?.data.length} // Total number of blogs
                 pageSize={pageSize} // Number of blogs per page
                 current={currentPage} // Current page
                 showSizeChanger={false} // Hide option to change page size

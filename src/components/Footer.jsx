@@ -89,19 +89,25 @@ const Footer = () => {
                 <ul className="d-flex flex-column gap-12">
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
+                    <Link
+                      href="/package"
+                      className="stretched-link"
+                    >
                       International
                     </Link>
                   </li>
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
+                    <Link
+                      href="/package"
+                      className="stretched-link"
+                    >
                       Domestic
                     </Link>
                   </li>
                   <li className="d-flex align-items-center gap-2 position-relative ">
                     <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
+                    <Link href="/package" className="stretched-link">
                       All Packages
                     </Link>
                   </li>
