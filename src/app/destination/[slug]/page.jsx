@@ -6,22 +6,23 @@ import Link from "next/link";
 import PopularPackageCard from "@/components/cards/PopularPackageCard";
 import {
   useGetSettingsQuery,
-  useGetDestinationQuery,
-} from "../../../frontend/api";
+  useGetTourPackageDetailQuery,
+} from "../../../../frontend/api";
 
 const DestinationPage = (props) => {
   const { data: settingData } = useGetSettingsQuery();
-  const { data: destinationData } = useGetDestinationQuery(`${props.slug}`);
+  const { data: destinationData } = useGetTourPackageDetailQuery(`${props.slug}`);
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
-  const currentPackage = destinationData?.data.slice(startIndex, endIndex);
+  const currentPackage = destinationData?.data?.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+  console.log(currentPackage, "data dest");
   return (
     <>
       <section className="breadcrumb-banner position-relative">
@@ -82,7 +83,7 @@ const DestinationPage = (props) => {
           <Row className=" mt-32">
             <Col className="flex-center-center">
               <Pagination
-                total={destinationData?.data.length} // Total number of blogs
+                total={destinationData?.data?.length} // Total number of blogs
                 pageSize={pageSize} // Number of blogs per page
                 current={currentPage} // Current page
                 showSizeChanger={false} // Hide option to change page size

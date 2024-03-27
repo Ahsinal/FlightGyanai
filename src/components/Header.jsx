@@ -84,6 +84,7 @@ const Header = () => {
                               <NavDropdown.Item
                                 href={`/destination/${subcategory.slug}`}
                                 key={idx}
+                                slug={subcategory.slug}
                               >
                                 {subcategory.name}
                               </NavDropdown.Item>
@@ -95,6 +96,7 @@ const Header = () => {
                           <NavDropdown.Item
                             href={`/destination/${category.slug}`}
                             key={index}
+                            slug={category.slug}
                           >
                             {category.name}
                           </NavDropdown.Item>
@@ -127,6 +129,7 @@ const Header = () => {
                               <NavDropdown.Item
                                 href={`/destination/${subcategory.slug}`}
                                 key={idx}
+                                slug={subcategory.slug}
                               >
                                 {subcategory.name}
                               </NavDropdown.Item>
@@ -138,6 +141,7 @@ const Header = () => {
                           <NavDropdown.Item
                             href={`/destination/${category.slug}`}
                             key={index}
+                            slug={category.slug}
                           >
                             {category.name}
                           </NavDropdown.Item>

@@ -23,7 +23,8 @@ export const globalApi = createApi({
         "SocialMedia",
         "CategoryPackage",
         "Partners",
-        "Destination"
+        "Destination",
+        "Tour"
 
     ],
     extractRehydrationInfo(action, { reducerPath }) {
@@ -74,6 +75,31 @@ export const globalApi = createApi({
                 method: "GET",
             }),
             providesTags: ["Destination"],
+        }),
+        getDestinationSlug: builder.query({
+            query: (id) => {
+                return {
+                    url: `/destination/${id}`,
+                    method: "GET",
+                };
+            },
+            providesTags: ["Destination"],
+        }),
+        getTourPackage: builder.query({
+            query: () => ({
+                url: "/tourtype",
+                method: "GET",
+            }),
+            providesTags: ["Tour"],
+        }),
+        getTourPackageDetail: builder.query({
+            query: (id) => {
+                return {
+                    url: `/tourtype/${id}`,
+                    method: "GET",
+                };
+            },
+            providesTags: ["Tour"],
         }),
         getPackage: builder.query({
             query: () => ({
@@ -219,6 +245,9 @@ export const {
     useGetCategoryPackageDetailQuery,
     useGetPartnersQuery,
     useGetDestinationQuery,
+    useGetDestinationSlugQuery,
+    useGetTourPackageQuery,
+    useGetTourPackageDetailQuery,
 
 
 } = globalApi;

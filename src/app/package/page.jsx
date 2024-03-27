@@ -12,8 +12,7 @@ import {
 const Package = (props) => {
   const { data: cardData } = useGetPackageQuery();
   const { data: settingData } = useGetSettingsQuery();
-  const { data: categoryData } =
-    useGetCategoryPackageDetailQuery("domestic-tours");
+  const { data: categoryData } = useGetCategoryPackageDetailQuery('domestic-tours');
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
