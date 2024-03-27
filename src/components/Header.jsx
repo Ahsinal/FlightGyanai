@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import {
   useGetSettingsQuery,
   useGetCategoryPackageDetailQuery,
-  useGetCategoryPackageQuery,
   useGetDestinationQuery,
   useGetPackageQuery,
 } from "../../frontend/api";
@@ -16,11 +15,7 @@ const Header = () => {
   );
   const { data: destinationDomestic } =
     useGetDestinationQuery("domestic-tours");
-  const { data: packageData } = useGetPackageQuery();
-  const { data: dropdownDomestic } =
-    useGetCategoryPackageDetailQuery("domestic");
-  const { data: dropdownInternational } =
-    useGetCategoryPackageDetailQuery("international");
+
   const [windowChange, setWindowChange] = useState(false);
   useEffect(() => {
     const changeNavbarPosition = () => {
@@ -129,7 +124,7 @@ const Header = () => {
                       >
                         {category.children.map((subcategory, idx) => (
                           <NavDropdown.Item
-                            href={`/package/${subcategory.slug}`}
+                            href={`/destination/${subcategory.slug}`}
                             key={idx}
                           >
                             {subcategory.name}
