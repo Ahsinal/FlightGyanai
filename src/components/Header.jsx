@@ -38,6 +38,7 @@ const Header = () => {
   // const handleMouseLeave = () => {
   //   setDropdownOpen(false);
   // };
+
   return (
     <>
       <header className="w-100">
@@ -78,7 +79,7 @@ const Header = () => {
                             id={`international-dropdown-${index}`}
                             key={index}
                             drop="end"
-                            className="px-8"
+                            className="px-8 "
                           >
                             {category.children.map((subcategory, idx) => (
                               <NavDropdown.Item
@@ -130,6 +131,7 @@ const Header = () => {
                                 href={`/destination/${subcategory.slug}`}
                                 key={idx}
                                 slug={subcategory.slug}
+                                name={subcategory.name}
                               >
                                 {subcategory.name}
                               </NavDropdown.Item>
@@ -142,6 +144,7 @@ const Header = () => {
                             href={`/destination/${category.slug}`}
                             key={index}
                             slug={category.slug}
+                            name={category.name}
                           >
                             {category.name}
                           </NavDropdown.Item>

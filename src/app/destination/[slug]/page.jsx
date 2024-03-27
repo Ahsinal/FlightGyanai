@@ -7,11 +7,14 @@ import PopularPackageCard from "@/components/cards/PopularPackageCard";
 import {
   useGetSettingsQuery,
   useGetTourPackageDetailQuery,
+  useGetDestinationSlugQuery,
 } from "../../../../frontend/api";
 
-const DestinationPage = (props) => {
+const DestinationPage = ({ params }) => {
   const { data: settingData } = useGetSettingsQuery();
-  const { data: destinationData } = useGetTourPackageDetailQuery(`${props.slug}`);
+  const { data: destinationData } = useGetTourPackageDetailQuery(params.slug);
+  const { data: idData } = useGetDestinationSlugQuery(params.slug);
+  // console.log(idData, "data from id");
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -22,19 +25,19 @@ const DestinationPage = (props) => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-  console.log(currentPackage, "data dest");
+
   return (
     <>
       <section className="breadcrumb-banner position-relative">
         <div className="img-wide">
           <img
             src={settingData?.data.destination_page_image}
-            alt="about-image"
+            alt="banner-image"
           />
 
           <Container>
             <div className="about-banner-content bitter">
-              <h2>Our Destinations</h2>
+              <h2>{idData?.data.name}</h2>
               <Breadcrumb
                 className="h5 fw-normal mt-8"
                 items={[
@@ -53,12 +56,11 @@ const DestinationPage = (props) => {
       <section>
         <Container className="flex-center-center flex-column mt-32">
           <p className="text-primary  small">Popular Packages of</p>
-          <h5 className="fw-medium bitter mt-8">Country Name</h5>
-          <p className="small w-50 mt-8 text-center">
-            Thailand, known as the "Land of Smiles," has emerged as a
-            captivating tourist destination that offers a harmonious blend of
-            rich history.
-          </p>
+          <h5 className=" bitter  mt-8">{idData?.data?.name}</h5>
+          <div
+            className="small p w-75 text-cGray500 mt-8 text-center"
+            dangerouslySetInnerHTML={{ __html: idData?.data?.short_description }}
+          ></div>
         </Container>
       </section>
       <section className="py-40 ">
