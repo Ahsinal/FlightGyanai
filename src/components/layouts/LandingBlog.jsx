@@ -31,7 +31,7 @@ const LandingBlog = () => {
       <h3 className="mb text-cGray800 bitter">
         {settingData?.data.homepage_blog_section_description}
       </h3>
-      <Row className="d-flex align-items-center gx-40">
+      <Row className="d-flex gx-40">
         {blogData?.data.slice(0, 1).map((d, i) => {
           return (
             <Col lg={6} sm={12} className="rounded-12 p-12 px-sm-12 " key={i}>
@@ -45,7 +45,7 @@ const LandingBlog = () => {
             </Col>
           );
         })}
-        <Col lg={6} sm={12} className=" p-12 d-none d-lg-block d-md-block">
+        <Col lg={6} sm={12} className=" px-12 d-none d-lg-block d-md-block">
           {blogData?.data.slice(1, 5).map((d, i) => {
             return (
               <div className="w-100 p-12" key={i}>

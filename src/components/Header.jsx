@@ -24,7 +24,7 @@ const Header = () => {
   const [windowChange, setWindowChange] = useState(false);
   useEffect(() => {
     const changeNavbarPosition = () => {
-      if (window.scrollY >= 100) {
+      if (window.scrollY >= 90) {
         setWindowChange(true);
       } else {
         setWindowChange(false);
@@ -47,8 +47,11 @@ const Header = () => {
   // };
   return (
     <>
-      <header className={`w-100  ${windowChange ? "sticky" : ""}`}>
-        <Navbar expand="lg" className="shadow-1">
+      <header className="w-100">
+        <Navbar
+          expand="lg"
+          className={windowChange ? "sticky shadow-1 w-100" : ""}
+        >
           <Container className=" d-flex justify-content-between">
             <Navbar.Brand href="/" as={Link}>
               <img
@@ -74,23 +77,37 @@ const Header = () => {
                 >
                   {destinationInternational?.data
                     .slice(0, 6)
-                    .map((category, index) => (
-                      <NavDropdown
-                        title={category.name}
-                        id={`international-dropdown-${index}`}
-                        key={index}
-                        drop="end"
-                      >
-                        {category.children.map((subcategory, idx) => (
-                          <NavDropdown.Item
-                            href={`/package/${subcategory.slug}`}
-                            key={idx}
+                    .map((category, index) => {
+                      if (category.children.length > 0) {
+                        return (
+                          <NavDropdown
+                            title={category.name}
+                            id={`international-dropdown-${index}`}
+                            key={index}
+                            drop="end"
+                            className="px-8"
                           >
-                            {subcategory.name}
+                            {category.children.map((subcategory, idx) => (
+                              <NavDropdown.Item
+                                href={`/package/${subcategory.slug}`}
+                                key={idx}
+                              >
+                                {subcategory.name}
+                              </NavDropdown.Item>
+                            ))}
+                          </NavDropdown>
+                        );
+                      } else {
+                        return (
+                          <NavDropdown.Item
+                            href={`/package/${category.slug}`}
+                            key={index}
+                          >
+                            {category.name}
                           </NavDropdown.Item>
-                        ))}
-                      </NavDropdown>
-                    ))}
+                        );
+                      }
+                    })}
                 </NavDropdown>
 
                 <NavDropdown
