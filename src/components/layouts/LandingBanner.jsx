@@ -34,7 +34,7 @@ const LandingBanner = () => {
         </Swiper>
       </div>
 
-      <div style={{ marginTop: "-3.5%" }}>
+      <div style={{ marginTop: "-2.5%" }}>
         <Container>
           <Row>
             <Col
