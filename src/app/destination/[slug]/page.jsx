@@ -8,6 +8,7 @@ import {
   useGetSettingsQuery,
   useGetTourPackageDetailQuery,
   useGetDestinationSlugQuery,
+ 
 } from "../../../../frontend/api";
 
 const DestinationPage = ({ params }) => {

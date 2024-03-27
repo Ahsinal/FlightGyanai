@@ -1,24 +1,32 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Col, Container, Row } from "react-bootstrap";
 import { Breadcrumb, Pagination } from "antd";
 import Link from "next/link";
 import PopularPackageCard from "@/components/cards/PopularPackageCard";
 import {
-  useGetPackageQuery,
   useGetSettingsQuery,
   useGetCategoryPackageDetailQuery,
 } from "../../../frontend/api";
-const Package = (props) => {
-  const { data: cardData } = useGetPackageQuery();
+const Package = () => {
+  const router = useRouter();
+  const { slug } = router.query || {}; // Extract slug from the router query
+  console.log(slug, "aayo slug");
   const { data: settingData } = useGetSettingsQuery();
-  const { data: categoryData } = useGetCategoryPackageDetailQuery('domestic-tours');
+  const { data: categoryData } = useGetCategoryPackageDetailQuery(
+    `${slug}` || ""
+  );
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
+  useEffect(() => {
+    // Reset current page when slug changes
+    setCurrentPage(1);
+  }, [slug]);
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
-  const currentPackage = categoryData?.data.slice(startIndex, endIndex);
+  const currentPackage = categoryData?.data?.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -72,7 +80,7 @@ const Package = (props) => {
           <Row className=" mt-32">
             <Col className="flex-center-center">
               <Pagination
-                total={categoryData?.data.length} // Total number of blogs
+                total={categoryData?.data?.length} // Total number of blogs
                 pageSize={pageSize} // Number of blogs per page
                 current={currentPage} // Current page
                 showSizeChanger={false} // Hide option to change page size

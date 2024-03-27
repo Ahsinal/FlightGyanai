@@ -22,6 +22,7 @@ import { FaUserGroup } from "react-icons/fa6";
 const PackageDetail = ({ params }) => {
   const { data: packageData } = useGetPackageQuery();
   const { data: packageDetailData } = useGetPackageDetailQuery(params.slug);
+
   const { data: settingData } = useGetSettingsQuery();
   const stars = Array.from(
     { length: packageDetailData?.data.rating },
