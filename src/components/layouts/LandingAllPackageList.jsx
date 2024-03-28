@@ -76,7 +76,7 @@ const LandingBucketList = () => {
           modules={[Autoplay, Pagination]}
           className="mySwiper py-16"
         >
-          {categorywise?.data.map((d, i) => {
+          {categorywise?.data?.map((d, i) => {
             return (
               <SwiperSlide key={i}>
                 <PackageCard
