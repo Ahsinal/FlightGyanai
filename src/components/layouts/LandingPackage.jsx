@@ -3,7 +3,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import PackageCard from "../cards/PopularPackageCard";
 import { cardData } from "@/data/Data";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Autoplay, Navigation } from "swiper/modules";
@@ -30,9 +30,13 @@ const Packages = () => {
         <h3 className="bitter text-cGray900">
           {settingData?.data.homepage_trending_section_description}
         </h3>
-        <div className="d-flex gap-16 h2  text-primary ">
-          <FaArrowAltCircleLeft onClick={goPrev} className="arrow" />
-          <FaArrowAltCircleRight onClick={goNext} className="arrow" />
+        <div className="flex-center-center gap-16  text-primary ">
+          <button className="arrow flex-center-center">
+            <FaChevronLeft onClick={goPrev} />
+          </button>
+          <button className="arrow flex-center-center">
+            <FaChevronRight onClick={goNext} />
+          </button>
         </div>
       </div>
       <Swiper

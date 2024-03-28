@@ -156,7 +156,7 @@ const Header = () => {
                   Blog
                 </Nav.Link>
                 <Nav.Link href="/about" as={Link}>
-                  About US
+                  About Us
                 </Nav.Link>
                 <Nav.Link href="/teams" as={Link}>
                   Our teams

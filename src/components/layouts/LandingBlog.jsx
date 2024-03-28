@@ -1,31 +1,18 @@
 "use client";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
-import { Navigation } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { BlogCardlg, BlogCardsm } from "../cards/BlogCard";
 import { useGetBlogQuery, useGetSettingsQuery } from "../../../frontend/api";
-SwiperCore.use([Navigation]);
 
 const LandingBlog = () => {
   const { data: settingData } = useGetSettingsQuery();
   const { data: blogData } = useGetBlogQuery();
   const swiperRef = React.useRef(null);
-  const goNext = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext();
-    }
-  };
 
-  const goPrev = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev();
-    }
-  };
   return (
     <Container>
       <h3 className="mb text-cGray800 bitter">

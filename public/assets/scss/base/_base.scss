@@ -21,7 +21,6 @@ a {
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     outline: 0;
-
   }
   &:hover {
     text-decoration: none;
@@ -66,10 +65,13 @@ pre {
 // h5,
 // h6 {
 //   font-family: "Josefin Sans", sans-serif;
- 
+
 // }
 
 // p {
 //   font-family: "Poppins", sans-serif;
 //   text-align: justify !important;
 // }
+.accordion-header .heading-title {
+  white-space: pre-wrap;
+}

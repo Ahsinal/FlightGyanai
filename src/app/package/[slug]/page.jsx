@@ -10,6 +10,9 @@ import { CgDanger } from "react-icons/cg";
 import { MdOutlineTravelExplore } from "react-icons/md";
 import { TbTrekking } from "react-icons/tb";
 import { BsCarFront } from "react-icons/bs";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import {
   useGetPackageQuery,
   useGetPackageDetailQuery,
@@ -72,7 +75,7 @@ const PackageDetail = ({ params }) => {
           <Row className="mt-32 gap-24-row ">
             <Col lg={8} sm={12}>
               <Swiper
-                spaceBetween={30}
+                slidesPerView={1}
                 pagination={{
                   clickable: true,
                 }}
@@ -83,10 +86,8 @@ const PackageDetail = ({ params }) => {
                 {packageDetailData?.data.galleries.map((d, i) => {
                   return (
                     <SwiperSlide key={i}>
-                      <div className="">
-                        <div className="img-landscape rounded-12 overflow-hidden">
-                          <img src={d.image} alt="image package" />
-                        </div>
+                      <div className="img-landscape rounded-12 overflow-hidden">
+                        <img src={d.image} alt="image package" />
                       </div>
                     </SwiperSlide>
                   );
@@ -171,6 +172,7 @@ const PackageDetail = ({ params }) => {
                   return (
                     <Itinerary
                       key={i}
+                      day={i + 1}
                       id={d.id}
                       title={d.title}
                       body={d.description}

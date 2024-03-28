@@ -40,7 +40,7 @@ const LandingTestimonial = () => {
           </h3>
           <FaQuoteRight className="text-primary" />
         </div>
-        <Row className="flex-center-center">
+        <Row className="flex-center-center testimonial-swiper-wrapper">
           <Col lg={10}>
             <Swiper
               loop={true}

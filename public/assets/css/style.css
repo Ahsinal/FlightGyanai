@@ -35134,6 +35134,10 @@ pre {
   color: #dc2626;
 }
 
+.accordion-header .heading-title {
+  white-space: pre-wrap;
+}
+
 @media (min-width: 992px) {
   .slide-down, .dropdown-menu {
     -webkit-animation: slide-bottom 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -35964,11 +35968,57 @@ footer .stretched-link:hover {
   color: white;
 }
 
+.banner-slider {
+  position: relative;
+}
+.banner-slider .prev {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.banner-slider .next {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  z-index: 5;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
 .landing-package .arrow {
   cursor: pointer;
+  background: #269215;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  border: 2px solid #269215;
+}
+.landing-package .arrow svg {
+  font-size: 1.5rem;
+  color: #fff;
 }
 .landing-package .arrow:hover {
-  color: #c1272f;
+  background-color: #fff;
+}
+.landing-package .arrow:hover svg {
+  color: #269215 !important;
 }
 
 .card-section {
@@ -36029,12 +36079,19 @@ footer .stretched-link:hover {
 .landing-bucket-list .arrow {
   cursor: pointer;
 }
+.landing-bucket-list .category-slider .swiper {
+  padding: 30px 0;
+}
+.landing-bucket-list .category-slider .swiper-pagination {
+  margin-bottom: -10px !important;
+  padding: 3px;
+}
 
 .landing-blog {
-  background-color: #FBFBFE;
+  background-color: #fbfbfe;
 }
 .landing-blog .blog-background {
-  background-image: url("../../image/himalayanbg.png");
+  background-image: url("../image/himalayanbg.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -36114,28 +36171,6 @@ footer .stretched-link:hover {
 }
 .breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-link a:hover {
   color: inherit !important;
-}
-
-.package-detail-page .ant-breadcrumb ol li:hover {
-  background-color: white;
-}
-.package-detail-page .ant-breadcrumb .ant-breadcrumb-separator {
-  color: #269215 !important;
-  font-weight: bold;
-}
-.package-detail-page .package-detail-content p {
-  font-size: 16px;
-  margin-top: 12px;
-}
-.package-detail-page .package-detail-content .basic-info-table table tbody tr {
-  border-bottom: 1px solid rgba(174, 172, 172, 0.85);
-}
-.package-detail-page .package-detail-content .basic-info-table table tbody td {
-  padding: 16px 0px 16px 0;
-}
-.package-detail-page .package-detail-content .other-packages {
-  position: sticky;
-  top: 0;
 }
 
 .package-detail-page .swiper-pagination-bullet {
@@ -36273,19 +36308,14 @@ footer .stretched-link:hover {
 .card {
   cursor: pointer;
 }
-.card-swiper {
-  height: 80vh;
-}
-.card-swiper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 .card-banner {
   z-index: 10;
 }
 .card-banner .card-col {
   border-right: 1px solid rgb(167, 166, 169);
+}
+.card-banner .card-col:last-child {
+  border: none !important;
 }
 .card-banner .card-col .banner-card-icon {
   width: 2.5rem;
@@ -36299,13 +36329,16 @@ footer .stretched-link:hover {
 .card-package-popular {
   cursor: pointer;
 }
+.card-package-popular a {
+  transition: 0.4s;
+}
 .card-package-popular:hover img {
   min-height: 182px;
   transform: scale(1.1);
 }
 .card-package-popular:hover a {
-  background-color: transparent !important;
-  color: #c1272f !important;
+  background-color: #269215 !important;
+  color: #fff !important;
   border: 1px solid #c1272f !important;
 }
 .card-package-popular .img-wrapper {
@@ -36338,9 +36371,11 @@ footer .stretched-link:hover {
 }
 .card-package-all {
   cursor: pointer;
+}
+.card-package-all img {
   transition: all ease-in-out 0.5s;
 }
-.card-package-all:hover {
+.card-package-all:hover img {
   transform: scale(1.02);
 }
 .card-package-all .title {
@@ -36420,7 +36455,7 @@ footer .stretched-link:hover {
 }
 .card-side .package-info {
   cursor: pointer;
-  border-bottom: 1px solid #BAB9B9;
+  border-bottom: 1px solid #bab9b9;
   width: 100%;
 }
 .card-side .package-info:hover {

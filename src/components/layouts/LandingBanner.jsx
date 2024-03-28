@@ -1,37 +1,64 @@
 "use client";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+
 import { Autoplay, Navigation } from "swiper/modules";
-import { FaPlaneDeparture } from "react-icons/fa";
-import { FaBusinessTime } from "react-icons/fa6";
-import { IoHappyOutline } from "react-icons/io5";
 import { useGetBannerQuery, useGetChooseUsQuery } from "../../../frontend/api";
+
+SwiperCore.use([Navigation]);
 const LandingBanner = () => {
+  const swiperRef = React.useRef(null);
+
+  const goNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const goPrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
   const { data: bannerData } = useGetBannerQuery();
   const { data: cardBanner } = useGetChooseUsQuery();
   return (
     <>
-      <div className="">
+      <div className="banner-slider">
         <Swiper
           slidesPerView={1}
-          spaceBetween={30}
+          grabCursor={true}
           loop={true}
-          navigation={true}
-          autoplay={{ delay: 5000 }}
+          autoplay={{ delay: 3000 }}
           modules={[Autoplay, Navigation]}
-          className="mySwiper"
+          className="bannerSwiper"
+          ref={swiperRef}
         >
           {bannerData?.data.map((d, i) => {
             return (
               <SwiperSlide key={i}>
                 <div className="card-swiper w-100 ">
-                  <img src={d.image} alt="image" />
+                  <div className="img-wide">
+                    <img src={d.image} alt="image" />
+                  </div>
                 </div>
               </SwiperSlide>
             );
           })}
         </Swiper>
+        <button className="prev  bg-primary" onClick={goPrev}>
+          <FaChevronLeft className="text-white" />
+        </button>
+        <button className="next bg-primary" onClick={goNext}>
+          <FaChevronRight className="text-white" />
+        </button>
       </div>
 
       <div style={{ marginTop: "-2.5%" }}>

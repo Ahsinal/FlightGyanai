@@ -100,7 +100,7 @@ const Footer = () => {
                       >
                         <FaAngleDoubleRight className="text-cGray700 " />
                         <Link
-                          href={`/package?slug=${d.slug}`}
+                          href={`/category/${d.slug}`}
                           passHref
                           className="stretched-link"
                         >

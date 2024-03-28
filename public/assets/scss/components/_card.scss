@@ -24,26 +24,17 @@
 //   }
 // }
 
-
-
 .card {
   cursor: pointer;
-
-  &-swiper {
-    height: 80vh;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
 
   &-banner {
     z-index: 10;
 
     .card-col {
       border-right: 1px solid rgb(167, 166, 169);
+      &:last-child {
+        border: none !important;
+      }
 
       .banner-card-icon {
         width: 2.5rem;
@@ -57,7 +48,6 @@
       }
     }
   }
-
 
   // &-package {
   //   background-color: #F8F8F9;
@@ -100,6 +90,9 @@
 
   &-package-popular {
     cursor: pointer;
+    a {
+      transition: 0.4s;
+    }
 
     &:hover {
       img {
@@ -108,8 +101,8 @@
       }
 
       a {
-        background-color: transparent !important;
-        color: $secondary !important;
+        background-color: $primary !important;
+        color: $white !important;
         border: 1px solid $secondary !important;
       }
     }
@@ -132,9 +125,7 @@
       p {
         font-size: 1rem !important;
       }
-
     }
-
   }
 
   &-side-bucketlist {
@@ -154,11 +145,14 @@
 
   &-package-all {
     cursor: pointer;
-    transition: all ease-in-out 0.5s;
-
+    img {
+      transition: all ease-in-out 0.5s;
+    }
 
     &:hover {
-      transform: scale(1.02);
+      img {
+        transform: scale(1.02);
+      }
     }
 
     .title {
@@ -260,7 +254,7 @@
 
     .package-info {
       cursor: pointer;
-      border-bottom: 1px solid #BAB9B9;
+      border-bottom: 1px solid #bab9b9;
       width: 100%;
 
       &:hover {

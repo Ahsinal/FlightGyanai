@@ -16,13 +16,16 @@ const Itinerary = (props) => {
       >
         <Accordion.Item eventKey={props.id}>
           <Accordion.Header>
-            <div className="d-flex p fw-medium">
-              <strong className="me-12">Day:</strong>
+            <div className="d-flex p fw-medium heading-title">
+              <strong className="me-12">Day {props.day}:</strong>
               {props.title}
             </div>
           </Accordion.Header>
           <Accordion.Body>
-            <div className="p fw-light small" dangerouslySetInnerHTML={{__html:props.body}}></div>
+            <div
+              className="p fw-light small"
+              dangerouslySetInnerHTML={{ __html: props.body }}
+            ></div>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
