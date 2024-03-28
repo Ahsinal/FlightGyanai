@@ -36360,6 +36360,7 @@ footer .stretched-link:hover {
 .card-side-bucketlist {
   cursor: pointer;
   border: 1px solid rgb(241, 240, 240);
+  white-space: nowrap;
 }
 .card-side-bucketlist:hover {
   background-color: #c1272f !important;

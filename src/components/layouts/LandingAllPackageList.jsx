@@ -19,13 +19,20 @@ const LandingBucketList = () => {
   const { data: categorywise } = useGetCategoryPackageDetailQuery(selected);
 
   const swiperRef = React.useRef(null);
+  useEffect(() => {
+    setSelected(categoryData?.data[0].slug);
+  }, [categoryData]);
+
   return (
     <Container>
       <h3 className="bitter text-cGray800 mb-8 mb-sm-16 text-center">
         {settingData?.data.homepage_combo_package_section_description}
       </h3>
       <Row>
-        <Col lg={12} className="flex-center gap-4 mb-12 mb-sm-32 flex-wrap">
+        <Col
+          lg={12}
+          className="flex-center gap-4 mb-12 mb-sm-32 py-12 overflow-auto"
+        >
           {categoryData?.data.map((d, i) => {
             // Exclude categories with slugs "international-tours" and "domestic-tours"
             if (
@@ -34,7 +41,7 @@ const LandingBucketList = () => {
             ) {
               return (
                 <div
-                  className={`card-side-bucketlist rounded-8 x-small bg-white shadow-4 py-8 px-24 fw-normal text-center text-cGray800 ${
+                  className={`card-side-bucketlist  rounded-8 x-small bg-white shadow-4 py-8 px-24 fw-normal text-center text-cGray800 ${
                     selected === d.slug ? "active" : ""
                   }`}
                   key={i}
