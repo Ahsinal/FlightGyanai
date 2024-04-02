@@ -30,14 +30,14 @@ const Packages = () => {
         <h3 className="bitter text-cGray900">
           {settingData?.data.homepage_trending_section_description}
         </h3>
-        <div className="flex-center-center gap-16  text-primary ">
+        {/* <div className="flex-center-center gap-16  text-primary ">
           <button className="arrow flex-center-center">
             <FaChevronLeft onClick={goPrev} />
           </button>
           <button className="arrow flex-center-center">
             <FaChevronRight onClick={goNext} />
           </button>
-        </div>
+        </div> */}
       </div>
       <Swiper
         spaceBetween={20}
@@ -68,7 +68,6 @@ const Packages = () => {
                 img={d.image}
                 title={d.name}
                 desc={d.description}
-                rating={d.rating}
                 currency={d.currency}
                 price={d.fair_price}
                 slug={d.slug}

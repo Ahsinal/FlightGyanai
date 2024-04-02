@@ -58,9 +58,9 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav ">
               <Nav className="mx-auto gap-12 bg-white ">
-                <Nav.Link href="/" as={Link}>
+                {/* <Nav.Link href="/" as={Link}>
                   Home
-                </Nav.Link>
+                </Nav.Link> */}
                 <NavDropdown
                   title="International"
                   id="collapsible-nav-dropdown"

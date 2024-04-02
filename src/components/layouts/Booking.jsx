@@ -1,10 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Container, Button, Row, Col, Form } from "react-bootstrap";
 import { Modal } from "antd";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { FaPhoneAlt, FaPlane } from "react-icons/fa";
+import { FaWhatsapp, FaPrint } from "react-icons/fa";
 import {
   useCreateBookingMutation,
   useGetSettingsQuery,
@@ -83,32 +84,38 @@ const Booking = ({ packageId }) => {
   return (
     <>
       <div className="p-24 shadow-1 rounded-16 bg-secondary text-white flex-center-center flex-column">
-        <h6 className="text-center mb-8">Booking Form</h6>
+        {/* <h6 className="text-center mb-8">Booking Form</h6> */}
         <p className="text-center small">
           {settingData?.data.service_description}
         </p>
-        <div className="bg-white w-100 p-12 text-secondary rounded-4 my-12 d-flex gap-12 flex-center-center">
-          <FaPlane />
-          <p>Fly at reasonable price</p>
-        </div>
+        <button className="bg-white w-100 p-12 text-secondary rounded-4 mt-12 gap-12 flex-center-center">
+          <FaWhatsapp />
+          Connect on WhatsApp
+        </button>
         <Button
           variant="light"
-          className="btn-outline-white btn-block w-100"
+          className="border border-2 border-white text-white w-100 p-12 text-secondary rounded-4 mt-12 gap-12 flex-center-center"
           onClick={() => showModal(packageId)} // Use packageId from props
         >
           Book Package Now
         </Button>
-        <div className="text-white flex-center-center flex-column">
+        <Link
+          href={`https://admin.pdes.com.np/api/print/${packageId}`}
+          className="bg-white w-100 p-12 text-secondary rounded-4 mt-12 gap-12 flex-center-center"
+          target="__blank"
+        >
+          <FaPrint />
+          Download Itinerary
+        </Link>
+
+        {/* <div className="text-white flex-center-center flex-column">
           <p className="xx-small mt-12">Neep Help? Call us on WhatsApp</p>
           <div className="d-flex gap-12 align-items-center mt-12  small">
             <FaPhoneAlt />
             {settingData?.data.site_contact}
           </div>
-          {/* <div className="d-flex gap-12 align-items-center mt-8 small ">
-            <MdMail />
-            {settingData?.data.site_email}
-          </div> */}
-        </div>
+          
+        </div> */}
       </div>
       <Modal
         title="Booking Form"

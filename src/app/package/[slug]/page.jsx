@@ -58,21 +58,26 @@ const PackageDetail = ({ params }) => {
           </Container>
         </div>
       </section>
-      <section className="py-40 package-detail-page px-sm-12">
+      <section className="py-16 package-detail-page px-sm-12">
         <Container>
           <div className=" flex-between align-items-center">
             <div className="">
-              <h5 className="bitter ">{packageDetailData?.data.name}</h5>
-              <div className="text-warning d-flex gap-4 mt-4 text-yellow500">
-                {stars}
+              {/* <h4 className="fw-medium text-cGray900">
+                {packageDetailData?.data.name}
+              </h4> */}
+              <div className="align-center gap-4 h5 fw-medium">
+                <div>{packageDetailData?.data.currency}</div>
+                <div>{packageDetailData?.data.adult_price}</div>
               </div>
-            </div>
-            <div className=" p d-flex gap-4 price bg-secondary text-white px-12 rounded-12 py-4 fw-normal">
-              <div className="small ">{packageDetailData?.data.currency}</div>
-              <div className=" small">{packageDetailData?.data.fair_price}</div>
+              <p className="text-cGray600 py-8">
+                {packageDetailData?.data.duration}
+              </p>
+              {/* <div className="text-warning d-flex gap-4 mt-4 text-yellow500">
+                {stars}
+              </div> */}
             </div>
           </div>
-          <Row className="mt-32 gap-24-row ">
+          <Row className="mt-24 gap-24-row ">
             <Col lg={8} sm={12}>
               <Swiper
                 slidesPerView={1}
@@ -93,7 +98,7 @@ const PackageDetail = ({ params }) => {
                   );
                 })}
               </Swiper>
-              <Row className="mt-12">
+              {/* <Row className="mt-12">
                 <h5>Overview</h5>
                 <Col lg={4} sm={6} className="g-16">
                   <div className="d-flex align-items-center gap-12 card-package-overview">
@@ -161,7 +166,7 @@ const PackageDetail = ({ params }) => {
                     </div>
                   </div>
                 </Col>
-              </Row>
+              </Row> */}
               <div className="mt-32 p fw-light">
                 {packageDetailData?.data.short_description}
               </div>
