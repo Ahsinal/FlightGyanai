@@ -36085,9 +36085,6 @@ footer .stretched-link:hover {
   width: 0.5rem !important;
 }
 
-.landing-blog {
-  background-color: #fbfbfe;
-}
 .landing-blog .blog-background {
   background-image: url("../image/himalayanbg.png");
   background-repeat: no-repeat;
@@ -36097,6 +36094,9 @@ footer .stretched-link:hover {
 .landing-testimonial {
   position: relative;
   overflow: hidden;
+  background-image: url("/../../../assets/image/testimonial-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .landing-testimonial .testimonial-shape-1 {
   position: absolute;
@@ -36429,6 +36429,17 @@ footer .stretched-link:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.card-new-testimonial .img-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.card-new-testimonial .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .card-teams {
   border: 1px solid rgb(245, 243, 243);

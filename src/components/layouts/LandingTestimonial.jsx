@@ -65,7 +65,7 @@ const LandingTestimonial = () => {
             >
               {testimonialData?.data.map((d, i) => {
                 return (
-                  <SwiperSlide key={i} className="p-12">
+                  <SwiperSlide key={i} className="mb-16">
                     <TestimonialCard
                       img={d.image}
                       name={d.name}
@@ -77,7 +77,7 @@ const LandingTestimonial = () => {
                 );
               })}
             </Swiper>
-            <div className="flex-center-center gap-16 mt-12 h3">
+            <div className="flex-center-center gap-16  h3">
               <FaLongArrowAltLeft
                 onClick={goPrev}
                 className="text-secondary arrow"

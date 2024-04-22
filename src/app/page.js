@@ -8,6 +8,7 @@ import LandingPackage from "@/components/layouts/LandingPackage";
 import LandingTestimonial from "@/components/layouts/LandingTestimonial";
 import PaymentPartner from "@/components/layouts/PaymentPartner";
 import TestimonialSection from "@/components/layouts/TestimonialSection";
+import TestimonialNew from "../components/layouts/TestimonialNew"
 export default function Home() {
   return (
     <>
@@ -17,15 +18,15 @@ export default function Home() {
       <section className="py-40 landing-package">
         <LandingPackage />
       </section>
-      <section className="landing-bucket-list py-40">
+      <section className="landing-bucket-list py-40 bg-gray50">
         <LandingBucketList />
       </section>
-      <section className="landing-blog py-40">
+      <section className="landing-blog py-40 ">
         <LandingBlog />
       </section>
-      <section className="landing-testimonial py-40 bg-gray50">
+      <section className="landing-testimonial py-40 bg-gray50 ">
         {/* <LandingTestimonial /> */}
-        <TestimonialSection/>
+        <TestimonialNew/>
       </section>
       <section className="py-40 ">
         <PaymentPartner />

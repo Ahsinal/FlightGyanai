@@ -160,7 +160,6 @@
 }
 
 .landing-blog {
-  background-color: #fbfbfe;
 
   .blog-background {
     background-image: url("../image/himalayanbg.png");
@@ -172,7 +171,10 @@
 .landing-testimonial {
   position: relative;
   overflow: hidden;
-
+  background-image: url("/../../../assets/image/testimonial-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-color: rgb(243, 241, 241);
   .testimonial-shape-1 {
     position: absolute;
     bottom: 50%;
