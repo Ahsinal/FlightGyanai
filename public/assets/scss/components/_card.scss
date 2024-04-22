@@ -202,10 +202,10 @@
   &-testimonial {
     cursor: pointer;
     transition: 0.4s all ease-in-out;
-
-    &:hover {
-      transform: scale(1.01);
-    }
+    overflow: hidden;
+    // &:hover {
+    //   transform: scale(1.01);
+    // }
 
     .image {
       overflow: hidden;

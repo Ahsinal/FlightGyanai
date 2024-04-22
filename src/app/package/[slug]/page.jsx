@@ -82,7 +82,7 @@ const PackageDetail = ({ params }) => {
               >
                 {packageDetailData?.data.galleries.map((d, i) => {
                   return (
-                    <SwiperSlide key={i}>
+                    <SwiperSlide key={i} className="pb-40">
                       <div className="img-landscape rounded-12 overflow-hidden">
                         <img src={d.image} alt="image package" />
                       </div>
@@ -159,7 +159,7 @@ const PackageDetail = ({ params }) => {
                   </div>
                 </Col>
               </Row> */}
-              <div className="mt-32 p fw-light">
+              <div className=" p fw-light">
                 {packageDetailData?.data.short_description}
               </div>
 

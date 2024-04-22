@@ -36082,7 +36082,7 @@ footer .stretched-link:hover {
 .landing-bucket-list .swiper .swiper-pagination-bullet {
   border-radius: 50% !important;
   height: 0.5rem !important;
-  width: 0.35rem !important;
+  width: 0.5rem !important;
 }
 
 .landing-blog {
@@ -36096,6 +36096,7 @@ footer .stretched-link:hover {
 
 .landing-testimonial {
   position: relative;
+  overflow: hidden;
 }
 .landing-testimonial .testimonial-shape-1 {
   position: absolute;
@@ -36103,6 +36104,11 @@ footer .stretched-link:hover {
 }
 .landing-testimonial .arrow {
   cursor: pointer;
+}
+.landing-testimonial .swiper .swiper-pagination-bullet {
+  border-radius: 50% !important;
+  height: 0.5rem !important;
+  width: 0.5rem !important;
 }
 
 .payment-partner .image {
@@ -36411,9 +36417,7 @@ footer .stretched-link:hover {
 .card-testimonial {
   cursor: pointer;
   transition: 0.4s all ease-in-out;
-}
-.card-testimonial:hover {
-  transform: scale(1.01);
+  overflow: hidden;
 }
 .card-testimonial .image {
   overflow: hidden;
