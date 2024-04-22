@@ -33,7 +33,7 @@ const PackageDetail = ({ params }) => {
   );
   return (
     <>
-      <section className="breadcrumb-banner position-relative">
+      {/* <section className="breadcrumb-banner position-relative">
         <div className="img-wide">
           <img
             src={settingData?.data.destination_page_image}
@@ -57,28 +57,20 @@ const PackageDetail = ({ params }) => {
             </div>
           </Container>
         </div>
-      </section>
+      </section> */}
       <section className="py-16 package-detail-page px-sm-12">
         <Container>
-          <div className=" flex-between align-items-center">
-            <div className="">
-              {/* <h4 className="fw-medium text-cGray900">
-                {packageDetailData?.data.name}
-              </h4> */}
-              <div className="align-center gap-4 h5 fw-medium">
-                <div>{packageDetailData?.data.currency}</div>
-                <div>{packageDetailData?.data.adult_price}</div>
-              </div>
-              <p className="text-cGray600 py-8">
-                {packageDetailData?.data.duration}
-              </p>
-              {/* <div className="text-warning d-flex gap-4 mt-4 text-yellow500">
-                {stars}
-              </div> */}
-            </div>
-          </div>
           <Row className="mt-24 gap-24-row ">
             <Col lg={8} sm={12}>
+              <div className=" flex-between align-items-center mb-16">
+                <div className="h4 bitter fw-medium">
+                  {packageDetailData?.data.name}
+                </div>
+                <div className="d-flex gap-4 btn-pill text-white bg-secondary px-12">
+                  <div className="">{packageDetailData?.data.currency}</div>
+                  <div>{packageDetailData?.data.adult_price}</div>
+                </div>
+              </div>
               <Swiper
                 slidesPerView={1}
                 pagination={{
@@ -220,7 +212,7 @@ const PackageDetail = ({ params }) => {
                     </h6>
                     {packageData?.data
                       .filter((d) => d.slug != packageDetailData?.data.slug)
-                      .slice(0, 4)
+                      .slice(0, 5)
                       .map((d, i) => {
                         return (
                           <SideCardPackage

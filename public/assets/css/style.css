@@ -36079,12 +36079,10 @@ footer .stretched-link:hover {
 .landing-bucket-list .arrow {
   cursor: pointer;
 }
-.landing-bucket-list .category-slider .swiper {
-  padding: 30px 0;
-}
-.landing-bucket-list .category-slider .swiper-pagination {
-  margin-bottom: -10px !important;
-  padding: 3px;
+.landing-bucket-list .swiper .swiper-pagination-bullet {
+  border-radius: 50% !important;
+  height: 0.5rem !important;
+  width: 0.35rem !important;
 }
 
 .landing-blog {

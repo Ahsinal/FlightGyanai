@@ -5,6 +5,8 @@ import { FaQuoteRight, FaQuoteLeft } from "react-icons/fa";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import TestimonialCard from "../cards/TestimonialCard";
 import {

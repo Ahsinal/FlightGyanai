@@ -11,14 +11,17 @@ const SlugPages = ({ params }) => {
     return (
       <section>
         <Container className="py-40">
-          <Link href="/" className="text-secondary">
-            Back To Home
-          </Link>
-          <div className="img-landscape">
-            <img
-              src="https://cdn.pixabay.com/photo/2016/03/12/14/19/error-404-1252056_1280.png"
-              alt="4o4 Not found"
-            />
+          <div className="img-wide">
+            <img src="/assets/image/404.webp" alt="4o4 Not found" />
+          </div>
+          <div className="mt-32 flex-center-center flex-column">
+            <p>The Page that you are trying to access doesnot exist</p>
+            <Link
+              href="/"
+              className="mt-12 text-secondary btn btn-xs btn-secondary text-white "
+            >
+              Back To Home
+            </Link>
           </div>
         </Container>
       </section>

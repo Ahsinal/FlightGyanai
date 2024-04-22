@@ -1,16 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
-
-import PackageCard from "../cards/PackageCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { Autoplay, Pagination } from "swiper/modules";
 import {
   useGetSettingsQuery,
   useGetCategoryPackageQuery,
   useGetCategoryPackageDetailQuery,
 } from "../../../frontend/api";
+import PopularPackageCard from "../cards/PopularPackageCard";
 
 const LandingBucketList = () => {
   const { data: settingData } = useGetSettingsQuery();
@@ -54,13 +52,15 @@ const LandingBucketList = () => {
           })}
         </Col>
       </Row>
-      <div className="category-slider gap-24-row">
+      <Row className="gap-24-row">
+        <Col lg={12}>
         <Swiper
           spaceBetween={20}
           loop={true}
-          autoplay={{ delay: 3000 }}
+          // autoplay={{ delay: 3000 }}
           pagination={{
-            dynamicBullets: true,
+            // dynamicBullets: true,
+            clickable:true,
           }}
           breakpoints={{
             640: {
@@ -78,8 +78,8 @@ const LandingBucketList = () => {
         >
           {categorywise?.data?.map((d, i) => {
             return (
-              <SwiperSlide key={i}>
-                <PackageCard
+              <SwiperSlide key={i} className="pb-12">
+                {/* <PopularPackageCard
                   img={d.image}
                   title={d.name}
                   location={d.location}
@@ -90,12 +90,22 @@ const LandingBucketList = () => {
                   desc={d.short_description}
                   slug={d.slug}
                   id={d.id}
+                /> */}
+                <PopularPackageCard
+                  img={d.image}
+                  title={d.name}
+                  desc={d.description}
+                  currency={d.currency}
+                  price={d.fair_price}
+                  slug={d.slug}
+                  id={d.id}
                 />
               </SwiperSlide>
             );
           })}
         </Swiper>
-      </div>
+        </Col>
+      </Row>
     </Container>
   );
 };

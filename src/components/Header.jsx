@@ -6,6 +6,8 @@ import {
   useGetSettingsQuery,
   useGetDestinationQuery,
 } from "../../frontend/api";
+import { MdLocationPin } from "react-icons/md";
+import { FaPhoneAlt } from "react-icons/fa";
 const Header = () => {
   const { data: settingData } = useGetSettingsQuery();
   const { data: destinationInternational } = useGetDestinationQuery(
@@ -41,6 +43,21 @@ const Header = () => {
 
   return (
     <>
+      <section className=" bg-primary d-none d-md-block d-lg-block">
+        <Container className="d-flex justify-content-between text-white py-8 small fw-light">      
+          <div className="d-flex gap-32">
+            <div className="d-flex gap-4 align-items-center">
+              <MdLocationPin/>
+              <p>{settingData?.data.site_location}</p>
+            </div>
+            <div className="d-flex gap-4 align-items-center">
+             <FaPhoneAlt/>
+              <p>{settingData?.data.site_contact}</p>
+            </div>
+          </div>
+          <div className="">Welcome to Flights Gyani</div>
+        </Container>
+      </section>
       <header className="w-100">
         <Navbar
           expand="lg"

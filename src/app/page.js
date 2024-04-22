@@ -13,9 +13,6 @@ export default function Home() {
       <section className="landing-banner">
         <LandingBanner />
       </section>
-      {/* <section className="landing-about pt-80 pb-40">
-        <LandingAbout />
-      </section> */}
       <section className="py-40 landing-package">
         <LandingPackage />
       </section>
