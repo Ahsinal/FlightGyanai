@@ -61,16 +61,16 @@ const PackageDetail = ({ params }) => {
       <section className="py-16 package-detail-page px-sm-12">
         <Container>
           <Row className="mt-24 gap-24-row ">
-            <Col lg={8} sm={12}>
-              <div className=" flex-between align-items-center mb-16">
-                <div className="h4 bitter fw-medium">
-                  {packageDetailData?.data.name}
-                </div>
-                <div className="d-flex gap-4 btn-pill text-white bg-secondary px-12">
-                  <div className="">{packageDetailData?.data.currency}</div>
-                  <div>{packageDetailData?.data.adult_price}</div>
-                </div>
+            <div className=" flex-between align-items-center mb-8">
+              <div className="h4 bitter fw-medium">
+                {packageDetailData?.data.name}
               </div>
+              <div className="d-flex gap-4 btn-pill text-white bg-secondary px-12">
+                <div className="">{packageDetailData?.data.currency}</div>
+                <div>{packageDetailData?.data.adult_price}</div>
+              </div>
+            </div>
+            <Col lg={8} sm={12}>
               <Swiper
                 slidesPerView={1}
                 pagination={{

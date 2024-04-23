@@ -44,17 +44,14 @@ const TestimonialNew = () => {
         </div>
         <Row className="gap-24-row  testimonial-swiper-wrapper align-items-center ">
           <Col lg={5} sm={12} className="img">
-            <img
-              src="https://travelinvue.htmldesigntemplates.com/assets/travel2-CbOejDsv.png"
-              alt=""
-            />
+            <img src={settingData?.data.testimonial_image} alt="" />
           </Col>
           <Col lg={7}>
             <Swiper
               loop={true}
-                autoplay={{ delay: 2500 }}
+              autoplay={{ delay: 2500 }}
               ref={swiperRef}
-                modules={[ Autoplay]}
+              modules={[Autoplay]}
               className="mySwiper"
             >
               {testimonialData?.data.map((d, i) => {
@@ -71,7 +68,7 @@ const TestimonialNew = () => {
                 );
               })}
             </Swiper>
-            <div className="px-24 gap-12  h3">
+            <div className="px-24 gap-12  h5">
               {/* <FaLongArrowAltLeft
                 onClick={goPrev}
                 className="text-secondary arrow"
@@ -80,10 +77,10 @@ const TestimonialNew = () => {
                 onClick={goNext}
                 className="text-secondary arrow"
               /> */}
-              <div className="circle-sm bg-primary text-white" onClick={goPrev}>
+              <div className="circle-xs bg-primary text-white" onClick={goPrev}>
                 <IoIosArrowBack />
               </div>
-              <div className="circle-sm bg-primary text-white" onClick={goNext}>
+              <div className="circle-xs bg-primary text-white" onClick={goNext}>
                 <IoIosArrowForward />
               </div>
             </div>

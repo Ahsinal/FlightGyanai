@@ -35889,6 +35889,10 @@ x-small,
   border-radius: 0.5rem;
 }
 
+.top-bar a:hover {
+  color: #c1272f !important;
+}
+
 header {
   border-bottom: 3px solid #84ec79;
 }

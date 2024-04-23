@@ -6,7 +6,7 @@ const TestimonialCardNew = (props) => {
     <FaStar key={index} />
   ));
   return (
-    <div className="card-new-testimonial p-24 shadow  bg-gray50 rounded-12 ">
+    <div className="card-new-testimonial p-24 shadow-sm  bg-gray50 rounded-12 ">
       <div className="d-flex gap-16 align-items-center">
         <div className="img-wrapper rounded-100 overflow-hidden  ">
           <img src={props.image} alt="" />

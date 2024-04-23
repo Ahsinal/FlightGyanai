@@ -3,18 +3,47 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import {
+  FaFacebook,
+  FaPhoneAlt,
+  FaTwitter,
+  FaYoutube,
+  FaInstagram,
+  FaPinterest,
+  FaAngleDoubleRight,
+} from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { IoMail } from "react-icons/io5";
+import {
   useGetSettingsQuery,
   useGetDestinationQuery,
+  useGetSocialQuery,
 } from "../../frontend/api";
 import { MdLocationPin } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
 const Header = () => {
   const { data: settingData } = useGetSettingsQuery();
+  const { data: socialmediaData } = useGetSocialQuery();
   const { data: destinationInternational } = useGetDestinationQuery(
     "international-tours"
   );
   const { data: destinationDomestic } =
     useGetDestinationQuery("domestic-tours");
+  function checkIcon(icon) {
+    switch (icon) {
+      case "facebook":
+        return <FaFacebook />;
+      case "twitter":
+        return <FaTwitter />;
+      case "instagram":
+        return <FaInstagram />;
+      case "youtube":
+        return <FaYoutube />;
+      case "pinterest":
+        return <FaPinterest />;
+
+      default:
+        return <FaInstagram />;
+    }
+  }
 
   const [windowChange, setWindowChange] = useState(false);
   useEffect(() => {
@@ -43,19 +72,32 @@ const Header = () => {
 
   return (
     <>
-      <section className=" bg-primary d-none d-md-block d-lg-block">
-        <Container className="d-flex justify-content-between text-white py-8 small fw-light">      
+      <section className="top-bar bg-primary d-none d-md-block d-lg-block">
+        <Container className="d-flex justify-content-between text-white py-8 small fw-light">
           <div className="d-flex gap-32">
             <div className="d-flex gap-4 align-items-center">
-              <MdLocationPin/>
+              <MdLocationPin />
               <p>{settingData?.data.site_location}</p>
             </div>
             <div className="d-flex gap-4 align-items-center">
-             <FaPhoneAlt/>
+              <FaPhoneAlt />
               <p>{settingData?.data.site_contact}</p>
             </div>
           </div>
-          <div className="">Welcome to Flights Gyani</div>
+          <div className="flex-items-center gap-12 ">
+                  {socialmediaData?.data.map((d, i) => {
+                    return (
+                      <Link
+                        href={d.link}
+                        className=" p text-white"
+                        key={i}
+                        target="blank"
+                      >
+                        {checkIcon(d.title.toLowerCase())}
+                      </Link>
+                    );
+                  })}
+                </div>
         </Container>
       </section>
       <header className="w-100">
@@ -169,6 +211,7 @@ const Header = () => {
                       }
                     })}
                 </NavDropdown>
+
                 <Nav.Link href="/blog" as={Link}>
                   Blog
                 </Nav.Link>

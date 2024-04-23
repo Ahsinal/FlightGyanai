@@ -1,3 +1,11 @@
+
+.top-bar{
+  a{
+    &:hover{
+      color: $secondary !important;
+    }
+  }
+}
 header {
   border-bottom: 3px solid $primary-100;
 
