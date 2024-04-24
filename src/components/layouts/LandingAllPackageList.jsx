@@ -9,6 +9,7 @@ import {
   useGetCategoryPackageDetailQuery,
 } from "../../../frontend/api";
 import PopularPackageCard from "../cards/PopularPackageCard";
+import CardPackageNew from "../cards/CardPackageNew";
 
 const LandingBucketList = () => {
   const { data: settingData } = useGetSettingsQuery();
@@ -52,34 +53,34 @@ const LandingBucketList = () => {
           })}
         </Col>
       </Row>
-      <Row className="gap-24-row">
-        <Col lg={12}>
-        <Swiper
-          spaceBetween={20}
-          loop={true}
-          // autoplay={{ delay: 3000 }}
-          pagination={{
-            // dynamicBullets: true,
-            clickable:true,
-          }}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 3,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-          }}
-          modules={[Autoplay, Pagination]}
-          className="mySwiper py-16"
-        >
-          {categorywise?.data?.map((d, i) => {
-            return (
-              <SwiperSlide key={i} className="pb-12">
-                {/* <PopularPackageCard
+      <Row className="gap-24-row ">
+        <Col lg={12} className="">
+          <Swiper
+            spaceBetween={10}
+            loop={true}
+            // autoplay={{ delay: 3000 }}
+            pagination={{
+              // dynamicBullets: true,
+              clickable: true,
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            modules={[Autoplay, Pagination]}
+            className="mySwiper py-16"
+          >
+            {categorywise?.data?.map((d, i) => {
+              return (
+                <SwiperSlide key={i} className="pb-12  pe-8">
+                  {/* <PopularPackageCard
                   img={d.image}
                   title={d.name}
                   location={d.location}
@@ -91,19 +92,19 @@ const LandingBucketList = () => {
                   slug={d.slug}
                   id={d.id}
                 /> */}
-                <PopularPackageCard
-                  img={d.image}
-                  title={d.name}
-                  desc={d.description}
-                  currency={d.currency}
-                  price={d.fair_price}
-                  slug={d.slug}
-                  id={d.id}
-                />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+                  <CardPackageNew
+                    img={d.image}
+                    title={d.name}
+                    desc={d.description}
+                    currency={d.currency}
+                    price={d.fair_price}
+                    slug={d.slug}
+                    id={d.id}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
         </Col>
       </Row>
     </Container>

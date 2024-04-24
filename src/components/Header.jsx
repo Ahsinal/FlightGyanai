@@ -17,6 +17,7 @@ import {
   useGetSettingsQuery,
   useGetDestinationQuery,
   useGetSocialQuery,
+  useGetMenuSlugQuery,
 } from "../../frontend/api";
 import { MdLocationPin } from "react-icons/md";
 const Header = () => {
@@ -27,6 +28,8 @@ const Header = () => {
   );
   const { data: destinationDomestic } =
     useGetDestinationQuery("domestic-tours");
+  // const { data: domesticData } = useGetMenuSlugQuery("1");
+  const { data: internationalData } = useGetMenuSlugQuery("2");
   function checkIcon(icon) {
     switch (icon) {
       case "facebook":
@@ -85,21 +88,23 @@ const Header = () => {
             </div>
           </div>
           <div className="flex-items-center gap-12 ">
-                  {socialmediaData?.data.map((d, i) => {
-                    return (
-                      <Link
-                        href={d.link}
-                        className=" p text-white"
-                        key={i}
-                        target="blank"
-                      >
-                        {checkIcon(d.title.toLowerCase())}
-                      </Link>
-                    );
-                  })}
-                </div>
+            {socialmediaData?.data.map((d, i) => {
+              return (
+                <Link
+                  href={d.link}
+                  className=" p text-white"
+                  key={i}
+                  target="blank"
+                >
+                  {checkIcon(d.title.toLowerCase())}
+                </Link>
+              );
+            })}
+          </div>
         </Container>
       </section>
+      {/* {console.log(domesticData, "domestic data")} */}
+      {console.log(internationalData, "international data!!!!!!!!!!!!!!!!!")}
       <header className="w-100">
         <Navbar
           expand="lg"
@@ -128,13 +133,13 @@ const Header = () => {
                   // onMouseEnter={handleMouseEnter}
                   // onMouseLeave={handleMouseLeave}
                 >
-                  {destinationInternational?.data
+                  {/* {internationalData?.data
                     .slice(0, 6)
                     .map((category, index) => {
                       if (category.children.length > 0) {
                         return (
                           <NavDropdown
-                            title={category.name}
+                            title={category.title}
                             id={`international-dropdown-${index}`}
                             key={index}
                             drop="end"
@@ -146,7 +151,7 @@ const Header = () => {
                                 key={idx}
                                 slug={subcategory.slug}
                               >
-                                {subcategory.name}
+                                {subcategory.title}
                               </NavDropdown.Item>
                             ))}
                           </NavDropdown>
@@ -162,7 +167,7 @@ const Header = () => {
                           </NavDropdown.Item>
                         );
                       }
-                    })}
+                    })} */}
                 </NavDropdown>
 
                 <NavDropdown
@@ -221,9 +226,6 @@ const Header = () => {
                 <Nav.Link href="/teams" as={Link}>
                   Our teams
                 </Nav.Link>
-                {/* <Nav.Link href="/services" as={Link}>
-                  Services
-                </Nav.Link> */}
               </Nav>
               <Link
                 href="/contact"

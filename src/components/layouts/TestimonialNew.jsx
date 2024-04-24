@@ -44,7 +44,8 @@ const TestimonialNew = () => {
         </div>
         <Row className="gap-24-row  testimonial-swiper-wrapper align-items-center ">
           <Col lg={5} sm={12} className="img">
-            <img src={settingData?.data.testimonial_image} alt="" />
+            {/* <img src={settingData?.data.testimonial_image} alt="" /> */}
+            <img src="https://travelinvue.htmldesigntemplates.com/assets/travel2-CbOejDsv.png" alt="" />
           </Col>
           <Col lg={7}>
             <Swiper
