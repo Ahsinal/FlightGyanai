@@ -336,5 +336,24 @@
       }
     }
   }
-}
 
+  .side-box {
+    position: relative;
+
+    .left-ribbon {
+      inset: 0 auto auto 0;
+      transform: translate(-24%) rotate(-45deg);
+      margin-top: 18px;
+      background-color: $secondary;
+      --f: 15px;
+      /* control the folded part */
+      position: absolute;
+      top: 0;
+      color: #fff;
+      padding: .1em 1.8em;
+      border-bottom: var(--f) solid #0007;
+      clip-path: polygon(100% calc(100% - var(--f)), 100% 100%, calc(100% - var(--f)) calc(100% - var(--f)), var(--f) calc(100% - var(--f)), 0 100%, 0 calc(100% - var(--f)), 999px calc(100% - var(--f) - 999px), calc(100% - 999px) calc(100% - var(--f) - 999px));
+    }
+
+  }
+}

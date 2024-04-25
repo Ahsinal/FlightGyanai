@@ -36226,6 +36226,23 @@ footer .stretched-link:hover {
   background-color: #c1272f;
   margin-right: 5px;
 }
+.package-detail-page .side-box {
+  position: relative;
+}
+.package-detail-page .side-box .left-ribbon {
+  inset: 0 auto auto 0;
+  transform: translate(-24%) rotate(-45deg);
+  margin-top: 18px;
+  background-color: #c1272f;
+  --f: 15px;
+  /* control the folded part */
+  position: absolute;
+  top: 0;
+  color: #fff;
+  padding: 0.1em 1.8em;
+  border-bottom: var(--f) solid rgba(0, 0, 0, 0.4666666667);
+  clip-path: polygon(100% calc(100% - var(--f)), 100% 100%, calc(100% - var(--f)) calc(100% - var(--f)), var(--f) calc(100% - var(--f)), 0 100%, 0 calc(100% - var(--f)), 999px calc(100% - var(--f) - 999px), calc(100% - 999px) calc(100% - var(--f) - 999px));
+}
 
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;

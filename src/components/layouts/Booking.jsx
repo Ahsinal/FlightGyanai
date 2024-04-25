@@ -5,14 +5,20 @@ import { Container, Button, Row, Col, Form } from "react-bootstrap";
 import { Modal } from "antd";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { FaWhatsapp, FaPrint, FaPhone, FaPhoneAlt } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaPrint,
+  useGetPackageDetailQuery,
+  FaPhone,
+  FaPhoneAlt,
+  FaStar,
+} from "react-icons/fa";
 import {
   useCreateBookingMutation,
   useGetSettingsQuery,
 } from "../../../frontend/api";
 import { ClipLoader } from "react-spinners";
-import { MdMail } from "react-icons/md";
-const Booking = ({ packageId }) => {
+const Booking = ({ packageId, currency, price }) => {
   const router = useRouter();
   const { data: settingData } = useGetSettingsQuery();
   const {
@@ -21,14 +27,6 @@ const Booking = ({ packageId }) => {
     handleSubmit,
     reset,
   } = useForm();
-
-  // const [formData, setFormData] = useState({}); local
-  // const onSubmit = (data) => {
-  //   console.log("Form Data submitted:", data);
-  //   setFormData(data);
-  //   reset();
-  //   router.push("/");
-  // };
 
   const [selectedPackageId, setSelectedPackageId] = useState(null);
   const [createBookingMutation, { isError, isSuccess, isLoading }] =
@@ -83,51 +81,31 @@ const Booking = ({ packageId }) => {
   }, [isSuccess, isError]);
   return (
     <>
-      <div className="p-24 shadow-1 rounded-16 bg-secondary text-white ">
-        {/* <h6 className="mb-8">Have Any Question?</h6>
-        <p className="small mt-8">
-          Do not hesitage to give us a call. We are an expert team and we are
-          happy to talk to you.
-        </p>
-        <div className="d-flex align-items-center gap-12 mt-8">
-          <FaPhoneAlt/>
-          <p>{settingData?.data.site_contact}</p>
+      <div className="side-box py-48 shadow-1 rounded-16 border border-1 border-gray100  flex-center-center flex-column">
+        <h4 className="fw-medium text-center mt-12">Go On This TRIP</h4>
+        <p className="text-uppercase small mt-4"> with Flights Gyani</p>
+        <div className="d-flex align-items-center gap-4 text-secondary mt-16">
+          <h4>{currency}</h4>
+          <h4>{price}</h4>
         </div>
-        <div className="d-flex align-items-center gap-12 mt-8">
-          <MdMail/>
-          <p>{settingData?.data.site_email}</p>
+        <p>/Person</p>
+        <div class="left-ribbon d-flex flex-center-center gap-4 small px-40 py-4">
+          <FaStar />
+          Top Seller
         </div>
-        <p className="text-center small">
-          {settingData?.data.service_description}
-        </p> */}
-        <button className="bg-white w-100 p-12 text-secondary rounded-4 mt-16 gap-12 flex-center-center">
-          <FaWhatsapp />
-          Connect on WhatsApp
-        </button>
-        <Button
-          variant="light"
-          className="border border-2 border-white text-white w-100 p-12 text-secondary rounded-4 mt-12 gap-12 flex-center-center"
-          onClick={() => showModal(packageId)} // Use packageId from props
-        >
-          Book Package Now
-        </Button>
-        <Link
-          href={`https://admin.pdes.com.np/api/print/${packageId}`}
-          className="bg-white w-100 p-12 text-secondary rounded-4 mt-12 gap-12 flex-center-center"
-          target="__blank"
-        >
-          <FaPrint />
-          Download Itinerary
-        </Link>
-
-        {/* <div className="text-white flex-center-center flex-column">
-          <p className="xx-small mt-12">Neep Help? Call us on WhatsApp</p>
-          <div className="d-flex gap-12 align-items-center mt-12  small">
-            <FaPhoneAlt />
-            {settingData?.data.site_contact}
-          </div>
-          
-        </div> */}
+        <div className="w-100 px-16">
+          <button className="btn btn-xs btn-secondary w-100 rounded-8 mt-16 d-flex gap-4 flex-center-center">
+            <FaWhatsapp className="text-white" />
+            WhatsApp Now
+          </button>
+          <Button
+            variant="secondary"
+            className="border border-2 border-white text-white w-100 p-12 rounded-8 text-secondary rounded-4 mt-16 gap-12 flex-center-center"
+            onClick={() => showModal(packageId)} // Use packageId from props
+          >
+            Book Now
+          </Button>
+        </div>
       </div>
       <Modal
         title="Booking Form"

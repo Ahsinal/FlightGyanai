@@ -103,8 +103,6 @@ const Header = () => {
           </div>
         </Container>
       </section>
-      {console.log(internationalData, "international data!!!!!!!!!!!!!!!!!")}
-      {console.log(domesticData, "Domestic data!!!!!!!!!!!!!!!!!")}
       <header className="w-100">
         <Navbar
           expand="lg"

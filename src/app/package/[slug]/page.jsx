@@ -10,6 +10,7 @@ import { CgDanger } from "react-icons/cg";
 import { MdOutlineTravelExplore } from "react-icons/md";
 import { TbTrekking } from "react-icons/tb";
 import { BsCarFront } from "react-icons/bs";
+import { FiPrinter } from "react-icons/fi";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -35,57 +36,44 @@ const PackageDetail = ({ params }) => {
   );
   return (
     <>
-      {/* <section className="breadcrumb-banner position-relative">
-        <div className="img-wide">
-          <img
-            src={settingData?.data.destination_page_image}
-            alt="about-image"
-          />
-
-          <Container>
-            <div className="about-banner-content bitter">
-              <h2>{packageDetailData?.data.name}</h2>
-              <Breadcrumb
-                className="h5 fw-normal mt-8"
-                items={[
-                  {
-                    title: <Link href="/">Home</Link>,
-                  },
-                  {
-                    title: <Link href="/">Packages</Link>,
-                  },
-                ]}
-              />
-            </div>
-          </Container>
-        </div>
-      </section> */}
-      <section className="py-16 package-detail-page px-sm-12">
+      <section className="mt-16">
         <Container>
+          <Breadcrumb
+            className=" text-primary"
+            items={[
+              {
+                title: <Link href="/">Home</Link>,
+              },
+              {
+                title: <Link href="/package">Packages</Link>,
+              },
+              {
+                title: `${packageDetailData?.data.name}`,
+              },
+            ]}
+          />
+        </Container>
+      </section>
+      <section className=" package-detail-page px-sm-12">
+        <Container>
+          <div className=" flex-between align-items-center mt-12">
+            <div className="flex-column gap-4 ">
+              <h5>{packageDetailData?.data.name}</h5>
+              <div className="d-flex gap-4 text-yellow500 ">{stars}</div>
+            </div>
+            <div className="d-flex align-items-center gap-8">
+              <Link
+                href={`https://admin.pdes.com.np/api/print/${packageDetailData?.data.id}`}
+                className="btn btn-sm btn-primary w-100 p-12  rounded-4 mt-12  d-flex align-items-center gap-8"
+                target="__blank"
+              >
+                <FiPrinter />
+                Download Itinerary
+              </Link>
+            </div>
+          </div>
           <Row className="mt-24 gap-24-row ">
-            {/* <div className=" flex-between align-items-center mb-8">
-              <div className="h4 fw-medium">{packageDetailData?.data.name}</div>
-              <div className="d-flex align-items-center gap-8 text-secondary h6">
-                <GiPriceTag />
-                <div className="d-flex gap-4  ">
-                  <div className="">{packageDetailData?.data.currency}</div>
-                  <div>{packageDetailData?.data.adult_price}</div>
-                </div>
-              </div>
-            </div> */}
-            <Col lg={8} sm={12}>
-              <div className=" flex-between align-items-center mb-8">
-                <div className="h4 fw-medium">
-                  {packageDetailData?.data.name}
-                </div>
-                <div className="d-flex align-items-center gap-8 text-secondary h6">
-                  <GiPriceTag />
-                  <div className="d-flex gap-4  ">
-                    <div className="">{packageDetailData?.data.currency}</div>
-                    <div>{packageDetailData?.data.adult_price}</div>
-                  </div>
-                </div>
-              </div>
+            <Col lg={9} sm={12}>
               <Swiper
                 slidesPerView={1}
                 pagination={{
@@ -215,10 +203,10 @@ const PackageDetail = ({ params }) => {
               </Col>
             </Col>
 
-            <Col lg={4} className="side-col">
+            <Col lg={3} className="side-col">
               <Row className="stick-side-card">
                 <Col sm={12}>
-                  <Booking packageId={packageDetailData?.data.id} />
+                  <Booking packageId={packageDetailData?.data.id} currency={packageDetailData?.data.currency} price={packageDetailData?.data.fair_price}/>
                 </Col>
                 <Col sm={12} className="mt-32">
                   <div className="p-24 shadow-1 rounded-16">
