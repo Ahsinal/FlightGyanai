@@ -5,7 +5,7 @@ import { Container, Button, Row, Col, Form } from "react-bootstrap";
 import { Modal } from "antd";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { FaWhatsapp, FaPrint } from "react-icons/fa";
+import { FaWhatsapp, FaPrint, FaPhone, FaPhoneAlt } from "react-icons/fa";
 import {
   useCreateBookingMutation,
   useGetSettingsQuery,
@@ -83,12 +83,24 @@ const Booking = ({ packageId }) => {
   }, [isSuccess, isError]);
   return (
     <>
-      <div className="p-24 shadow-1 rounded-16 bg-secondary text-white flex-center-center flex-column">
-        {/* <h6 className="text-center mb-8">Booking Form</h6> */}
+      <div className="p-24 shadow-1 rounded-16 bg-secondary text-white ">
+        {/* <h6 className="mb-8">Have Any Question?</h6>
+        <p className="small mt-8">
+          Do not hesitage to give us a call. We are an expert team and we are
+          happy to talk to you.
+        </p>
+        <div className="d-flex align-items-center gap-12 mt-8">
+          <FaPhoneAlt/>
+          <p>{settingData?.data.site_contact}</p>
+        </div>
+        <div className="d-flex align-items-center gap-12 mt-8">
+          <MdMail/>
+          <p>{settingData?.data.site_email}</p>
+        </div>
         <p className="text-center small">
           {settingData?.data.service_description}
-        </p>
-        <button className="bg-white w-100 p-12 text-secondary rounded-4 mt-12 gap-12 flex-center-center">
+        </p> */}
+        <button className="bg-white w-100 p-12 text-secondary rounded-4 mt-16 gap-12 flex-center-center">
           <FaWhatsapp />
           Connect on WhatsApp
         </button>

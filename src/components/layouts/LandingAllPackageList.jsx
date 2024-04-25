@@ -79,7 +79,7 @@ const LandingBucketList = () => {
           >
             {categorywise?.data?.map((d, i) => {
               return (
-                <SwiperSlide key={i} className="pb-12  pe-8">
+                <SwiperSlide key={i} className="pb-16  pe-8">
                   {/* <PopularPackageCard
                   img={d.image}
                   title={d.name}

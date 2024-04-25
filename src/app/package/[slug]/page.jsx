@@ -22,6 +22,8 @@ import SideCardPackage from "@/components/cards/SideCard";
 import Booking from "@/components/layouts/Booking";
 import Itinerary from "@/components/layouts/Itinerary";
 import { FaUserGroup } from "react-icons/fa6";
+import { GiPriceTag } from "react-icons/gi";
+import SideCardPackageNew from "@/components/cards/SideCardPackageNew";
 const PackageDetail = ({ params }) => {
   const { data: packageData } = useGetPackageQuery();
   const { data: packageDetailData } = useGetPackageDetailQuery(params.slug);
@@ -61,16 +63,29 @@ const PackageDetail = ({ params }) => {
       <section className="py-16 package-detail-page px-sm-12">
         <Container>
           <Row className="mt-24 gap-24-row ">
-            <div className=" flex-between align-items-center mb-8">
-              <div className="h4 bitter fw-medium">
-                {packageDetailData?.data.name}
+            {/* <div className=" flex-between align-items-center mb-8">
+              <div className="h4 fw-medium">{packageDetailData?.data.name}</div>
+              <div className="d-flex align-items-center gap-8 text-secondary h6">
+                <GiPriceTag />
+                <div className="d-flex gap-4  ">
+                  <div className="">{packageDetailData?.data.currency}</div>
+                  <div>{packageDetailData?.data.adult_price}</div>
+                </div>
               </div>
-              <div className="d-flex gap-4 btn-pill text-white bg-secondary px-12">
-                <div className="">{packageDetailData?.data.currency}</div>
-                <div>{packageDetailData?.data.adult_price}</div>
-              </div>
-            </div>
+            </div> */}
             <Col lg={8} sm={12}>
+              <div className=" flex-between align-items-center mb-8">
+                <div className="h4 fw-medium">
+                  {packageDetailData?.data.name}
+                </div>
+                <div className="d-flex align-items-center gap-8 text-secondary h6">
+                  <GiPriceTag />
+                  <div className="d-flex gap-4  ">
+                    <div className="">{packageDetailData?.data.currency}</div>
+                    <div>{packageDetailData?.data.adult_price}</div>
+                  </div>
+                </div>
+              </div>
               <Swiper
                 slidesPerView={1}
                 pagination={{
@@ -224,6 +239,28 @@ const PackageDetail = ({ params }) => {
                         );
                       })}
                   </div>
+                  {/* <div className="shadow">
+                    <div className="bg-primary text-white h6 text-center p-12">
+                      Other Packages You May Like
+                    </div>
+                    <div className="p-16">
+                      {packageData?.data
+                        .filter((d) => d.slug != packageDetailData?.data.slug)
+                        .slice(0, 5)
+                        .map((d, i) => {
+                          return (
+                            <SideCardPackageNew
+                              name={d.name}
+                              key={i}
+                              image={d.image}
+                              short_description={d.short_description}
+                              slug={d.slug}
+                              id={d.id}
+                            />
+                          );
+                        })}
+                    </div>
+                  </div> */}
                 </Col>
               </Row>
             </Col>

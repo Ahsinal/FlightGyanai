@@ -1,7 +1,7 @@
 "use client";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaFacebook,
   FaPhoneAlt,
@@ -28,8 +28,8 @@ const Header = () => {
   );
   const { data: destinationDomestic } =
     useGetDestinationQuery("domestic-tours");
-  // const { data: domesticData } = useGetMenuSlugQuery("1");
-  const { data: internationalData } = useGetMenuSlugQuery("2");
+  const { data: domesticData } = useGetMenuSlugQuery("3");
+  const { data: internationalData } = useGetMenuSlugQuery("4");
   function checkIcon(icon) {
     switch (icon) {
       case "facebook":
@@ -103,8 +103,8 @@ const Header = () => {
           </div>
         </Container>
       </section>
-      {/* {console.log(domesticData, "domestic data")} */}
       {console.log(internationalData, "international data!!!!!!!!!!!!!!!!!")}
+      {console.log(domesticData, "Domestic data!!!!!!!!!!!!!!!!!")}
       <header className="w-100">
         <Navbar
           expand="lg"
@@ -133,26 +133,53 @@ const Header = () => {
                   // onMouseEnter={handleMouseEnter}
                   // onMouseLeave={handleMouseLeave}
                 >
-                  {/* {internationalData?.data
+                  {internationalData?.data
                     .slice(0, 6)
                     .map((category, index) => {
-                      if (category.children.length > 0) {
+                      if (category.children && category.children?.length > 0) {
                         return (
                           <NavDropdown
                             title={category.title}
-                            id={`international-dropdown-${index}`}
+                            id={`international-dropdown-${category.id}`}
                             key={index}
                             drop="end"
                             className="px-8 "
                           >
-                            {category.children.map((subcategory, idx) => (
-                              <NavDropdown.Item
-                                href={`/destination/${subcategory.slug}`}
-                                key={idx}
-                                slug={subcategory.slug}
-                              >
-                                {subcategory.title}
-                              </NavDropdown.Item>
+                            {category.children[0].map((subcategory, idx) => (
+                              <React.Fragment key={idx}>
+                                {subcategory.children &&
+                                subcategory.children.length > 0 ? (
+                                  <>
+                                    <NavDropdown
+                                      title={subcategory.title}
+                                      id={`international-dropdown-${subcategory.id}`}
+                                      key={index}
+                                      drop="end"
+                                      className="px-8 "
+                                    >
+                                      {subcategory.children[0].map((d, i) => {
+                                        return (
+                                          <NavDropdown.Item
+                                            href={`/destination/${d.slug}`}
+                                            key={idx}
+                                            slug={d.slug}
+                                          >
+                                            {d.title}
+                                          </NavDropdown.Item>
+                                        );
+                                      })}
+                                    </NavDropdown>
+                                  </>
+                                ) : (
+                                  <NavDropdown.Item
+                                    href={`/destination/${subcategory.slug}`}
+                                    key={idx}
+                                    slug={subcategory.slug}
+                                  >
+                                    {subcategory.title}
+                                  </NavDropdown.Item>
+                                )}
+                              </React.Fragment>
                             ))}
                           </NavDropdown>
                         );
@@ -163,11 +190,11 @@ const Header = () => {
                             key={index}
                             slug={category.slug}
                           >
-                            {category.name}
+                            {category.title}
                           </NavDropdown.Item>
                         );
                       }
-                    })} */}
+                    })}
                 </NavDropdown>
 
                 <NavDropdown
