@@ -160,9 +160,9 @@ const Header = () => {
                                       {subcategory.children[0].map((d, i) => {
                                         return (
                                           <NavDropdown.Item
-                                            href={`/destination/${d.slug}`}
+                                            href={subcategory.slug}
                                             key={i}
-                                            slug={d.slug}
+                                            slug={subcategory.slug}
                                           >
                                             {d.title}
                                           </NavDropdown.Item>
@@ -172,7 +172,7 @@ const Header = () => {
                                   </>
                                 ) : (
                                   <NavDropdown.Item
-                                    href={`/destination/${subcategory.slug}`}
+                                    href={subcategory.slug}
                                     key={idx}
                                     slug={subcategory.slug}
                                   >
@@ -186,7 +186,7 @@ const Header = () => {
                       } else {
                         return (
                           <NavDropdown.Item
-                            href={`/destination/${category.slug}`}
+                            href={category.slug}
                             key={index}
                             slug={category.slug}
                           >
@@ -230,7 +230,7 @@ const Header = () => {
                                     {subcategory.children[0].map((d, i) => {
                                       return (
                                         <NavDropdown.Item
-                                          href={`/destination/${d.slug}`}
+                                          href={d.slug}
                                           key={i}
                                           slug={d.slug}
                                         >
@@ -242,7 +242,7 @@ const Header = () => {
                                 </>
                               ) : (
                                 <NavDropdown.Item
-                                  href={`/destination/${subcategory.slug}`}
+                                  href={subcategory.slug}
                                   key={idx}
                                   slug={subcategory.slug}
                                 >
@@ -256,7 +256,7 @@ const Header = () => {
                     } else {
                       return (
                         <NavDropdown.Item
-                          href={`/destination/${category.slug}`}
+                          href={category.slug}
                           key={index}
                           slug={category.slug}
                           name={category.name}

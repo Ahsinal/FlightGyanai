@@ -5,7 +5,7 @@ import { HYDRATE } from "next-redux-wrapper";
 export const globalApi = createApi({
     reducerPath: "globalApi",
     baseQuery: fetchBaseQuery({
-        baseUrl: "https://flightsgyani.paradiseit.com.np/api/",
+        baseUrl: "https://admin.gyaniholidays.com/api/",
     }),
     tagTypes: [
         "Inquiries",
@@ -231,7 +231,7 @@ export const globalApi = createApi({
             }),
             providesTags: ["SocialMedia"]
         }),
-        
+
     }),
 });
 
