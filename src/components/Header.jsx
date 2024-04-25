@@ -161,7 +161,7 @@ const Header = () => {
                                         return (
                                           <NavDropdown.Item
                                             href={`/destination/${d.slug}`}
-                                            key={idx}
+                                            key={i}
                                             slug={d.slug}
                                           >
                                             {d.title}
@@ -205,43 +205,67 @@ const Header = () => {
                   // onMouseEnter={handleMouseEnter}
                   // onMouseLeave={handleMouseLeave}
                 >
-                  {destinationDomestic?.data
-                    .slice(0, 6)
-                    .map((category, index) => {
-                      if (category.children.length > 0) {
-                        return (
-                          <NavDropdown
-                            title={category.name}
-                            id={`domestic-dropdown-${index}`}
-                            key={index}
-                            drop="end"
-                            className="px-8"
-                          >
-                            {category.children.map((subcategory, idx) => (
-                              <NavDropdown.Item
-                                href={`/destination/${subcategory.slug}`}
-                                key={idx}
-                                slug={subcategory.slug}
-                                name={subcategory.name}
-                              >
-                                {subcategory.name}
-                              </NavDropdown.Item>
-                            ))}
-                          </NavDropdown>
-                        );
-                      } else {
-                        return (
-                          <NavDropdown.Item
-                            href={`/destination/${category.slug}`}
-                            key={index}
-                            slug={category.slug}
-                            name={category.name}
-                          >
-                            {category.name}
-                          </NavDropdown.Item>
-                        );
-                      }
-                    })}
+                  {domesticData?.data.slice(0, 6).map((category, index) => {
+                    if (category.children && category.children.length > 0) {
+                      return (
+                        <NavDropdown
+                          title={category.title}
+                          id={`domestic-dropdown-${category.id}`}
+                          key={index}
+                          drop="end"
+                          className="px-8"
+                        >
+                          {category.children[0].map((subcategory, idx) => (
+                            <React.Fragment key={idx}>
+                              {subcategory.children &&
+                              subcategory.children.length > 0 ? (
+                                <>
+                                  <NavDropdown
+                                    title={subcategory.title}
+                                    id={`domestic-dropdown-${subcategory.id}`}
+                                    key={index}
+                                    drop="end"
+                                    className="px-8"
+                                  >
+                                    {subcategory.children[0].map((d, i) => {
+                                      return (
+                                        <NavDropdown.Item
+                                          href={`/destination/${d.slug}`}
+                                          key={i}
+                                          slug={d.slug}
+                                        >
+                                          {d.title}
+                                        </NavDropdown.Item>
+                                      );
+                                    })}
+                                  </NavDropdown>
+                                </>
+                              ) : (
+                                <NavDropdown.Item
+                                  href={`/destination/${subcategory.slug}`}
+                                  key={idx}
+                                  slug={subcategory.slug}
+                                >
+                                  {subcategory.title}
+                                </NavDropdown.Item>
+                              )}
+                            </React.Fragment>
+                          ))}
+                        </NavDropdown>
+                      );
+                    } else {
+                      return (
+                        <NavDropdown.Item
+                          href={`/destination/${category.slug}`}
+                          key={index}
+                          slug={category.slug}
+                          name={category.name}
+                        >
+                          {category.name}
+                        </NavDropdown.Item>
+                      );
+                    }
+                  })}
                 </NavDropdown>
 
                 <Nav.Link href="/blog" as={Link}>
