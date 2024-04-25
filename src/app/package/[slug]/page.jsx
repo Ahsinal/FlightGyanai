@@ -25,15 +25,23 @@ import Itinerary from "@/components/layouts/Itinerary";
 import { FaUserGroup } from "react-icons/fa6";
 import { GiPriceTag } from "react-icons/gi";
 import SideCardPackageNew from "@/components/cards/SideCardPackageNew";
+import Loading from "@/components/layouts/Loading";
 const PackageDetail = ({ params }) => {
-  const { data: packageData } = useGetPackageQuery();
-  const { data: packageDetailData } = useGetPackageDetailQuery(params.slug);
+  const { data: packageData, isLoading: packageLoading } = useGetPackageQuery();
+  const { data: packageDetailData, isLoading: packageDetailLoading } =
+    useGetPackageDetailQuery(params.slug);
+  const { data: settingData, isLoading: settingLoading } =
+    useGetSettingsQuery();
 
-  const { data: settingData } = useGetSettingsQuery();
+  const isLoading = packageLoading || packageDetailLoading || settingLoading;
+
   const stars = Array.from(
     { length: packageDetailData?.data.rating },
     (_, index) => <FaStar key={index} />
   );
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <section className="mt-16">
@@ -63,7 +71,7 @@ const PackageDetail = ({ params }) => {
             </div>
             <div className="d-flex align-items-center gap-8">
               <Link
-                href={`https://admin.pdes.com.np/api/print/${packageDetailData?.data.id}`}
+                href={`https://admin.gyaniholidays.com/api/print/${packageDetailData?.data.id}`}
                 className="btn btn-sm btn-primary w-100 p-12  rounded-4 mt-12  d-flex align-items-center gap-8"
                 target="__blank"
               >
@@ -206,7 +214,11 @@ const PackageDetail = ({ params }) => {
             <Col lg={3} className="side-col">
               <Row className="stick-side-card">
                 <Col sm={12}>
-                  <Booking packageId={packageDetailData?.data.id} currency={packageDetailData?.data.currency} price={packageDetailData?.data.fair_price}/>
+                  <Booking
+                    packageId={packageDetailData?.data.id}
+                    currency={packageDetailData?.data.currency}
+                    price={packageDetailData?.data.fair_price}
+                  />
                 </Col>
                 <Col sm={12} className="mt-32">
                   <div className="p-24 shadow-1 rounded-16">

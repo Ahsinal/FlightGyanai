@@ -8,12 +8,14 @@ import {
   useGetSettingsQuery,
   useGetTourPackageDetailQuery,
   useGetDestinationSlugQuery,
- 
 } from "../../../../frontend/api";
+import Loading from "@/components/layouts/Loading";
 
 const DestinationPage = ({ params }) => {
-  const { data: settingData } = useGetSettingsQuery();
-  const { data: destinationData } = useGetTourPackageDetailQuery(params.slug);
+  const { data: settingData, isLoading: settingLoading } =
+    useGetSettingsQuery();
+  const { data: destinationData, isLoading: destinationLoading } =
+    useGetTourPackageDetailQuery(params.slug);
   const { data: idData } = useGetDestinationSlugQuery(params.slug);
   // console.log(idData, "data from id");
   const pageSize = 6; // Number of blogs per page
@@ -26,6 +28,11 @@ const DestinationPage = ({ params }) => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
+  const isLoading = settingLoading || destinationLoading;
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -60,7 +67,9 @@ const DestinationPage = ({ params }) => {
           <h5 className=" bitter  mt-8">{idData?.data?.name}</h5>
           <div
             className="small p w-75 text-cGray500 mt-8 text-center"
-            dangerouslySetInnerHTML={{ __html: idData?.data?.short_description }}
+            dangerouslySetInnerHTML={{
+              __html: idData?.data?.short_description,
+            }}
           ></div>
         </Container>
       </section>

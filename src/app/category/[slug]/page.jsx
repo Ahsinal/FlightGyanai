@@ -9,13 +9,16 @@ import {
   useGetDestinationSlugQuery,
   useGetCategoryPackageDetailQuery,
 } from "../../../../frontend/api";
+import Loading from "@/components/layouts/Loading";
 
 const CategoryPage = ({ params }) => {
-  const { data: settingData } = useGetSettingsQuery();
-  const { data: destinationData } = useGetCategoryPackageDetailQuery(
+  const { data: settingData, isLoading: settingLoading } =
+    useGetSettingsQuery();
+  const { data: destinationData, isLoading: categoryPackageLoading } =
+    useGetCategoryPackageDetailQuery(params.slug);
+  const { data: idData, isLoading: destLoading } = useGetDestinationSlugQuery(
     params.slug
   );
-  const { data: idData } = useGetDestinationSlugQuery(params.slug);
   // console.log(idData, "data from id");
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,6 +43,11 @@ const CategoryPage = ({ params }) => {
   };
 
   const pageTitle = toTitle(params.slug);
+
+  const isLoading = settingLoading || categoryPackageLoading || destLoading;
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
