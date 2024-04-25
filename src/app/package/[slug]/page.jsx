@@ -54,7 +54,7 @@ const PackageDetail = ({ params }) => {
           />
         </Container>
       </section>
-      <section className=" package-detail-page px-sm-12">
+      <section className=" package-detail-page px-sm-12 pb-40">
         <Container>
           <div className=" flex-between align-items-center mt-12">
             <div className="flex-column gap-4 ">
