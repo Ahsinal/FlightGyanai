@@ -80,7 +80,7 @@ const LandingBucketList = () => {
             {categorywise?.data?.map((d, i) => {
               return (
                 <SwiperSlide key={i} className="pb-16  pe-8">
-                  {/* <PopularPackageCard
+                  <PopularPackageCard
                   img={d.image}
                   title={d.name}
                   location={d.location}
@@ -91,8 +91,8 @@ const LandingBucketList = () => {
                   desc={d.short_description}
                   slug={d.slug}
                   id={d.id}
-                /> */}
-                  <CardPackageNew
+                />
+                  {/* <CardPackageNew
                     img={d.image}
                     title={d.name}
                     desc={d.description}
@@ -100,7 +100,7 @@ const LandingBucketList = () => {
                     price={d.fair_price}
                     slug={d.slug}
                     id={d.id}
-                  />
+                  /> */}
                 </SwiperSlide>
               );
             })}

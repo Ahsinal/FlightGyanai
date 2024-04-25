@@ -94,10 +94,10 @@ const Booking = ({ packageId, currency, price }) => {
           Top Seller
         </div>
         <div className="w-100 px-16">
-          <button className="btn btn-xs btn-secondary w-100 rounded-8 mt-16 d-flex gap-4 flex-center-center">
+          <Link href='https://api.whatsapp.com/send/?phone=9779857015300&text&type=phone_number&app_absent=0' target="blank" className="btn btn-xs btn-secondary w-100 rounded-8 mt-16 d-flex gap-4 flex-center-center">
             <FaWhatsapp className="text-white" />
             WhatsApp Now
-          </button>
+          </Link>
           <Button
             variant="secondary"
             className="border border-2 border-white text-white w-100 p-12 rounded-8 text-secondary rounded-4 mt-16 gap-12 flex-center-center"

@@ -8,15 +8,16 @@ import PopularPackageCard from "@/components/cards/PopularPackageCard";
 import {
   useGetSettingsQuery,
   useGetCategoryPackageDetailQuery,
+  useGetPackageQuery,
 } from "../../../frontend/api";
 const Package = () => {
   const router = useRouter();
   const { slug } = router.query || {}; // Extract slug from the router query
-  console.log(slug, "aayo slug");
   const { data: settingData } = useGetSettingsQuery();
-  const { data: categoryData } = useGetCategoryPackageDetailQuery(
-    `${slug}` || ""
-  );
+  // const { data: categoryData } = useGetCategoryPackageDetailQuery(
+  //   `${slug}` || ""
+  // );
+  const { data: packageData } = useGetPackageQuery();
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -26,7 +27,7 @@ const Package = () => {
   }, [slug]);
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
-  const currentPackage = categoryData?.data?.slice(startIndex, endIndex);
+  const currentPackage = packageData?.data?.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -80,7 +81,7 @@ const Package = () => {
           <Row className=" mt-32">
             <Col className="flex-center-center">
               <Pagination
-                total={categoryData?.data?.length} // Total number of blogs
+                total={packageData?.data?.length} // Total number of blogs
                 pageSize={pageSize} // Number of blogs per page
                 current={currentPage} // Current page
                 showSizeChanger={false} // Hide option to change page size
