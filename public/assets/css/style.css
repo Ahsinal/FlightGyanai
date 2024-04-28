@@ -35899,13 +35899,20 @@ header {
 header .navbar-nav a:hover {
   color: #c1272f !important;
 }
+header .navbar-nav .dropdown {
+  position: relative;
+}
 header .navbar-nav .dropdown .dropdown-toggle {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 header .navbar-nav .dropdown .dropdown-toggle::after {
   margin-left: 0.5rem;
+}
+header .navbar-nav .dropdown .dropdown-menu {
+  position: absolute;
 }
 header .navbar-nav .dropdown .dropdown-menu a {
   color: black !important;

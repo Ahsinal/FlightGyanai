@@ -23,11 +23,6 @@ import { MdLocationPin } from "react-icons/md";
 const Header = () => {
   const { data: settingData } = useGetSettingsQuery();
   const { data: socialmediaData } = useGetSocialQuery();
-  const { data: destinationInternational } = useGetDestinationQuery(
-    "international-tours"
-  );
-  const { data: destinationDomestic } =
-    useGetDestinationQuery("domestic-tours");
   const { data: domesticData } = useGetMenuSlugQuery("3");
   const { data: internationalData } = useGetMenuSlugQuery("4");
   function checkIcon(icon) {
@@ -64,15 +59,32 @@ const Header = () => {
       window.removeEventListener("scroll", changeNavbarPosition);
     };
   }, []);
-  // const [dropdownOpen, setDropdownOpen] = useState(false);
-  // const handleMouseEnter = () => {
-  //   setDropdownOpen(true);
-  // };
-
-  // const handleMouseLeave = () => {
-  //   setDropdownOpen(false);
-  // };
-
+  const [selectedItem1, setSelectedItem1] = useState("");
+  const [selectedItem2, setSelectedItem2] = useState("");
+  const [selectedItem3, setSelectedItem3] = useState("");
+  const [isOpen, setIsOpen] = useState("");
+  const handleItemClick = (title) => {
+    setIsOpen(!isOpen);
+    setHoveredItem2(title);
+  };
+  const handleHover1 = (title) => {
+    setSelectedItem1(title);
+  };
+  const handleHoverOut1 = (title) => {
+    setSelectedItem1("");
+  };
+  const handleHover2 = (title) => {
+    setSelectedItem2(title);
+  };
+  const handleHoverOut2 = (title) => {
+    setSelectedItem2("");
+  };
+  const handleHover3 = (title) => {
+    setSelectedItem3(title);
+  };
+  const handleHoverOut3 = (title) => {
+    setSelectedItem3("");
+  };
   return (
     <>
       <section className="top-bar bg-primary d-none d-md-block d-lg-block">
@@ -120,16 +132,13 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav ">
               <Nav className="mx-auto gap-12 bg-white ">
-                {/* <Nav.Link href="/" as={Link}>
-                  Home
-                </Nav.Link> */}
                 <NavDropdown
                   title="International"
                   id="collapsible-nav-dropdown"
                   className="dropdown "
-                  // show={dropdownOpen}
-                  // onMouseEnter={handleMouseEnter}
-                  // onMouseLeave={handleMouseLeave}
+                  show={selectedItem1 === "International"}
+                  onMouseEnter={() => handleHover1("International")}
+                  onMouseLeave={handleHoverOut1}
                 >
                   {internationalData?.data
                     .slice(0, 6)
@@ -142,6 +151,11 @@ const Header = () => {
                             key={index}
                             drop="end"
                             className="px-8 "
+                            show={selectedItem2 === `${category.title}`}
+                            onMouseEnter={() =>
+                              handleHover2(`${category.title}`)
+                            }
+                            onMouseLeave={handleHoverOut2}
                           >
                             {category.children[0].map((subcategory, idx) => (
                               <React.Fragment key={idx}>
@@ -154,6 +168,13 @@ const Header = () => {
                                       key={index}
                                       drop="end"
                                       className="px-8 "
+                                      show={
+                                        selectedItem3 === `${subcategory.title}`
+                                      }
+                                      onMouseEnter={() =>
+                                        handleHover3(`${subcategory.title}`)
+                                      }
+                                      onMouseLeave={handleHoverOut3}
                                     >
                                       {subcategory.children[0].map((d, i) => {
                                         return (
