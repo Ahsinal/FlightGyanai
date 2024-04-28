@@ -7,9 +7,15 @@ import {
 } from "../../../../frontend/api";
 import Link from "next/link";
 import SideCardBlog from "@/components/cards/SideCardBlog";
+import Loading from "@/components/layouts/Loading";
 const BlogDetail = ({ params }) => {
-  const { data: blogData } = useGetBlogQuery();
-  const { data: blogDetailData } = useGetBlogDetailQuery(params.slug);
+  const { data: blogData, isLoading: blogLoading } = useGetBlogQuery();
+  const { data: blogDetailData, isLoading: blogDetailLoading } =
+    useGetBlogDetailQuery(params.slug);
+  const isLoading = blogLoading || blogDetailLoading;
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <section className="py-16 blog-detail-breadcrumb">

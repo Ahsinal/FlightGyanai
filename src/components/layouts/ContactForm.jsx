@@ -207,7 +207,7 @@ const ContactForm = () => {
         </div>
         <Button
           onClick={handleSubmit(onSubmit)}
-          className="btn btn-xs rounded-8"
+          className="btn btn-xs rounded-8 mt-12"
           variant="primary"
           type="submit"
         >

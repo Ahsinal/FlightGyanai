@@ -175,7 +175,9 @@ const PackageDetail = ({ params }) => {
               </div>
 
               <Col sm={12} lg={12} className="mt-24">
-                <h6 className=" text-cGray800 mb-12">ITINERARY</h6>
+                <h6 className=" mb-12 heading-border fw-medium">
+                  ITINERARY
+                </h6>
                 {packageDetailData?.data.itenaries.map((d, i) => {
                   return (
                     <Itinerary

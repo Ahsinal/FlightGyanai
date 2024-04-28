@@ -10,6 +10,7 @@ import {
   useGetDestinationSlugQuery,
 } from "../../../../frontend/api";
 import Loading from "@/components/layouts/Loading";
+import CardPackageNew from "@/components/cards/CardPackageNew";
 
 const DestinationPage = ({ params }) => {
   const { data: settingData, isLoading: settingLoading } =
@@ -79,7 +80,7 @@ const DestinationPage = ({ params }) => {
             {currentPackage?.map((d, i) => {
               return (
                 <Col lg={4} sm={6} key={i}>
-                  <PopularPackageCard
+                  <CardPackageNew
                     img={d.image}
                     title={d.name}
                     desc={d.description}

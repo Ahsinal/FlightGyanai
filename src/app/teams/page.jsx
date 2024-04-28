@@ -4,9 +4,15 @@ import { Breadcrumb } from "antd";
 import Link from "next/link";
 import { useGetTeamsQuery, useGetSettingsQuery } from "../../../frontend/api";
 import TeamsCard from "@/components/cards/TeamsCard";
+import Loading from "@/components/layouts/Loading";
 const OurTeams = () => {
-  const { data: teamsData } = useGetTeamsQuery();
-  const { data: settingData } = useGetSettingsQuery();
+  const { data: teamsData, isLoading: teamsLoading } = useGetTeamsQuery();
+  const { data: settingData, isLoading: settingLoading } =
+    useGetSettingsQuery();
+  const isLoading = settingLoading || teamsLoading;
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <section className="breadcrumb-banner position-relative">

@@ -10,6 +10,7 @@ import {
   useGetCategoryPackageDetailQuery,
 } from "../../../../frontend/api";
 import Loading from "@/components/layouts/Loading";
+import CardPackageNew from "@/components/cards/CardPackageNew";
 
 const CategoryPage = ({ params }) => {
   const { data: settingData, isLoading: settingLoading } =
@@ -91,11 +92,11 @@ const CategoryPage = ({ params }) => {
       </section>
       <section className="py-40 ">
         <Container>
-          <Row className="gap-16-row">
+          <Row className="gap-24-row">
             {currentPackage?.map((d, i) => {
               return (
                 <Col lg={4} sm={6} key={i}>
-                  <PopularPackageCard
+                  <CardPackageNew
                     img={d.image}
                     title={d.name}
                     desc={d.description}

@@ -9,12 +9,19 @@ import {
   useGetSettingsQuery,
   useGetPageDetailQuery,
 } from "../../../frontend/api";
+import Loading from "@/components/layouts/Loading";
 const About = () => {
-  const { data: teamsData } = useGetTeamsQuery();
-  const { data: servicesData } = useGetServicesQuery();
+  const { data: teamsData, isLoading: teamLoading } = useGetTeamsQuery();
+  const { data: servicesData, isLoading: serviceLoading } =
+    useGetServicesQuery();
   const { data: aboutusData } = useGetPageDetailQuery("about-us");
   const { data: chooseusData } = useGetPageDetailQuery("why-choose-us");
-  const { data: settingData } = useGetSettingsQuery();
+  const { data: settingData, isLoading: settingLoading } =
+    useGetSettingsQuery();
+  const isLoading = settingLoading || teamLoading;
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <section className="breadcrumb-banner position-relative">

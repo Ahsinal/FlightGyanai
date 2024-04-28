@@ -6,6 +6,7 @@ import SwiperCore from "swiper";
 import { Autoplay, Navigation } from "swiper/modules";
 import { useGetPackageQuery, useGetSettingsQuery } from "../../../frontend/api";
 import PopularPackageCard from "../cards/PopularPackageCard";
+import CardPackageNew from "../cards/CardPackageNew";
 SwiperCore.use([Navigation]);
 const Packages = () => {
   const { data: packageData } = useGetPackageQuery();
@@ -53,8 +54,8 @@ const Packages = () => {
       >
         {packageData?.data.map((d, i) => {
           return (
-            <SwiperSlide key={i}>
-              <PopularPackageCard
+            <SwiperSlide key={i} className="px-8 py-8">
+              <CardPackageNew
                 img={d.image}
                 title={d.name}
                 desc={d.description}

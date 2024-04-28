@@ -2,11 +2,14 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Breadcrumb, Pagination } from "antd";
 import Link from "next/link";
-import { useGetBlogQuery } from "../../../frontend/api";
-import { BlogCardlg } from "@/components/cards/BlogCard";
+import { useGetBlogQuery, useGetSettingsQuery } from "../../../frontend/api";
+import { BlogCard, BlogCardlg } from "@/components/cards/BlogCard";
 import { useState } from "react";
+import Loading from "@/components/layouts/Loading";
 const Blog = () => {
-  const { data: blogData } = useGetBlogQuery();
+  const { data: blogData, isLoading: blogLoading } = useGetBlogQuery();
+  const { data: settingData, isLoading: settingLoading } =
+    useGetSettingsQuery();
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -17,7 +20,10 @@ const Blog = () => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-
+  const isLoading = settingLoading || blogLoading;
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <section className="breadcrumb-banner position-relative">
@@ -50,8 +56,13 @@ const Blog = () => {
           <Row className="mt-32">
             {currentBlogs &&
               currentBlogs.map((d, i) => (
-                <Col lg={4} sm={12} className="rounded-12 p-12" key={i}>
-                  <BlogCardlg
+                <Col
+                  lg={4}
+                  sm={12}
+                  className="rounded-12"
+                  key={i}
+                >
+                  <BlogCard
                     img={d.image}
                     title={d.title}
                     desc={d.short_description}

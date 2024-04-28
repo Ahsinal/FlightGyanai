@@ -68,13 +68,13 @@ export default function Home() {
       <section className="py-40 landing-package">
         <LandingPackage />
       </section>
-      <section className="landing-bucket-list py-40 bg-gray50">
+      <section className="landing-bucket-list py-40 bg-green50">
         <LandingBucketList />
       </section>
       <section className="landing-blog py-40 ">
         <LandingBlog />
       </section>
-      <section className="landing-testimonial py-40 bg-gray50 ">
+      <section className="landing-testimonial py-40 bg-green50 ">
         {/* <LandingTestimonial /> */}
         <TestimonialNew />
       </section>

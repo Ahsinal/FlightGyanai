@@ -4,12 +4,17 @@ import { Container, Accordion } from "react-bootstrap";
 import { Breadcrumb } from "antd";
 import Link from "next/link";
 import { useGetFaqQuery } from "../../../frontend/api";
+import Loading from "@/components/layouts/Loading";
 const Faq = () => {
-  const { data: faqData } = useGetFaqQuery();
+  const { data: faqData, isLoading: faqLoading } = useGetFaqQuery();
   const [openAccordion, setOpenAccordion] = useState(null);
   const handleAccordionToggle = (id) => {
     setOpenAccordion(openAccordion == id ? null : id);
   };
+  const isLoading = faqLoading;
+  if (isLoading) {
+    return <Loading/>;
+  }
   return (
     <>
       <section className="breadcrumb-banner position-relative">

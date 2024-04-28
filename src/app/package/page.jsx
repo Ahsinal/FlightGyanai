@@ -10,14 +10,17 @@ import {
   useGetCategoryPackageDetailQuery,
   useGetPackageQuery,
 } from "../../../frontend/api";
+import Loading from "@/components/layouts/Loading";
+import CardPackageNew from "@/components/cards/CardPackageNew";
 const Package = () => {
   const router = useRouter();
   const { slug } = router.query || {}; // Extract slug from the router query
-  const { data: settingData } = useGetSettingsQuery();
+  const { data: settingData, isLoading: settingLoading } =
+    useGetSettingsQuery();
   // const { data: categoryData } = useGetCategoryPackageDetailQuery(
   //   `${slug}` || ""
   // );
-  const { data: packageData } = useGetPackageQuery();
+  const { data: packageData, isLoading: packageLoading } = useGetPackageQuery();
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -32,6 +35,10 @@ const Package = () => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+  const isLoading = settingLoading || packageLoading;
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <section className="breadcrumb-banner position-relative">
@@ -61,11 +68,11 @@ const Package = () => {
       </section>
       <section className="py-40 ">
         <Container>
-          <Row className="gap-16-row">
+          <Row className="gap-24-row">
             {currentPackage?.map((d, i) => {
               return (
                 <Col lg={4} sm={6} key={i}>
-                  <PopularPackageCard
+                  <CardPackageNew
                     img={d.image}
                     title={d.name}
                     desc={d.description}

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaArrowRight, FaClock, FaStar, FaWhatsapp } from "react-icons/fa";
 const CardPackageNew = (props) => {
   return (
-    <div className="card-package-new  rounded-12 shadow-sm position-relative">
+    <div className="card-package-new  shadow-sm position-relative">
       <div className=" ribbon  d-flex gap-4 align-items-center">
         <div className="x-small ">{props.currency}</div>
         <div className=" small">{props.price}</div>

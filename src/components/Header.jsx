@@ -72,6 +72,7 @@ const Header = () => {
   };
   const handleHoverOut1 = (title) => {
     setSelectedItem1("");
+    // Set a timeout to clear selectedItem1 after 300 milliseconds
   };
   const handleHover2 = (title) => {
     setSelectedItem2(title);
@@ -92,11 +93,11 @@ const Header = () => {
           <div className="d-flex gap-32">
             <div className="d-flex gap-4 align-items-center">
               <MdLocationPin />
-              <p>{settingData?.data.site_location}</p>
+              <p className="small">{settingData?.data.site_location}</p>
             </div>
             <div className="d-flex gap-4 align-items-center">
               <FaPhoneAlt />
-              <p>{settingData?.data.site_contact}</p>
+              <p className="small">{settingData?.data.site_contact}</p>
             </div>
           </div>
           <div className="flex-items-center gap-12 ">
@@ -132,6 +133,9 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav ">
               <Nav className="mx-auto gap-12 bg-white ">
+              <Nav.Link href="/" as={Link}>
+                  Home
+                </Nav.Link>
                 <NavDropdown
                   title="International"
                   id="collapsible-nav-dropdown"
@@ -182,6 +186,14 @@ const Header = () => {
                                             href={subcategory.slug}
                                             key={i}
                                             slug={subcategory.slug}
+                                            show={
+                                              selectedItem2 ===
+                                              `${category.title}`
+                                            }
+                                            onMouseEnter={() =>
+                                              handleHover2(`${category.title}`)
+                                            }
+                                            onMouseLeave={handleHoverOut2}
                                           >
                                             {d.title}
                                           </NavDropdown.Item>
@@ -220,9 +232,9 @@ const Header = () => {
                   title="Domestic"
                   id="collapsible-nav-dropdown"
                   className="dropdown "
-                  // show={dropdownOpen}
-                  // onMouseEnter={handleMouseEnter}
-                  // onMouseLeave={handleMouseLeave}
+                  show={selectedItem1 === "Domestic"}
+                  onMouseEnter={() => handleHover1("Domestic")}
+                  onMouseLeave={handleHoverOut1}
                 >
                   {domesticData?.data.slice(0, 6).map((category, index) => {
                     if (category.children && category.children.length > 0) {
@@ -233,6 +245,9 @@ const Header = () => {
                           key={index}
                           drop="end"
                           className="px-8"
+                          show={selectedItem2 === `${category.title}`}
+                          onMouseEnter={() => handleHover2(`${category.title}`)}
+                          onMouseLeave={handleHoverOut2}
                         >
                           {category.children[0].map((subcategory, idx) => (
                             <React.Fragment key={idx}>
@@ -245,6 +260,13 @@ const Header = () => {
                                     key={index}
                                     drop="end"
                                     className="px-8"
+                                    show={
+                                      selectedItem3 === `${subcategory.title}`
+                                    }
+                                    onMouseEnter={() =>
+                                      handleHover3(`${subcategory.title}`)
+                                    }
+                                    onMouseLeave={handleHoverOut3}
                                   >
                                     {subcategory.children[0].map((d, i) => {
                                       return (
@@ -287,14 +309,14 @@ const Header = () => {
                   })}
                 </NavDropdown>
 
-                <Nav.Link href="/blog" as={Link}>
-                  Blog
-                </Nav.Link>
                 <Nav.Link href="/about" as={Link}>
                   About Us
                 </Nav.Link>
                 <Nav.Link href="/teams" as={Link}>
                   Our teams
+                </Nav.Link>
+                <Nav.Link href="/blog" as={Link}>
+                  Blog
                 </Nav.Link>
               </Nav>
               <Link

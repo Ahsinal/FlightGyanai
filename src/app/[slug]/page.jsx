@@ -4,8 +4,13 @@ import { Container } from "react-bootstrap";
 import { Breadcrumb } from "antd";
 import Link from "next/link";
 import { useGetPageDetailQuery } from "../../../frontend/api";
+import Loading from "@/components/layouts/Loading";
 const SlugPages = ({ params }) => {
-  const { data: pageData, isError } = useGetPageDetailQuery(params.slug);
+  const {
+    data: pageData,
+    isError,
+    isLoading: dataLoading,
+  } = useGetPageDetailQuery(params.slug);
   // Custom error handling for page not found
   if (isError) {
     return (
@@ -26,6 +31,10 @@ const SlugPages = ({ params }) => {
         </Container>
       </section>
     );
+  }
+  const isLoading = dataLoading;
+  if (isLoading) {
+    return <Loading />;
   }
   return (
     <>

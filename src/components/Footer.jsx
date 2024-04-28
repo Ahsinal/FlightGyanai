@@ -41,7 +41,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <section className="bg-gray50 py-40 px-sm-16 ">
+        <section className="bg-green50 py-40 px-sm-16 ">
           <Container>
             <Row className="gap-24-row">
               <Col lg={4} sm={12}>
