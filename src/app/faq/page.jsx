@@ -3,26 +3,25 @@ import React, { useState } from "react";
 import { Container, Accordion } from "react-bootstrap";
 import { Breadcrumb } from "antd";
 import Link from "next/link";
-import { useGetFaqQuery } from "../../../frontend/api";
+import { useGetFaqQuery, useGetSettingsQuery } from "../../../frontend/api";
 import Loading from "@/components/layouts/Loading";
 const Faq = () => {
   const { data: faqData, isLoading: faqLoading } = useGetFaqQuery();
+  const { data: settingData, isLoading: settingLoading } =
+    useGetSettingsQuery();
   const [openAccordion, setOpenAccordion] = useState(null);
   const handleAccordionToggle = (id) => {
     setOpenAccordion(openAccordion == id ? null : id);
   };
-  const isLoading = faqLoading;
+  const isLoading = faqLoading || settingLoading;
   if (isLoading) {
-    return <Loading/>;
+    return <Loading />;
   }
   return (
     <>
       <section className="breadcrumb-banner position-relative">
-        <div className="img-wide">
-          <img
-            src="https://media.istockphoto.com/id/1423349102/photo/red-question-mark-glowing-amid-black-question-marks-on-black-background.jpg?s=612x612&w=0&k=20&c=xJP7YhXo-Hv-_GmP3IjF0XPq_4J0oEXVSrru6BPisgw="
-            alt="about-image"
-          />
+        <div className="img-wrapper">
+          <img src={settingData?.data.faq_page_banner} alt="about-image" />
 
           <Container>
             <div className="about-banner-content bitter">

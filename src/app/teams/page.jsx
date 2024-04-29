@@ -16,8 +16,8 @@ const OurTeams = () => {
   return (
     <>
       <section className="breadcrumb-banner position-relative">
-        <div className="img-wide">
-          <img src={settingData?.data.banner_image} alt="about-image" />
+        <div className="img-wrapper">
+          <img src={settingData?.data.team_page_banner} alt="about-image" />
 
           <Container>
             <div className="about-banner-content bitter">

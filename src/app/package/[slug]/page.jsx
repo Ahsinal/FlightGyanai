@@ -175,9 +175,7 @@ const PackageDetail = ({ params }) => {
               </div>
 
               <Col sm={12} lg={12} className="mt-24">
-                <h6 className=" mb-12 heading-border fw-medium">
-                  ITINERARY
-                </h6>
+                <h6 className=" mb-12 heading-border  fw-medium">ITINERARY</h6>
                 {packageDetailData?.data.itenaries.map((d, i) => {
                   return (
                     <Itinerary
@@ -194,7 +192,7 @@ const PackageDetail = ({ params }) => {
                 sm={12}
                 className="mt-24 py-24 px-8 bg-cGray100 rounded-12 mb-24"
               >
-                <h6 className="mb-12"> Includes</h6>
+                <h6 className="mb-12 heading-border "> Includes</h6>
                 <div
                   className="p details-contents "
                   dangerouslySetInnerHTML={{
@@ -203,7 +201,7 @@ const PackageDetail = ({ params }) => {
                 ></div>
               </Col>
               <Col sm={12} className="mt-24 py-24 px-8 bg-cGray100 rounded-12 ">
-                <h6 className="mb-12"> Excludes</h6>
+                <h6 className="mb-12 heading-border "> Excludes</h6>
                 <div
                   className="p details-contents "
                   dangerouslySetInnerHTML={{

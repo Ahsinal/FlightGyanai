@@ -39,7 +39,7 @@ const SlugPages = ({ params }) => {
   return (
     <>
       <section className="breadcrumb-banner position-relative">
-        <div className="img-wide">
+        <div className="img-wrapper">
           <img src={pageData?.data.image} alt="about-image" />
 
           <Container>

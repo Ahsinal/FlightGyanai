@@ -36092,6 +36092,74 @@ footer .stretched-link:hover {
   /* Change $secondary to the desired hover color */
 }
 
+.breadcrumb-banner {
+  position: relative;
+}
+.breadcrumb-banner .img-wide {
+  max-height: 10vh !important;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+.breadcrumb-banner .img-wide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);
+}
+.breadcrumb-banner .img-wide .about-banner-content {
+  color: #fff !important;
+  position: absolute;
+  bottom: 20%;
+}
+.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-separator {
+  color: #fff !important;
+}
+.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-link {
+  color: white;
+}
+.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-link a {
+  color: inherit;
+}
+.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-link a:hover {
+  color: inherit !important;
+}
+.breadcrumb-banner .img-wrapper {
+  height: 52vh;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+.breadcrumb-banner .img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);
+}
+.breadcrumb-banner .img-wrapper .about-banner-content {
+  color: #fff !important;
+  position: absolute;
+  bottom: 20%;
+}
+.breadcrumb-banner .img-wrapper .about-banner-content .ant-breadcrumb .ant-breadcrumb-separator {
+  color: #fff !important;
+}
+.breadcrumb-banner .img-wrapper .about-banner-content .ant-breadcrumb .ant-breadcrumb-link {
+  color: white;
+}
+.breadcrumb-banner .img-wrapper .about-banner-content .ant-breadcrumb .ant-breadcrumb-link a {
+  color: inherit;
+}
+.breadcrumb-banner .img-wrapper .about-banner-content .ant-breadcrumb .ant-breadcrumb-link a:hover {
+  color: inherit !important;
+}
+
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -36294,42 +36362,6 @@ footer .stretched-link:hover {
   top: 0;
 }
 
-.breadcrumb-banner {
-  position: relative;
-}
-.breadcrumb-banner .img-wide {
-  height: 0;
-  overflow: hidden;
-  background: #fff;
-  position: relative;
-}
-.breadcrumb-banner .img-wide img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(2px);
-}
-.breadcrumb-banner .img-wide .about-banner-content {
-  color: #fff !important;
-  position: absolute;
-  bottom: 20%;
-}
-.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-separator {
-  color: #fff !important;
-}
-.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-link {
-  color: white;
-}
-.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-link a {
-  color: inherit;
-}
-.breadcrumb-banner .img-wide .about-banner-content .ant-breadcrumb .ant-breadcrumb-link a:hover {
-  color: inherit !important;
-}
-
 .package-detail-page .swiper-pagination-bullet {
   border-radius: 50% !important;
   height: 0.85rem !important;
@@ -36343,23 +36375,31 @@ footer .stretched-link:hover {
   top: 90px;
 }
 .package-detail-page .details-contents ul {
-  list-style: none;
+  list-style: none !important;
+  font-size: 1.125rem;
+  word-wrap: break-word;
 }
 .package-detail-page .details-contents ul li {
+  margin-bottom: 1rem !important;
   display: flex;
   align-items: center;
-  position: relative;
-  margin-bottom: 5px;
-  padding-left: 10px;
 }
-.package-detail-page .details-contents ul li::before {
-  content: "";
+.package-detail-page .details-contents ul li:before {
+  content: "✔";
+  color: #c1272f;
   display: inline-block;
-  width: 1rem;
-  height: 1rem;
+  position: relative;
+  top: -2px;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  padding: 2px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+  border: 2px solid #c1272f;
   border-radius: 50%;
-  background-color: #c1272f;
-  margin-right: 5px;
+  text-align: center;
 }
 .package-detail-page .side-box {
   position: relative;
@@ -36381,16 +36421,15 @@ footer .stretched-link:hover {
 .package-detail-page .heading-border {
   position: relative;
 }
-.package-detail-page .heading-border .heading-border::after {
+.package-detail-page .heading-border:after {
   content: "";
   display: block;
-  text-align: left;
-  width: 100px !important;
-  position: absolute;
-  bottom: -2px !important;
-  border-bottom: 3px solid #0F006C;
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  width: 7%;
+  border-radius: 10px;
+  border-bottom: 4px solid #269215;
+  /* Adjust color and thickness as needed */
+  margin-top: 0.5rem;
+  /* Adjust spacing as needed */
 }
 
 .swiper-pagination-center .swiper-pagination {

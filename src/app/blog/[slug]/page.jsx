@@ -20,7 +20,6 @@ const BlogDetail = ({ params }) => {
     <>
       <section className="py-16 blog-detail-breadcrumb">
         <Container>
-          <div className="btn btn-circle"></div>
           <Breadcrumb
             className="p fw-normal text-dark"
             items={[

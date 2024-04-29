@@ -58,7 +58,7 @@ const LandingBucketList = () => {
           <Swiper
             spaceBetween={10}
             loop={true}
-            // autoplay={{ delay: 3000 }}
+            autoplay={{ delay: 3000 }}
             pagination={{
               // dynamicBullets: true,
               clickable: true,

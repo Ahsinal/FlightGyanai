@@ -14,8 +14,8 @@ const ContactUs = () => {
   return (
     <>
       <section className="breadcrumb-banner ">
-        <div className="img-wide">
-          <img src={settingData?.data.contact_page_image} alt="about-image" />
+        <div className="img-wrapper">
+          <img src={settingData?.data.contact_page_banner} alt="about-image" />
           <Container>
             <div className="about-banner-content bitter">
               <h2>{contactData?.data.title}</h2>

@@ -25,7 +25,7 @@ const About = () => {
   return (
     <>
       <section className="breadcrumb-banner position-relative">
-        <div className="img-wide">
+        <div className="img-wrapper">
           <img src={settingData?.data.about_page_image} alt="about-image" />
 
           <Container>

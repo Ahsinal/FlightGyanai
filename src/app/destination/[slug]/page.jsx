@@ -38,9 +38,9 @@ const DestinationPage = ({ params }) => {
   return (
     <>
       <section className="breadcrumb-banner position-relative">
-        <div className="img-wide">
+        <div className="img-wrapper">
           <img
-            src={settingData?.data.destination_page_image}
+            src={settingData?.data.destination_page_banner}
             alt="banner-image"
           />
 

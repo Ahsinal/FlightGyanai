@@ -27,13 +27,12 @@ const Blog = () => {
   return (
     <>
       <section className="breadcrumb-banner position-relative">
-        <div className="img-wide">
-          <img
-            src="https://media.istockphoto.com/id/1408387701/photo/social-media-marketing-digitally-generated-image-engagement.jpg?s=612x612&w=0&k=20&c=VVAxxwhrZZ7amcPYJr08LLZJTyoBVMN6gyzDk-4CXos="
-            alt="about-image"
-          />
+        <div className="img-wrapper">
+          <img src={settingData?.data.blog_page_banner} alt="about-image" />
 
           <Container>
+        
+            {/* <h5 className=" bitter  mt-8">{idData?.data?.name}</h5> */}
             <div className="about-banner-content bitter">
               <h2>Our Blogs</h2>
               <Breadcrumb
@@ -53,15 +52,11 @@ const Blog = () => {
       </section>
       <section className="py-40">
         <Container>
+        {/* <p className="text-primary text-center small">{settingData?.data.datahomepage_blog_section_description}</p> */}
           <Row className="mt-32">
             {currentBlogs &&
               currentBlogs.map((d, i) => (
-                <Col
-                  lg={4}
-                  sm={12}
-                  className="rounded-12"
-                  key={i}
-                >
+                <Col lg={4} sm={12} className="rounded-12" key={i}>
                   <BlogCard
                     img={d.image}
                     title={d.title}
