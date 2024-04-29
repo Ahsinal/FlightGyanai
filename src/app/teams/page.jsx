@@ -39,9 +39,9 @@ const OurTeams = () => {
       </section>
       <section>
         <Container className="py-40">
-          <h4 className="text-center bitter text-cGray700">
+          {/* <h4 className="text-center bitter text-cGray700">
             {settingData?.data.ourteam_section_description}
-          </h4>
+          </h4> */}
           <Row className="gap-24-row mt-16">
             {teamsData?.data.map((d, i) => {
               return (
