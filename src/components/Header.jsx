@@ -9,10 +9,7 @@ import {
   FaYoutube,
   FaInstagram,
   FaPinterest,
-  FaAngleDoubleRight,
 } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
-import { IoMail } from "react-icons/io5";
 import {
   useGetSettingsQuery,
   useGetDestinationQuery,
@@ -23,8 +20,8 @@ import { MdLocationPin } from "react-icons/md";
 const Header = () => {
   const { data: settingData } = useGetSettingsQuery();
   const { data: socialmediaData } = useGetSocialQuery();
-  const { data: domesticData } = useGetMenuSlugQuery("3");
-  const { data: internationalData } = useGetMenuSlugQuery("4");
+  // const { data: domesticData } = useGetMenuSlugQuery("3");
+  // const { data: internationalData } = useGetMenuSlugQuery("4");
   const { data: menuData } = useGetMenuSlugQuery("5");
 
   function checkIcon(icon) {
@@ -135,98 +132,73 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav  ">
               <Nav className="mx-auto gap-12 bg-white  position-relative ">
-                {/* {menuData?.data.map((d, i) => {
+                {menuData?.data.map((d, i) => {
                   if (d.children && d.children?.length > 0) {
                     return (
                       <NavDropdown
                         title={d.title}
                         id="collapsible-nav-dropdown"
-                        className="dropdown  "
-                        show={d.title}
-                        onMouseOver={() => handleHover1(d.title)}
-                        onMouseOut={handleHoverOut1}
+                        key={i}
+                        // show={selectedItem1 === `${d.title}`}
+                        // onMouseOver={() => handleHover1(`${d.title}`)}
+                        // onMouseOut={handleHoverOut1}
                       >
-                        {d.children[0].map((child, index) => {
-                          if (child.children && child.children?.length > 0) {
+                        {d.children[0].map((child1, idx1) => {
+                          if (child1.children && child1.children?.length > 0) {
                             return (
                               <NavDropdown
-                                title={child.title}
-                                id={`${d.title}-dropdown-${child.id}`}
-                                key={index}
+                                title={child1.title}
+                                id={`${child1.title}-dropdown-${child1.id}`}
+                                key={idx1}
                                 drop="end"
                                 className="px-8 "
-                                show={selectedItem2 === `${child.title}`}
-                                onMouseOver={() =>
-                                  handleHover2(`${child.title}`)
-                                }
-                                onMouseOut={handleHoverOut2}
+                                // show={selectedItem2 === `${child1.title}`}
+                                // onMouseOver={() =>
+                                //   handleHover2(`${child1.title}`)
+                                // }
+                                // onMouseOut={handleHoverOut2}
                               >
-                                {child.children[0].map((subcategory, idx) => (
-                                  <React.Fragment key={idx}>
-                                    {subcategory.children &&
-                                    subcategory.children.length > 0 ? (
-                                      <>
-                                        <NavDropdown
-                                          title={subcategory.title}
-                                          id={`international-dropdown-${subcategory.id}`}
-                                          key={index}
-                                          drop="end"
-                                          className="px-8 "
-                                          show={
-                                            selectedItem3 ===
-                                            `${subcategory.title}`
-                                          }
-                                          onMouseOver={() =>
-                                            handleHover3(`${subcategory.title}`)
-                                          }
-                                          onMouseOut={handleHoverOut3}
-                                        >
-                                          {subcategory.children[0].map(
-                                            (d, i) => {
-                                              return (
-                                                <NavDropdown.Item
-                                                  href={subcategory.slug}
-                                                  key={i}
-                                                  slug={subcategory.slug}
-                                                  show={
-                                                    selectedItem2 ===
-                                                    `${category.title}`
-                                                  }
-                                                  onMouseOver={() =>
-                                                    handleHover2(
-                                                      `${category.title}`
-                                                    )
-                                                  }
-                                                  onMouseOut={handleHoverOut2}
-                                                >
-                                                  {d.title}
-                                                </NavDropdown.Item>
-                                              );
-                                            }
-                                          )}
-                                        </NavDropdown>
-                                      </>
-                                    ) : (
+                                {child1.children[0].map((child2, idx2) => {
+                                  if (
+                                    child2.children &&
+                                    child2.children?.length > 0
+                                  ) {
+                                    return (
                                       <NavDropdown.Item
-                                        href={subcategory.slug}
-                                        key={idx}
-                                        slug={subcategory.slug}
+                                        href={child2.slug}
+                                        key={idx2}
+                                        slug={child2.slug}
+                                        // show={selectedItem2 === `${child1.title}`}
+                                        // onMouseOver={() =>
+                                        //   handleHover2(`${child1.title}`)
+                                        // }
+                                        // onMouseOut={handleHoverOut2}
                                       >
-                                        {subcategory.title}
+                                        {child2.title}
                                       </NavDropdown.Item>
-                                    )}
-                                  </React.Fragment>
-                                ))}
+                                    );
+                                  } else {
+                                    return (
+                                      <NavDropdown.Item
+                                        href={child2.slug}
+                                        key={idx2}
+                                        slug={child2.slug}
+                                      >
+                                        {child2.title}
+                                      </NavDropdown.Item>
+                                    );
+                                  }
+                                })}
                               </NavDropdown>
                             );
                           } else {
                             return (
                               <NavDropdown.Item
-                                href={child.slug}
-                                key={index}
-                                slug={child.slug}
+                                href={child1.slug}
+                                key={idx1}
+                                slug={child1.slug}
                               >
-                                {child.title}
+                                {child1.title}
                               </NavDropdown.Item>
                             );
                           }
@@ -235,13 +207,13 @@ const Header = () => {
                     );
                   } else {
                     return (
-                      <Nav.Link href={d.slug} as={Link}>
+                      <NavDropdown.Item href={d.slug} key={i} slug={d.slug}>
                         {d.title}
-                      </Nav.Link>
+                      </NavDropdown.Item>
                     );
                   }
-                })} */}
-                <Nav.Link href="/" as={Link}>
+                })}
+                {/* <Nav.Link href="/" as={Link}>
                   Home
                 </Nav.Link>
                 <NavDropdown
@@ -425,7 +397,7 @@ const Header = () => {
                 </Nav.Link>
                 <Nav.Link href="/blog" as={Link}>
                   Blog
-                </Nav.Link>
+                </Nav.Link> */}
               </Nav>
               <Link
                 href="/contact"
