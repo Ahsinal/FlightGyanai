@@ -36432,6 +36432,17 @@ footer .stretched-link:hover {
   /* Adjust spacing as needed */
 }
 
+.img-error-wrapper {
+  width: 30rem;
+  height: 30rem;
+}
+.img-error-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: cover;
+}
+
 .swiper-pagination-center .swiper-pagination {
   margin-top: 3rem !important;
   position: relative !important;

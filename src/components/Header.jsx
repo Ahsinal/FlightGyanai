@@ -25,6 +25,8 @@ const Header = () => {
   const { data: socialmediaData } = useGetSocialQuery();
   const { data: domesticData } = useGetMenuSlugQuery("3");
   const { data: internationalData } = useGetMenuSlugQuery("4");
+  const { data: menuData } = useGetMenuSlugQuery("5");
+
   function checkIcon(icon) {
     switch (icon) {
       case "facebook":
@@ -133,6 +135,112 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav  ">
               <Nav className="mx-auto gap-12 bg-white  position-relative ">
+                {/* {menuData?.data.map((d, i) => {
+                  if (d.children && d.children?.length > 0) {
+                    return (
+                      <NavDropdown
+                        title={d.title}
+                        id="collapsible-nav-dropdown"
+                        className="dropdown  "
+                        show={d.title}
+                        onMouseOver={() => handleHover1(d.title)}
+                        onMouseOut={handleHoverOut1}
+                      >
+                        {d.children[0].map((child, index) => {
+                          if (child.children && child.children?.length > 0) {
+                            return (
+                              <NavDropdown
+                                title={child.title}
+                                id={`${d.title}-dropdown-${child.id}`}
+                                key={index}
+                                drop="end"
+                                className="px-8 "
+                                show={selectedItem2 === `${child.title}`}
+                                onMouseOver={() =>
+                                  handleHover2(`${child.title}`)
+                                }
+                                onMouseOut={handleHoverOut2}
+                              >
+                                {child.children[0].map((subcategory, idx) => (
+                                  <React.Fragment key={idx}>
+                                    {subcategory.children &&
+                                    subcategory.children.length > 0 ? (
+                                      <>
+                                        <NavDropdown
+                                          title={subcategory.title}
+                                          id={`international-dropdown-${subcategory.id}`}
+                                          key={index}
+                                          drop="end"
+                                          className="px-8 "
+                                          show={
+                                            selectedItem3 ===
+                                            `${subcategory.title}`
+                                          }
+                                          onMouseOver={() =>
+                                            handleHover3(`${subcategory.title}`)
+                                          }
+                                          onMouseOut={handleHoverOut3}
+                                        >
+                                          {subcategory.children[0].map(
+                                            (d, i) => {
+                                              return (
+                                                <NavDropdown.Item
+                                                  href={subcategory.slug}
+                                                  key={i}
+                                                  slug={subcategory.slug}
+                                                  show={
+                                                    selectedItem2 ===
+                                                    `${category.title}`
+                                                  }
+                                                  onMouseOver={() =>
+                                                    handleHover2(
+                                                      `${category.title}`
+                                                    )
+                                                  }
+                                                  onMouseOut={handleHoverOut2}
+                                                >
+                                                  {d.title}
+                                                </NavDropdown.Item>
+                                              );
+                                            }
+                                          )}
+                                        </NavDropdown>
+                                      </>
+                                    ) : (
+                                      <NavDropdown.Item
+                                        href={subcategory.slug}
+                                        key={idx}
+                                        slug={subcategory.slug}
+                                      >
+                                        {subcategory.title}
+                                      </NavDropdown.Item>
+                                    )}
+                                  </React.Fragment>
+                                ))}
+                              </NavDropdown>
+                            );
+                          } else {
+                            return (
+                              <NavDropdown.Item
+                                href={child.slug}
+                                key={index}
+                                slug={child.slug}
+                              >
+                                {child.title}
+                              </NavDropdown.Item>
+                            );
+                          }
+                        })}
+                      </NavDropdown>
+                    );
+                  } else {
+                    return (
+                      <Nav.Link href={d.slug} as={Link}>
+                        {d.title}
+                      </Nav.Link>
+                    );
+                  }
+                })} */}
                 <Nav.Link href="/" as={Link}>
                   Home
                 </Nav.Link>

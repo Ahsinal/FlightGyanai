@@ -11,10 +11,7 @@ const NotFoundPage = () => {
     <section className="py-48">
       <Container className="flex-center-center flex-column">
         <div className="img-error-wrapper">
-          <img
-            src="/assets/image/image-404.jpeg"
-            alt=""
-          />
+          <img src="/assets/image/image-404.jpeg" alt="" />
         </div>
         <h4 className="fw-normal"> Oops! Page Not Found</h4>
         <Link
