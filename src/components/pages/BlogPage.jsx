@@ -10,8 +10,10 @@ const Blog = () => {
   const { data: blogData, isLoading: blogLoading } = useGetBlogQuery();
   const { data: settingData, isLoading: settingLoading } =
     useGetSettingsQuery();
-  const pageSize = 6; // Number of blogs per page
+
   const [currentPage, setCurrentPage] = useState(1);
+
+  const pageSize = 6; // Number of blogs per page
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;

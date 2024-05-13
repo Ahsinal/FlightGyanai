@@ -25,6 +25,9 @@ const DestinationPage = ({ params }) => {
   const currentPathName = usePathname();
   const slug = currentPathName.replace("/destination/", "");
   const isFound = allDestinationData?.data.some((data) => data.slug === slug);
+
+  const [currentPage, setCurrentPage] = useState(1);
+
   if (!isFound) {
     return (
       <>
@@ -34,7 +37,6 @@ const DestinationPage = ({ params }) => {
   }
   // console.log(idData, "data from id");
   const pageSize = 6; // Number of blogs per page
-  const [currentPage, setCurrentPage] = useState(1);
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;

@@ -21,8 +21,9 @@ const Package = () => {
   //   `${slug}` || ""
   // );
   const { data: packageData, isLoading: packageLoading } = useGetPackageQuery();
-  const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
+
+  const pageSize = 6; // Number of blogs per page
 
   useEffect(() => {
     // Reset current page when slug changes
@@ -43,10 +44,7 @@ const Package = () => {
     <>
       <section className="breadcrumb-banner position-relative">
         <div className="img-wrapper">
-          <img
-            src={settingData?.data.package_page_banner}
-            alt="about-image"
-          />
+          <img src={settingData?.data.package_page_banner} alt="about-image" />
 
           <Container>
             <div className="about-banner-content bitter">
