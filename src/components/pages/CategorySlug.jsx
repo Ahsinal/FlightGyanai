@@ -24,7 +24,17 @@ const CategoryPage = ({ params }) => {
   const { data: idData, isLoading: destLoading } = useGetDestinationSlugQuery(
     params.slug
   );
-//   console.log(idData?.data, "data from id");
+  const currentPathName = usePathname();
+  const slug = currentPathName.replace("/category/", "");
+  const isFound = categoryDataAll?.data.some((d) => d.slug === slug);
+  if (!isFound) {
+    return (
+      <>
+        <NotFoundPage />
+      </>
+    );
+  }
+  //   console.log(idData?.data, "data from id");
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -52,16 +62,6 @@ const CategoryPage = ({ params }) => {
   const isLoading = settingLoading || categoryPackageLoading || destLoading;
   if (isLoading) {
     return <Loading />;
-  }
-  const currentPathName = usePathname();
-  const slug = currentPathName.replace("/category/", "");
-  const isFound = categoryDataAll?.data.some((d) => d.slug === slug);
-  if (!isFound) {
-    return (
-      <>
-        <NotFoundPage />
-      </>
-    );
   }
   return (
     <>

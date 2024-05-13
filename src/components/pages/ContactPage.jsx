@@ -8,9 +8,16 @@ import {
   useGetPageDetailQuery,
 } from "../../../frontend/api";
 import ContactForm from "@/components/layouts/ContactForm";
+import Loading from "../layouts/Loading";
 const ContactUs = () => {
-  const { data: settingData } = useGetSettingsQuery();
-  const { data: contactData } = useGetPageDetailQuery("contact-page");
+  const { data: settingData, isloading: settingLoading } =
+    useGetSettingsQuery();
+  const { data: contactData, isLoading: dataLoading } =
+    useGetPageDetailQuery("contact-page");
+  const isLoading = settingLoading || dataLoading;
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <section className="breadcrumb-banner ">

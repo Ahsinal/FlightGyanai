@@ -35,15 +35,6 @@ const PackageDetail = ({ params }) => {
   const { data: settingData, isLoading: settingLoading } =
     useGetSettingsQuery();
 
-  const isLoading = packageLoading || packageDetailLoading || settingLoading;
-
-  const stars = Array.from(
-    { length: packageDetailData?.data?.rating },
-    (_, index) => <FaStar key={index} />
-  );
-  if (isLoading) {
-    return <Loading />;
-  }
   const currentPathName = usePathname();
   const slug = currentPathName.replace("/package/", "");
   const isFound = packageData?.data.some((d) => d.slug === slug);
@@ -54,6 +45,16 @@ const PackageDetail = ({ params }) => {
       </>
     );
   }
+  const isLoading = packageLoading || packageDetailLoading || settingLoading;
+
+  const stars = Array.from(
+    { length: packageDetailData?.data?.rating },
+    (_, index) => <FaStar key={index} />
+  );
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <>
       <section className="mt-16">

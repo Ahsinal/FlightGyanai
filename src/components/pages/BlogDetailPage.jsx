@@ -11,20 +11,21 @@ const BlogDetail = ({ params }) => {
   const { data: blogData, isLoading: blogLoading } = useGetBlogQuery();
   const { data: blogDetailData, isLoading: blogDetailLoading } =
     useGetBlogDetailQuery(params.slug);
+    const currentPathName = usePathname();
+    const slug = currentPathName.replace("/blog/", "");
+    const isBlogFound = blogData?.data.some((blog) => blog.slug === slug);
+    if (!isBlogFound) {
+      return (
+        <>
+          <NotFoundPage />
+        </>
+      );
+    }
   const isLoading = blogLoading || blogDetailLoading;
   if (isLoading) {
     return <Loading />;
   }
-  const currentPathName = usePathname();
-  const slug = currentPathName.replace("/blog/", "");
-  const isBlogFound = blogData?.data.some((blog) => blog.slug === slug);
-  if (!isBlogFound) {
-    return (
-      <>
-        <NotFoundPage />
-      </>
-    );
-  }
+
   return (
     <>
       <section className="py-16 blog-detail-breadcrumb">

@@ -11,11 +11,6 @@ const SlugPages = ({ params }) => {
   const { data: pageData, isLoading: dataLoading } = useGetPageDetailQuery(
     params.slug
   );
-
-  const isLoading = dataLoading;
-  if (isLoading) {
-    return <Loading />;
-  }
   // Custom error handling for page not found
   const currentPathName = usePathname();
   const slug = currentPathName.replace("/", "");
@@ -27,6 +22,11 @@ const SlugPages = ({ params }) => {
       </>
     );
   }
+  const isLoading = dataLoading;
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <>
       <section className="breadcrumb-banner position-relative">

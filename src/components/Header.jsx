@@ -139,6 +139,7 @@ const Header = () => {
                         title={d.title}
                         id="collapsible-nav-dropdown"
                         key={i}
+                        className="p-0"
                         // show={selectedItem1 === `${d.title}`}
                         // onMouseOver={() => handleHover1(`${d.title}`)}
                         // onMouseOut={handleHoverOut1}
@@ -164,18 +165,55 @@ const Header = () => {
                                     child2.children?.length > 0
                                   ) {
                                     return (
-                                      <NavDropdown.Item
-                                        href={child2.slug}
+                                      <NavDropdown
+                                        title={child2.title}
+                                        id={`${child2.title}-dropdown-${child2.id}`}
                                         key={idx2}
-                                        slug={child2.slug}
+                                        drop="end"
+                                        className="px-8 "
                                         // show={selectedItem2 === `${child1.title}`}
                                         // onMouseOver={() =>
                                         //   handleHover2(`${child1.title}`)
                                         // }
                                         // onMouseOut={handleHoverOut2}
                                       >
-                                        {child2.title}
-                                      </NavDropdown.Item>
+                                        {child2.children[0].map(
+                                          (child3, idx3) => {
+                                            return (
+                                              <NavDropdown.Item
+                                                href={child3.slug}
+                                                key={idx3}
+                                                slug={child3.slug}
+                                              >
+                                                {child3.title}
+                                              </NavDropdown.Item>
+                                            );
+                                            // if(child3.children && child3.children?.length>0){
+                                            //   return(
+                                            //     <NavDropdown
+                                            //     title={child3.title}
+                                            //     id={`${child3.title}-dropdown-${child3.id}`}
+                                            //     key={idx3}
+                                            //     drop="end"
+                                            //     className="px-8 "
+                                            //     // show={selectedItem2 === `${child1.title}`}
+                                            //     // onMouseOver={() =>
+                                            //     //   handleHover2(`${child1.title}`)
+                                            //     // }
+                                            //     // onMouseOut={handleHoverOut2}
+                                            //   ></NavDropdown>
+                                            //   )
+                                            // }
+                                            // else{
+                                            //   return(
+                                            //     <NavDropdown.Item href={child3.slug} key={idx3} slug={child3.slug}>
+                                            //     {child3.title}
+                                            //   </NavDropdown.Item>
+                                            //   )
+                                            // }
+                                          }
+                                        )}
+                                      </NavDropdown>
                                     );
                                   } else {
                                     return (

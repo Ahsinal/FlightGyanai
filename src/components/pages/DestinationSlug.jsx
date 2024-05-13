@@ -22,6 +22,16 @@ const DestinationPage = ({ params }) => {
     useGetTourPackageDetailQuery(params.slug);
   const { data: idData } = useGetDestinationSlugQuery(params.slug);
   const { data: allDestinationData } = useGetDestinationQuery();
+  const currentPathName = usePathname();
+  const slug = currentPathName.replace("/destination/", "");
+  const isFound = allDestinationData?.data.some((data) => data.slug === slug);
+  if (!isFound) {
+    return (
+      <>
+        <NotFoundPage />
+      </>
+    );
+  }
   // console.log(idData, "data from id");
   const pageSize = 6; // Number of blogs per page
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,16 +48,7 @@ const DestinationPage = ({ params }) => {
   if (isLoading) {
     return <Loading />;
   }
-  const currentPathName = usePathname();
-  const slug = currentPathName.replace("/destination/", "");
-  const isFound = allDestinationData?.data.some((data) => data.slug === slug);
-  if (!isFound) {
-    return (
-      <>
-        <NotFoundPage />
-      </>
-    );
-  }
+
   return (
     <>
       <section className="breadcrumb-banner position-relative">
