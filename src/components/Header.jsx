@@ -131,15 +131,15 @@ const Header = () => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav  ">
-              <Nav className="mx-auto gap-12 bg-white  position-relative ">
+              <Nav className="mx-48 gap-12 bg-white  position-relative ">
                 {menuData?.data.map((d, i) => {
-                  if (d.children && d.children?.length > 0) {
+                  if (d.children && Array.isArray(d.children[0])) {
                     return (
                       <NavDropdown
                         title={d.title}
                         id="collapsible-nav-dropdown"
                         key={i}
-                        className="p-0"
+                        className="dropdown-custom"
                         // show={selectedItem1 === `${d.title}`}
                         // onMouseOver={() => handleHover1(`${d.title}`)}
                         // onMouseOut={handleHoverOut1}
@@ -148,11 +148,11 @@ const Header = () => {
                           if (child1.children && child1.children?.length > 0) {
                             return (
                               <NavDropdown
-                                title={child1.title}
+                                title={child1.name ? child1.name : child1.title}
                                 id={`${child1.title}-dropdown-${child1.id}`}
                                 key={idx1}
                                 drop="end"
-                                className="px-8 "
+                                // className="px-8 "
                                 // show={selectedItem2 === `${child1.title}`}
                                 // onMouseOver={() =>
                                 //   handleHover2(`${child1.title}`)
@@ -166,16 +166,23 @@ const Header = () => {
                                   ) {
                                     return (
                                       <NavDropdown
-                                        title={child2.title}
+                                        title={
+                                          child2.name
+                                            ? child2.name
+                                            : child2.title
+                                        }
                                         id={`${child2.title}-dropdown-${child2.id}`}
                                         key={idx2}
                                         drop="end"
-                                        className="px-8 "
-                                        // show={selectedItem2 === `${child1.title}`}
-                                        // onMouseOver={() =>
-                                        //   handleHover2(`${child1.title}`)
+                                        className="child-menu"
+                                        // className="px-8 "
+                                        // show={
+                                        //   selectedItem3 === `${child1.title}`
                                         // }
-                                        // onMouseOut={handleHoverOut2}
+                                        // onMouseOver={() =>
+                                        //   handleHover3(`${child2.title}`)
+                                        // }
+                                        // onMouseOut={handleHoverOut3}
                                       >
                                         {child2.children[0].map(
                                           (child3, idx3) => {
@@ -184,33 +191,11 @@ const Header = () => {
                                                 href={child3.slug}
                                                 key={idx3}
                                                 slug={child3.slug}
+                                                className="grand-child-menu"
                                               >
-                                                {child3.title}
+                                                {child3.name ? child3.name :child3.title}
                                               </NavDropdown.Item>
                                             );
-                                            // if(child3.children && child3.children?.length>0){
-                                            //   return(
-                                            //     <NavDropdown
-                                            //     title={child3.title}
-                                            //     id={`${child3.title}-dropdown-${child3.id}`}
-                                            //     key={idx3}
-                                            //     drop="end"
-                                            //     className="px-8 "
-                                            //     // show={selectedItem2 === `${child1.title}`}
-                                            //     // onMouseOver={() =>
-                                            //     //   handleHover2(`${child1.title}`)
-                                            //     // }
-                                            //     // onMouseOut={handleHoverOut2}
-                                            //   ></NavDropdown>
-                                            //   )
-                                            // }
-                                            // else{
-                                            //   return(
-                                            //     <NavDropdown.Item href={child3.slug} key={idx3} slug={child3.slug}>
-                                            //     {child3.title}
-                                            //   </NavDropdown.Item>
-                                            //   )
-                                            // }
                                           }
                                         )}
                                       </NavDropdown>
@@ -222,7 +207,7 @@ const Header = () => {
                                         key={idx2}
                                         slug={child2.slug}
                                       >
-                                        {child2.title}
+                                        {child2.name ? child2.name : child2.title}
                                       </NavDropdown.Item>
                                     );
                                   }
@@ -236,7 +221,7 @@ const Header = () => {
                                 key={idx1}
                                 slug={child1.slug}
                               >
-                                {child1.title}
+                                { child1.name ? child1.name : child1.title}
                               </NavDropdown.Item>
                             );
                           }
@@ -246,204 +231,19 @@ const Header = () => {
                   } else {
                     return (
                       <NavDropdown.Item href={d.slug} key={i} slug={d.slug}>
-                        {d.title}
+                        {d.name ? d.name : d.title}
                       </NavDropdown.Item>
                     );
                   }
                 })}
-                {/* <Nav.Link href="/" as={Link}>
-                  Home
-                </Nav.Link>
-                <NavDropdown
-                  title="International"
-                  id="collapsible-nav-dropdown"
-                  className="dropdown  "
-                  show={selectedItem1 === "International"}
-                  onMouseOver={() => handleHover1("International")}
-                  onMouseOut={handleHoverOut1}
-                >
-                  {internationalData?.data
-                    .slice(0, 6)
-                    .map((category, index) => {
-                      if (category.children && category.children?.length > 0) {
-                        return (
-                          <NavDropdown
-                            title={category.title}
-                            id={`international-dropdown-${category.id}`}
-                            key={index}
-                            drop="end"
-                            className="px-8 "
-                            show={selectedItem2 === `${category.title}`}
-                            onMouseOver={() =>
-                              handleHover2(`${category.title}`)
-                            }
-                            onMouseOut={handleHoverOut2}
-                          >
-                            {category.children[0].map((subcategory, idx) => (
-                              <React.Fragment key={idx}>
-                                {subcategory.children &&
-                                subcategory.children.length > 0 ? (
-                                  <>
-                                    <NavDropdown
-                                      title={subcategory.title}
-                                      id={`international-dropdown-${subcategory.id}`}
-                                      key={index}
-                                      drop="end"
-                                      className="px-8 "
-                                      show={
-                                        selectedItem3 === `${subcategory.title}`
-                                      }
-                                      onMouseOver={() =>
-                                        handleHover3(`${subcategory.title}`)
-                                      }
-                                      onMouseOut={handleHoverOut3}
-                                    >
-                                      {subcategory.children[0].map((d, i) => {
-                                        return (
-                                          <NavDropdown.Item
-                                            href={subcategory.slug}
-                                            key={i}
-                                            slug={subcategory.slug}
-                                            show={
-                                              selectedItem2 ===
-                                              `${category.title}`
-                                            }
-                                            onMouseOver={() =>
-                                              handleHover2(`${category.title}`)
-                                            }
-                                            onMouseOut={handleHoverOut2}
-                                          >
-                                            {d.title}
-                                          </NavDropdown.Item>
-                                        );
-                                      })}
-                                    </NavDropdown>
-                                  </>
-                                ) : (
-                                  <NavDropdown.Item
-                                    href={subcategory.slug}
-                                    key={idx}
-                                    slug={subcategory.slug}
-                                  >
-                                    {subcategory.title}
-                                  </NavDropdown.Item>
-                                )}
-                              </React.Fragment>
-                            ))}
-                          </NavDropdown>
-                        );
-                      } else {
-                        return (
-                          <NavDropdown.Item
-                            href={category.slug}
-                            key={index}
-                            slug={category.slug}
-                          >
-                            {category.title}
-                          </NavDropdown.Item>
-                        );
-                      }
-                    })}
-                </NavDropdown>
-
-                <NavDropdown
-                  title="Domestic"
-                  id="collapsible-nav-dropdown"
-                  className="dropdown "
-                  show={selectedItem1 === "Domestic"}
-                  onMouseEnter={() => handleHover1("Domestic")}
-                  onMouseLeave={handleHoverOut1}
-                >
-                  {domesticData?.data.slice(0, 6).map((category, index) => {
-                    if (category.children && category.children.length > 0) {
-                      return (
-                        <NavDropdown
-                          title={category.title}
-                          id={`domestic-dropdown-${category.id}`}
-                          key={index}
-                          drop="end"
-                          className="px-8"
-                          show={selectedItem2 === `${category.title}`}
-                          onMouseEnter={() => handleHover2(`${category.title}`)}
-                          onMouseLeave={handleHoverOut2}
-                        >
-                          {category.children[0].map((subcategory, idx) => (
-                            <React.Fragment key={idx}>
-                              {subcategory.children &&
-                              subcategory.children.length > 0 ? (
-                                <>
-                                  <NavDropdown
-                                    title={subcategory.title}
-                                    id={`domestic-dropdown-${subcategory.id}`}
-                                    key={index}
-                                    drop="end"
-                                    className="px-8"
-                                    show={
-                                      selectedItem3 === `${subcategory.title}`
-                                    }
-                                    onMouseEnter={() =>
-                                      handleHover3(`${subcategory.title}`)
-                                    }
-                                    onMouseLeave={handleHoverOut3}
-                                  >
-                                    {subcategory.children[0].map((d, i) => {
-                                      return (
-                                        <NavDropdown.Item
-                                          href={d.slug}
-                                          key={i}
-                                          slug={d.slug}
-                                        >
-                                          {d.title}
-                                        </NavDropdown.Item>
-                                      );
-                                    })}
-                                  </NavDropdown>
-                                </>
-                              ) : (
-                                <NavDropdown.Item
-                                  href={subcategory.slug}
-                                  key={idx}
-                                  slug={subcategory.slug}
-                                >
-                                  {subcategory.title}
-                                </NavDropdown.Item>
-                              )}
-                            </React.Fragment>
-                          ))}
-                        </NavDropdown>
-                      );
-                    } else {
-                      return (
-                        <NavDropdown.Item
-                          href={category.slug}
-                          key={index}
-                          slug={category.slug}
-                          name={category.name}
-                        >
-                          {category.name}
-                        </NavDropdown.Item>
-                      );
-                    }
-                  })}
-                </NavDropdown>
-
-                <Nav.Link href="/about" as={Link}>
-                  About Us
-                </Nav.Link>
-                <Nav.Link href="/teams" as={Link}>
-                  Our teams
-                </Nav.Link>
-                <Nav.Link href="/blog" as={Link}>
-                  Blog
-                </Nav.Link> */}
               </Nav>
-              <Link
-                href="/contact"
-                className="btn-xs btn-primary text-white rounded-8 py-12 px-24  d-none d-xl-block"
-              >
-                Contact Us
-              </Link>
             </Navbar.Collapse>
+            <Link
+              href="/contact"
+              className="btn-xs btn-primary text-white rounded-8 py-12 px-24  d-none d-xl-block"
+            >
+              Contact Us
+            </Link>
           </Container>
         </Navbar>
       </header>

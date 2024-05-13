@@ -38,3 +38,22 @@
 @import "components/tab";
 @import "components/dropdown";
 @import "components/loader";
+
+
+
+// header .navbar-nav .dropdown .dropdown-menu>.dropend>.dropdown-menu.show {
+//     top: -20px !important;
+// }
+
+@media screen and (min-width:992px) {
+    .dropdown-menu {
+        // display: none; 
+        //so that it only opens on hover
+        position: absolute;
+        top: 4px !important;
+    }
+
+    header .navbar-nav .dropdown .dropdown-menu>.dropend>.dropdown-menu.show {
+        top: -20px !important;
+    }
+}

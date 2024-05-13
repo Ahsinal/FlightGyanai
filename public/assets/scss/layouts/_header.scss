@@ -8,18 +8,23 @@
 
 header {
   border-bottom: 3px solid $primary-100;
+
   .navbar-nav {
     a {
       &:hover {
         color: $secondary !important;
       }
     }
-    .dropdown {
-      position: relative;
 
-      // a {
-      //   color: white !important;
-      // }
+    .dropdown-custom>a {
+      padding-top: 0 !important;
+      color: #424549 !important;
+    }
+
+    .dropdown {
+      // position: relative;
+
+
       .dropdown-toggle {
         display: flex;
         justify-content: space-between;
@@ -33,10 +38,10 @@ header {
 
       .dropdown-menu {
         // display: none; 
-        //so that it only opens on hover
-        position: absolute;
+
 
         a {
+          padding: 5px 8px !important;
           color: black !important;
 
           &:hover {
@@ -73,7 +78,7 @@ header {
       }
     }
 
-    
+
   }
 }
 
