@@ -16,11 +16,15 @@ import {
   useGetSettingsQuery,
   useGetSocialQuery,
   useGetCategoryPackageQuery,
+  useGetMenuSlugQuery,
 } from "../../frontend/api";
 const Footer = () => {
   const { data: settingData } = useGetSettingsQuery();
+  const { data: menuData1 } = useGetMenuSlugQuery("6");
+  const { data: menuData2 } = useGetMenuSlugQuery("7");
+  const { data: menuData3 } = useGetMenuSlugQuery("9");
   const { data: socialmediaData } = useGetSocialQuery();
-  const { data: packagecategoryData } = useGetCategoryPackageQuery();
+  // const { data: packagecategoryData } = useGetCategoryPackageQuery();
   function checkIcon(icon) {
     switch (icon) {
       case "facebook":
@@ -63,48 +67,33 @@ const Footer = () => {
               <Col lg={2} sm={6}>
                 <h6 className="fw-semibold mb-16">Pages</h6>
                 <ul className="d-flex flex-column gap-12">
-                  <li className="d-flex align-items-center gap-2 position-relative ">
-                    <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/" className="stretched-link">
-                      Home
-                    </Link>
-                  </li>
-                  <li className="d-flex align-items-center gap-2 position-relative ">
-                    <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/about" className="stretched-link">
-                      About Us
-                    </Link>
-                  </li>
-                  <li className="d-flex align-items-center gap-2 position-relative ">
-                    <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/blog" className="stretched-link">
-                      Our Blogs
-                    </Link>
-                  </li>
-                  <li className="d-flex align-items-center gap-2 position-relative ">
-                    <FaAngleDoubleRight className="text-cGray700 " />
-                    <Link href="/contact" className="stretched-link">
-                      Contact Us
-                    </Link>
-                  </li>
+                  {menuData1?.data.map((d, i) => {
+                    return (
+                      <li
+                        key={i}
+                        className="d-flex align-items-center gap-2 position-relative "
+                      >
+                        <FaAngleDoubleRight className="text-cGray700 " />
+                        <Link href={d.slug} className="stretched-link">
+                          {d.name ? d.name : d.title}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </Col>
               <Col lg={2} sm={6}>
                 <h6 className="fw-semibold mb-16">Packages</h6>
                 <ul className="d-flex flex-column gap-12">
-                  {packagecategoryData?.data.slice(0, 4).map((d, i) => {
+                  {menuData2?.data.map((d, i) => {
                     return (
                       <li
-                        className="d-flex align-items-center gap-2 position-relative "
                         key={i}
+                        className="d-flex align-items-center gap-2 position-relative "
                       >
                         <FaAngleDoubleRight className="text-cGray700 " />
-                        <Link
-                          href={`/category/${d.slug}`}
-                          passHref
-                          className="stretched-link"
-                        >
-                          {d.name}
+                        <Link href={d.slug} className="stretched-link">
+                          {d.name ? d.name : d.title}
                         </Link>
                       </li>
                     );

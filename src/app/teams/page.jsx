@@ -1,4 +1,3 @@
-
 import OurTeams from "@/components/pages/TeamsPage";
 
 export async function generateMetadata(parent) {
@@ -9,7 +8,7 @@ export async function generateMetadata(parent) {
   return {
     title: data.data.teams_seo_title
       ? data.data.teams_seo_title
-      : "Our Teams | AR Education Consultancy",
+      : "Our Teams | Flights Gyani",
     description: data.data.teams_seo_description || "",
   };
 }

@@ -140,9 +140,9 @@ const Header = () => {
                         id="collapsible-nav-dropdown"
                         key={i}
                         className="dropdown-custom"
-                        // show={selectedItem1 === `${d.title}`}
-                        // onMouseOver={() => handleHover1(`${d.title}`)}
-                        // onMouseOut={handleHoverOut1}
+                        show={selectedItem1 === `${d.title}`}
+                        onMouseOver={() => handleHover1(`${d.title}`)}
+                        onMouseOut={handleHoverOut1}
                       >
                         {d.children[0].map((child1, idx1) => {
                           if (child1.children && child1.children?.length > 0) {
@@ -152,12 +152,11 @@ const Header = () => {
                                 id={`${child1.title}-dropdown-${child1.id}`}
                                 key={idx1}
                                 drop="end"
-                                // className="px-8 "
-                                // show={selectedItem2 === `${child1.title}`}
-                                // onMouseOver={() =>
-                                //   handleHover2(`${child1.title}`)
-                                // }
-                                // onMouseOut={handleHoverOut2}
+                                show={selectedItem2 === `${child1.title}`}
+                                onMouseOver={() =>
+                                  handleHover2(`${child1.title}`)
+                                }
+                                onMouseOut={handleHoverOut2}
                               >
                                 {child1.children[0].map((child2, idx2) => {
                                   if (
@@ -175,14 +174,13 @@ const Header = () => {
                                         key={idx2}
                                         drop="end"
                                         className="child-menu"
-                                        // className="px-8 "
-                                        // show={
-                                        //   selectedItem3 === `${child1.title}`
-                                        // }
-                                        // onMouseOver={() =>
-                                        //   handleHover3(`${child2.title}`)
-                                        // }
-                                        // onMouseOut={handleHoverOut3}
+                                        show={
+                                          selectedItem3 === `${child1.title}`
+                                        }
+                                        onMouseOver={() =>
+                                          handleHover3(`${child2.title}`)
+                                        }
+                                        onMouseOut={handleHoverOut3}
                                       >
                                         {child2.children[0].map(
                                           (child3, idx3) => {
