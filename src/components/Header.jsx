@@ -88,7 +88,7 @@ const Header = () => {
   return (
     <>
       <section className="top-bar bg-primary d-none d-md-block d-lg-block">
-        <Container className="d-flex justify-content-between text-white py-8 small fw-light">
+        <Container className="flex-center-end gap-16 text-white py-8 small fw-light">
           <div className="d-flex gap-32">
             <div className="d-flex gap-4 align-items-center">
               <MdLocationPin />
@@ -99,7 +99,7 @@ const Header = () => {
               <p className="small">{settingData?.data.site_contact}</p>
             </div>
           </div>
-          <div className="flex-items-center gap-12 ">
+          <div className="align-center gap-12 ">
             {socialmediaData?.data.map((d, i) => {
               return (
                 <Link
@@ -120,7 +120,7 @@ const Header = () => {
           expand="lg"
           className={windowChange ? "sticky shadow-1 w-100" : ""}
         >
-          <Container className=" d-flex justify-content-between">
+          <Container>
             <Navbar.Brand href="/" as={Link}>
               <img
                 src={settingData?.data.site_main_logo}
@@ -130,8 +130,8 @@ const Header = () => {
               />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav  ">
-              <Nav className="mx-48 gap-12 bg-white  position-relative ">
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ms-auto me-32 gap-12 bg-white position-relative ">
                 {menuData?.data.map((d, i) => {
                   if (d.children && Array.isArray(d.children[0])) {
                     return (
@@ -191,7 +191,9 @@ const Header = () => {
                                                 slug={child3.slug}
                                                 className="grand-child-menu"
                                               >
-                                                {child3.name ? child3.name :child3.title}
+                                                {child3.name
+                                                  ? child3.name
+                                                  : child3.title}
                                               </NavDropdown.Item>
                                             );
                                           }
@@ -205,7 +207,9 @@ const Header = () => {
                                         key={idx2}
                                         slug={child2.slug}
                                       >
-                                        {child2.name ? child2.name : child2.title}
+                                        {child2.name
+                                          ? child2.name
+                                          : child2.title}
                                       </NavDropdown.Item>
                                     );
                                   }
@@ -219,7 +223,7 @@ const Header = () => {
                                 key={idx1}
                                 slug={child1.slug}
                               >
-                                { child1.name ? child1.name : child1.title}
+                                {child1.name ? child1.name : child1.title}
                               </NavDropdown.Item>
                             );
                           }
